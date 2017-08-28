@@ -1,0 +1,12 @@
+<h1>Im the show</h1>
+<%= @popup.title %>
+
+  <% if policy(@popup).edit? %>
+    <%= link_to "Edit", edit_popup_path(@popup) %>
+  <% end %>
+
+   <% if policy(@popup).edit? %>
+    <%= link_to "delete", popup_path(@popup), method: :delete,
+            data: { confirm: "Are you sure?" } %>
+  <% end %>
+
