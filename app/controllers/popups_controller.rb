@@ -1,20 +1,19 @@
 class PopupsController < ApplicationController
+  before_action :set_popup, only: [:show, :edit, :update, :destroy]
 
    def index
     @popups = policy_scope(Popup).order(created_at: :desc)
+
    end
 
   def show
-    set_popup
-    authorize @popup
+    @orders = @popup.orders
   end
 
   def edit
-    set_popup
   end
 
   def update
-    set_popup
     @popup.update(popup_params)
     if @popup.save
       redirect_to popup_path(@popup)
@@ -40,7 +39,6 @@ class PopupsController < ApplicationController
   end
 
   def destroy
-    set_popup
     @popup.destroy
     respond_to do |format|
       format.html { redirect_to root_path, alert: 'Popup project was successfully canceled.' }
