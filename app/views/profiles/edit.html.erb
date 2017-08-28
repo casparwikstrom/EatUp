@@ -11,6 +11,7 @@
      <%= f.input :email %>
      <%= f.input :first_name %>
      <%= f.input :last_name %>
+     <%= f.input :photo, as: :attachinary %>
      <%= f.submit :submit, value: "Update my profile", class: "home-button-green" %>
      <% end %>
      <p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
