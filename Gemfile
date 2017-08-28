@@ -11,6 +11,12 @@ gem 'redis'
 
 gem 'pundit'
 
+# facebook connect
+gem 'omniauth-facebook'
+
+# cloudinary
+gem 'cloudinary'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
