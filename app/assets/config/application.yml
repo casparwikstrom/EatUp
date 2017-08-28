@@ -1,0 +1,8 @@
+development:
+  FB_ID: "1718625091481562"
+  FB_SECRET: "63a95d0e6ae842e191ca4bc689d7bb35"
+  CLOUDINARY_URL: "cloudinary://576632749154889:bV3nqqVFlhmJ90HrzolTz8AqBeg@eatupclub"
+production:
+  FB_ID: "1935999099973217"
+  FB_SECRET: "e86cb9b483ecda26ae90810383073978"
+  CLOUDINARY_URL: "cloudinary://576632749154889:bV3nqqVFlhmJ90HrzolTz8AqBeg@eatupclub"
