@@ -4,11 +4,18 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
+  width: 100%;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
+
+
+// *{
+//   border: 1px solid red;
+// }
 
 /* Logo */
 .navbar-wagon-brand img {
@@ -24,6 +31,13 @@
 
 /* Right section */
 .navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left section */
+.navbar-wagon-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
