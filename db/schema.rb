@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828141335) do
+ActiveRecord::Schema.define(version: 20170828150025) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
+  create_table "attachinary_files", id: :serial, force: :cascade do |t|
+    t.string "attachinariable_type"
+    t.integer "attachinariable_id"
+    t.string "scope"
+    t.string "public_id"
+    t.string "version"
+    t.integer "width"
+    t.integer "height"
+    t.string "format"
+    t.string "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  end
+  
+ create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
     t.bigint "popup_id"
@@ -23,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170828141335) do
     t.datetime "updated_at", null: false
     t.index ["popup_id"], name: "index_comments_on_popup_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+
   end
 
   create_table "orders", force: :cascade do |t|
@@ -89,8 +106,10 @@ ActiveRecord::Schema.define(version: 20170828141335) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   add_foreign_key "comments", "popups"
   add_foreign_key "comments", "users"
+
   add_foreign_key "orders", "pledges"
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
