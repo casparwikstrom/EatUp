@@ -1,3 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= link_to "new", new_popup_path %>
+<div>
+  <% @popups.each do |popup| %>
+  <% if policy(popup).show? %>
+  <%= link_to popup.title, popup_path(popup) %>
+  <% end %>
+<% if policy(popup).edit? %>
+    <%= link_to "edit", edit_popup_path(popup) %>
+  <% end %>
+<% end %>
+</div>
+
+

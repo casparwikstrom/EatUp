@@ -9,7 +9,26 @@ class PopupPolicy < ApplicationPolicy
     true
   end
 
-  def create
+  def create?
     true
   end
+
+  def show?
+    true
+  end
+
+  def update?
+    user_is_over?
+  end
+
+  def destroy?
+    user_is_over?
+  end
+
+  private
+
+  def user_is_over?
+    record.user == user
+  end
+
 end
