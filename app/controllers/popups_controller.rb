@@ -56,7 +56,7 @@ class PopupsController < ApplicationController
   end
 
   def popup_params
-    params.require(:popup).permit(:title, :description, :user_id)
+    params.require(:popup).permit(:title, :description, :user_id, photos: [])
   end
 
 end
