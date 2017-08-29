@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170829145314) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170829145314) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   create_table "votes", id: :serial, force: :cascade do |t|
     t.string "votable_type"
     t.integer "votable_id"
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170829145314) do
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
+
 
 
   create_table "wishlists", force: :cascade do |t|
@@ -138,4 +142,4 @@ ActiveRecord::Schema.define(version: 20170829145314) do
   add_foreign_key "popups", "users"
   add_foreign_key "wishlists", "popups"
   add_foreign_key "wishlists", "users"
-
+end
