@@ -6,10 +6,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
 
+
+}
 
 
 .back-to-profile {
   margin-top: 14px;
+  @media screen and (max-width: 600px) {
+  display: none;
+  }
 }
