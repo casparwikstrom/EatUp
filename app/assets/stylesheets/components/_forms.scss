@@ -1,0 +1,25 @@
+.form-padded {
+  padding: 0 30rem;
+}
+
+.form-control {
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.form-row {
+  .form-group {
+  display: flex;
+  flex-direction: row;
+  padding-left: 12em;
+  label {
+    width: 150px;
+    text-align: left;
+    }
+  }
+}
+
+.form-content {
+  padding-top: 50px;
+}

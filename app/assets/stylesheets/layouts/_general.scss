@@ -3,16 +3,23 @@ body {
   background: -webkit-linear-gradient(to top, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border: calc(var(--body-border-width, 12px) * 1 / 1 + 0px) solid transparent;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .page-wrapper {
   background-color: white;
-  min-height: calc(99vh-70px);
+  min-height: calc(98vh - 150px);
   width: 100%;
   // padding-bottom: 20px;
   flex: 1 0 auto;
 }
 
+.padding-top {
+  padding-top: 2em;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5em;
+}

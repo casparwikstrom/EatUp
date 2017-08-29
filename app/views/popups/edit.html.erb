@@ -1,4 +1,124 @@
-<%= simple_form_for @popup do |f| %>
-<%= f.input :title %>
-<%= f.submit :submit %>
-<% end %>
+<div class="page-wrapper">
+ <!-- HEADER -->
+ <div class="header-wrapper">
+  <div class="header-popup-infos no-border-bottom text-center">
+    <h1><strong><%= @popup.title %></strong> </h1>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <a class="tab active" data-target="#basic">
+      <h3>Basic</h3>
+    </a>
+    <a class="tab" data-target="#story">
+      <h3>Story</h3>
+    </a>
+    <a class="tab" data-target="#seats">
+      <h3>Seats</h3>
+    </a>
+    <a class="tab" data-target="#about-you">
+      <h3>About You</h3>
+    </a>
+    <a class="tab" data-target="#account">
+      <h3>Account</h3>
+    </a>
+    <a class="tab" data-target="#preview">
+      <h3>Preview</h3>
+    </a>
+    <a class="tab" data-target="#submit">
+      <h3>Submit</h3>
+    </a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container text-center">
+  <%= simple_form_for @popup do |f| %>
+  <div class="tab-content" id="basic">
+    <h2>Let’s get started</h2>
+    <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :title %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :photos, as: :attachinary, input_html: { multiple: true } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :deadline %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :funding_goal %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-content hidden" id="story">
+    <h2>Tell us about your popup</h2>
+    <p>Share your compelling story on why you aspire to be a chef and open your first restaurant. Be sure to get specific about why people should be excited about your popup.</p>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :description %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="tab-content hidden" id="seats">
+    <h2>Set your seat costs</h2>
+    <p>Invite foodies to be a part of your chef experience.</p>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <%= f.input :price %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 form-row">
+          <p>SEAT CAPACITY</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-content hidden" id="about-you">
+    <h2>Share more about yourself.</h2>
+    <p>Make sure your profile has a bio and links to your website and social media profiles. Think of it as your creative resume.</p>
+    <p>HOW TO INTEGRATE EDIT USER PROFILE IN THIS POPUPS SIMPLE FORM?</p>
+  </div>
+
+
+  <div class="tab-content hidden" id="account">
+    <h2>Confirm your contact details and link a bank account.</h2>
+    <p>Provide details about where funds should be sent once you've achieved your funding goal.</p>
+    <p>BANK ACCOUNT AND PAYMENT SOURCE</p>
+  </div>
+
+
+  <div class="tab-content hidden" id="preview">
+  <h2>popup.title</h2>
+  </div>
+
+
+  <div class="tab-content hidden" id="submit">
+    <h2>You're ready to submit your popup! </h2>
+    <%= f.submit :submit %>
+  </div>
+  <% end %>
+</div>
+</div>
+
+

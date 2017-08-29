@@ -1,0 +1,49 @@
+// .header-wrapper {
+
+// }
+
+.header-popup-infos {
+  .form-control {
+    border-bottom: none;
+    height: 50px;
+    font-size: 50px;
+  }
+}
+
+.tabs {
+  display: flex;
+  padding: 10px 100px 0 100px;
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background-color: $fade-pink;
+  opacity: .8;
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tab.active {
+  background: $pink;
+  color: black;
+}
+.tab-content {
+  padding-top: 50px;
+}
+
