@@ -1,0 +1,13 @@
+<%= simple_form_for(Wishlist.new, url: { :action => "create" }) do |f| %>
+<%= f.input :name %>
+<%= f.input :category %>
+<%= f.submit :submit %>
+<% end %>
+
+
+<% @wishlists.each do |wishlist| %>
+<div>
+    <%= wishlist.name %>
+    <%= wishlist.category %>
+</div>
+  <% end %>

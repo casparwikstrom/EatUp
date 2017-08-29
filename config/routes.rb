@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :profiles
 
+  resources :wishlists
+
   resources :popups
   mount Attachinary::Engine => "/attachinary"
 

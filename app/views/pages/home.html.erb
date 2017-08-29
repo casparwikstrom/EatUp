@@ -11,23 +11,25 @@
               <div class="card-container">
                 <%= link_to "", popup_path(popup), class: "card-link" %>
 
-                  <div class="card-description">
-                    <%= popup.category %>
-                    <%= popup.title %>
-                    <%= popup.description %>
-                    <%= popup.user.first_name %>
-                    <div class="card-stats">
-                      <%= popup.amount_pledged %>
-                      <!-- percentage funded -->
-                      <!-- days to go -->
-                    </div>
+                <div class="card-description">
+                  <%= popup.category %>
+                  <%= popup.title %>
+                  <%= popup.description %>
+                  <%= popup.user.first_name %>
+                  <div class="card-stats">
+                    <%= popup.amount_pledged %>
+                    <!-- percentage funded -->
+                    <!-- days to go -->
                   </div>
                 </div>
               </div>
-              <% end %>
             </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+

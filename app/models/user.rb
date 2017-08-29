@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :popups
   has_many :popups, dependent: :destroy
+  has_one :wishlist, dependent: :destroy
   has_attachment :photo
 
   # Include default devise modules. Others available are:

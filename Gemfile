@@ -17,6 +17,18 @@ gem 'omniauth-facebook'
 # cloudinary
 gem 'cloudinary'
 
+#clean code
+gem 'rubocop'
+
+#security
+group :development do
+  gem 'brakeman', :require => false
+end
+
+#search
+gem 'ransack'
+
+
 #images
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
