@@ -1,13 +1,15 @@
-<%= simple_form_for(Wishlist.new, url: { :action => "create" }) do |f| %>
-<%= f.input :name %>
-<%= f.input :category %>
-<%= f.submit :submit %>
-<% end %>
 
+<div class="container text-center">
+  <div class="row">
+  <div class="wishlist">
 
-<% @wishlists.each do |wishlist| %>
-<div>
-    <%= wishlist.name %>
-    <%= wishlist.category %>
+  <h1><%= current_user.first_name %>s Wishlist</h1>
+    <% @wishlists.each do |wishlist| %>
+    <div>
+      <%= wishlist.popup.title %>
+      <%= link_to "Delete", wishlist_path(wishlist), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+    <% end %>
+ </div>
+  </div>
 </div>
-  <% end %>

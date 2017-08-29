@@ -20,6 +20,10 @@ gem 'cloudinary'
 #clean code
 gem 'rubocop'
 
+#faker
+
+gem 'faker'
+
 #security
 group :development do
   gem 'brakeman', :require => false

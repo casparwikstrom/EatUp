@@ -1,8 +1,8 @@
 class WishlistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
-      # scope.where(user: user)
+      # scope.all
+      scope.where(user: user)
     end
   end
 
@@ -15,6 +15,10 @@ class WishlistPolicy < ApplicationPolicy
   end
 
   def create?
+    true
+  end
+
+  def destroy?
     true
   end
 

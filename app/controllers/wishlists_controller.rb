@@ -5,48 +5,39 @@ class WishlistsController < ApplicationController
   end
 
   def new
+    set_popup
     @wishlist = Wishlist.new
     authorize @wishlist
   end
 
-
   def create
-    @wishlist = Wishlist.new(wishlist_params)
-    @wishlist.popup = Popup.find(params[:popop_id])
+    @wishlist = Wishlist.new
     @wishlist.user = current_user
+    @wishlist.popup = Popup.find(params[:popup_id])
     authorize @wishlist
     if @wishlist.save
-        redirect_to wishlists_path
-      else
-        render :index
-    end
-  end
-
-  def create
-    @dose = Dose.new(permit_dose)
-    @dose.cocktail = Cocktail.find(params[:cocktail_id])
-    @dose.save
-    if @dose.save
-      redirect_to cocktail_path(@dose.cocktail)
+      redirect_to wishlists_path
     else
-      render :new
+      render :index
     end
   end
 
   def destroy
-    @dose = Dose.find(params[:id]).destroy
-    redirect_to cocktail_path(@dose.cocktail)
+    set_wishlist
+    authorize @wishlist
+    @wishlist.destroy
+    redirect_to wishlists_path
   end
 
   private
 
-  def permit_dose
-    params.require(:dose).permit(:description, :ingredient_id, :cocktail_id)
+  def set_popup
+    @popup = Popup.find(params[:popup_id])
   end
 
-
-
-  private
+  def set_user
+    @user = current_user
+  end
 
   def set_wishlist
     @wishlist = Wishlist.find(params[:id])
@@ -54,7 +45,7 @@ class WishlistsController < ApplicationController
   end
 
   def wishlist_params
-    params.require(:wishlist).permit(:name, :category, :user_id, :popup_id)
+    params.require(:wishlist).permit(:user_id, :popup_id)
   end
 
 end

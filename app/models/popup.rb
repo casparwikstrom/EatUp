@@ -1,5 +1,5 @@
 class Popup < ApplicationRecord
   belongs_to :user
-  belongs_to :wishlists
+  has_many :wishlists
   has_attachment :photos
 end

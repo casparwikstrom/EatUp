@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @popups = Popup.all
+    @wishlist = Wishlist.new
   end
 end

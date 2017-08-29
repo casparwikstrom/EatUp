@@ -18,18 +18,23 @@
                   <%= popup.user.first_name %>
                   <div class="card-stats">
                     <%= popup.amount_pledged %>
-                    <!-- percentage funded -->
-                    <!-- days to go -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+                  <%= simple_form_for([popup, @wishlist]) do |f|  %>
+                  <%= f.submit :Wishlist, {class: "wishlist_button"} %>
+                  <% end %>
+
+                   <!-- percentage funded -->
+                   <!-- days to go -->
+                 </div>
+               </div>
+             </div>
+           </div>
+           <% end %>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>
 
 
