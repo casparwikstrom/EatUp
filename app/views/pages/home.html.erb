@@ -5,19 +5,19 @@
     <div class="homepage-cards">
       <div class="container">
         <div class="row">
-          <div class="card-container">
+          <div class="card-container" id="trending_popups" data-prev='#button1'>
             <% @popups.each do |popup| %>
             <div class="col-sm-12 col-lg-4">
               <div class="card-container">
                 <%= link_to "", popup_path(popup), class: "card-link" %>
-                <div class="card" style="background-image: url('<%= !popup.photos.empty? ? cl_image_path(popup.photos.first.path, width: 350, height: 200, crop: :fill, class: "background-image") : "" ; %>')">
+
                   <div class="card-description">
                     <%= popup.category %>
-                    <%= popup.name %>
+                    <%= popup.title %>
                     <%= popup.description %>
-                    <%= popup.chef %>
+                    <%= popup.user.first_name %>
                     <div class="card-stats">
-                      <%= popup.amount-pledged %>
+                      <%= popup.amount_pledged %>
                       <!-- percentage funded -->
                       <!-- days to go -->
                     </div>
