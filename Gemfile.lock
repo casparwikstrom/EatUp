@@ -292,7 +292,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
-  faker
+  faker (~> 1.4, >= 1.4.3)
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)

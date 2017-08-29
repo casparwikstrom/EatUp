@@ -5,5 +5,7 @@ class Popup < ApplicationRecord
 
   has_many :orders
 
+  has_many :popuptypes
+  has_many :types, through: :popuptypes
   has_attachment :photos
 end

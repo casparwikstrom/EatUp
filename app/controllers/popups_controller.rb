@@ -2,7 +2,16 @@ class PopupsController < ApplicationController
   before_action :set_popup, only: [:show, :edit, :update, :destroy]
 
    def index
-    @popups = policy_scope(Popup).order(created_at: :desc)
+    if params[:type_ids]
+      @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]})
+    else
+      @popups = policy_scope(Popup).order(created_at: :desc)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
    end
 

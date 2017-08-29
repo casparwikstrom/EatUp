@@ -1,0 +1,47 @@
+<!-- add form with checkboxes for each category -->
+<h1>What kind of food are you looking for?</h1>
+
+<%= form_tag popups_path, method: :get, id: "form", remote: true do %>
+<ul>
+  <% Type.all.each do |type| %>
+  <div id="type_checkbox">
+   <li class="type_trigger">
+      <%= check_box_tag "type_ids[]", type.id, false, class: "type_input hidden" %>
+      <span><%= type.name %></span>
+    </li>
+  </div>
+  <% end %>
+</ul>
+<% end %>
+
+<div class="container">
+  <div class="row popups">
+    <%= render 'shared/popups' %>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+
+<script type="text/javascript">
+  $(function(){
+   $('.type_trigger').on('click',function(e){
+    $(this).find('span').toggleClass('checked_on');
+    var input = $(this).find('.type_input');
+
+    if ( input.attr('checked') === 'checked') {
+      input.attr('checked', false);
+    } else {
+      input.attr('checked', 'checked');
+    }
+    $('#form').submit();
+  });
+ });
+</script>
+
+<% end %>
+
+<!-- each time a category is selected, we send the form through ajax -->
+
+<!-- controller#index search for popups that have that category -->
+
+<!-- clean the view and display the new list of popups in /popups -->

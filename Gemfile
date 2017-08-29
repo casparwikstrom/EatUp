@@ -21,11 +21,12 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 # cloudinary
 gem 'cloudinary'
 
+
+# faker
+gem 'faker', '~> 1.4', '>= 1.4.3'
+
 #clean code
 gem 'rubocop'
-
-#faker
-gem 'faker'
 
 #makes text in console look nice
 gem "awesome_print", require:"ap"
@@ -51,8 +52,6 @@ group :development do
   gem "better_errors"
   # gem "binding_of_caller"
 end
-
-
 
 #images
 gem 'attachinary', github: 'assembler/attachinary'
