@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828151054) do
+
+ActiveRecord::Schema.define(version: 20170829145716) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +30,16 @@ ActiveRecord::Schema.define(version: 20170828151054) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_comments_on_popup_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -56,17 +68,27 @@ ActiveRecord::Schema.define(version: 20170828151054) do
     t.integer "amount_pledged"
     t.date "deadline"
     t.integer "seat_capacity"
-    t.string "category"
-    t.string "address"
     t.text "description"
-    t.date "launch_date"
     t.integer "price"
-    t.date "start_date"
-    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_popups_on_user_id"
+  end
+
+  create_table "popuptypes", force: :cascade do |t|
+    t.bigint "type_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_popuptypes_on_popup_id"
+    t.index ["type_id"], name: "index_popuptypes_on_type_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,10 +118,42 @@ ActiveRecord::Schema.define(version: 20170828151054) do
   end
 
 
+  create_table "votes", id: :serial, force: :cascade do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  end
+
+
+
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_wishlists_on_popup_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
   add_foreign_key "comments", "popups"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "pledges"
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
   add_foreign_key "popups", "users"
+
+  add_foreign_key "popuptypes", "popups"
+  add_foreign_key "popuptypes", "types"
+
+  add_foreign_key "wishlists", "popups"
+  add_foreign_key "wishlists", "users"
+
 end

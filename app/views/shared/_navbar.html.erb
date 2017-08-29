@@ -5,11 +5,10 @@
   <% end %>
 
   <div class="navbar-wagon-left">
-    <%= link_to "Explore", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Explore", popups_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Be a Chef", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "About us", "#", class: "navbar-wagon-item navbar-wagon-link" %>
   </div>
-
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -26,6 +25,11 @@
           <li>
             <%= link_to profile_path(current_user) do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to wishlists_path(current_user) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Wishlists") %>
             <% end %>
           </li>
           <li>
@@ -49,6 +53,7 @@
     <% else %>
     <!-- Login link (when logged out) -->
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
     <% end %>
   </div>
 
