@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170829091118) do
-
+ActiveRecord::Schema.define(version: 20170829145314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +30,32 @@ ActiveRecord::Schema.define(version: 20170829091118) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "ordered_seats"
-    t.integer "amount"
-    t.boolean "is_donation"
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
     t.bigint "user_id"
     t.bigint "popup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_comments_on_popup_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "ordered_seats"
+    t.bigint "pledge_id"
+    t.bigint "user_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pledge_id"], name: "index_orders_on_pledge_id"
     t.index ["popup_id"], name: "index_orders_on_popup_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "popups", force: :cascade do |t|
@@ -51,10 +65,11 @@ ActiveRecord::Schema.define(version: 20170829091118) do
     t.integer "funding_goal"
     t.integer "amount_pledged"
     t.date "deadline"
-    t.integer "seat_capacity"
+    t.integer "seats"
     t.string "category"
     t.string "address"
     t.text "description"
+    t.integer "cost"
     t.date "launch_date"
     t.integer "price"
     t.date "start_date"
@@ -91,6 +106,19 @@ ActiveRecord::Schema.define(version: 20170829091118) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", id: :serial, force: :cascade do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  end
 
   create_table "wishlists", force: :cascade do |t|
     t.bigint "user_id"
@@ -104,7 +132,6 @@ ActiveRecord::Schema.define(version: 20170829091118) do
   add_foreign_key "comments", "popups"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "pledges"
-
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
   add_foreign_key "popups", "users"
