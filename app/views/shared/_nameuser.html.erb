@@ -1,0 +1,20 @@
+  <div class="profile-edit-heading">
+    <% if current_user.first_name? %>
+    <h3><%= current_user.first_name %>'s User Profile</h3>
+    <% else %>
+    <h3>User Profile</h3>
+    <% end %>
+    <div class="back-to-profile">
+        <%= link_to "Edit", :back, class:"button-grey"%>
+    </div>
+  </div>
+
+
+
+     <h3>Edit your profile</h3>
+
+      <div class="back-to-profile">
+        <%= link_to "Back to your Profile", :back, class:"button-grey"%>
+      </div>
+
+

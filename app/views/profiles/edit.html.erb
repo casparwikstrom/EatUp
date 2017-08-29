@@ -1,22 +1,30 @@
 <div class="page-wrapper">
   <div class="container">
-  <div class="row">
-    <div class="header">
-      <h1>I'm the edit for profile</h1>
-    </div>
+  <div class="profile-edit">
+    <div class="text-center"></div>
     <div class="col-xs-12">
-     <h3>Cancel my account</h3>
+       <div class="profile-edit-heading">
+
+           <h3>Edit your profile</h3>
+
+            <div class="back-to-profile">
+              <%= link_to "Back to your Profile", :back, class:"button-grey"%>
+            </div>
 
 
-     <%= simple_form_for @user, url: profile_path(@user) do |f|%>
-     <%= f.input :email %>
-     <%= f.input :first_name %>
-     <%= f.input :last_name %>
-     <%= f.input :photo, as: :attachinary %>
-     <%= f.submit :submit, value: "Update my profile", class: "home-button-green" %>
-     <% end %>
-     <p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-     <%= link_to "Back", :back %>
+       </div>
+       <%= simple_form_for @user, url: profile_path(@user) do |f|%>
+       <%= f.input :email %>
+       <%= f.input :first_name %>
+       <%= f.input :last_name %>
+       <%= f.input :photo, as: :attachinary %>
+       <br>
+       <%= f.submit :submit, value: "Update my profile", class: "button-green" %>
+       <% end %>
+      <div class="delete-account">
+        <h4>Unhappy?</h4>
+        <%= link_to "Cancel my account :(", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "button-red" %>
+      </div>
    </div>
  </div>
 </div>
