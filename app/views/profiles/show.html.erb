@@ -1,7 +1,10 @@
-<h1>I'm show for profile</h1>
-<% if @user.photo? %>
+<div class="page-wrapper">
+  <h1>I'm show for profile</h1>
+  <% if @user.photo? %>
   <%= cl_image_tag @user.photo.path, width: 600, height: 400, crop: :fill %>
-<% end %>
-<%= @user.email %>
-<%= @user.first_name %>
-<%= @user.last_name %>
+  <% end %>
+  <%= @user.email %>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</div>
+
