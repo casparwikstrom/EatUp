@@ -12,7 +12,11 @@ gem 'redis'
 gem 'pundit'
 
 # facebook connect
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
+
+#google connect
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
 
 # cloudinary
 gem 'cloudinary'
@@ -21,8 +25,16 @@ gem 'cloudinary'
 gem 'rubocop'
 
 #faker
-
 gem 'faker'
+
+#makes text in console look nice
+gem "awesome_print", require:"ap"
+
+#helpes programming ion chrome
+group :development do
+  gem 'meta_request'
+end
+
 
 #security
 group :development do
@@ -31,6 +43,15 @@ end
 
 #search
 gem 'ransack'
+
+#votes
+gem 'acts_as_votable', '~> 0.10.0'
+
+group :development do
+  gem "better_errors"
+  # gem "binding_of_caller"
+end
+
 
 
 #images
