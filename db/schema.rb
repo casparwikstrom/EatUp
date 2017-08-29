@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20170829145314) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+
   create_table "wishlists", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "popup_id"
@@ -137,4 +138,4 @@ ActiveRecord::Schema.define(version: 20170829145314) do
   add_foreign_key "popups", "users"
   add_foreign_key "wishlists", "popups"
   add_foreign_key "wishlists", "users"
-end
+

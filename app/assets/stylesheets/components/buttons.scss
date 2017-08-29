@@ -1,0 +1,130 @@
+ .button-white {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 25px;
+  height: 50px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+
+
+}
+
+.button-white:hover {
+  background-color: rgba(245, 245, 245, .8);
+  color: $green;
+  text-decoration: none;
+  border-color: rgba(245, 245, 245, .8);
+}
+
+
+
+.button-grey-search {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 25px;
+  height: 50px;
+  line-height: 55px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 450px;
+}
+
+.button-grey-search:hover {
+  border: 2px solid #59d67d;
+  text-decoration: none;
+}
+
+ .button-green {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid #37a755;
+  border-radius: 3px;
+  color: #37a755;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 25px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+
+.button-green:hover {
+  background-color: #37a755;
+  color: #fff;
+  text-decoration: none;
+}
+
+ .button-grey {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid #7f7f7f;
+  border-radius: 3px;
+  color: #7f7f7f;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 25px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+
+.button-grey:hover {
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+
+ .button-red {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid #dd5555;
+  border-radius: 3px;
+  color: #dd5555;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 25px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+
+.button-red:hover {
+  background-color: #dd5555;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+a {
+  text-decoration:none;
+
+}
+
