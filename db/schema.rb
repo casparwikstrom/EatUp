@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828151054) do
+ActiveRecord::Schema.define(version: 20170829145716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,17 +50,27 @@ ActiveRecord::Schema.define(version: 20170828151054) do
     t.integer "amount_pledged"
     t.date "deadline"
     t.integer "seat_capacity"
-    t.string "category"
-    t.string "address"
     t.text "description"
-    t.date "launch_date"
     t.integer "price"
-    t.date "start_date"
-    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_popups_on_user_id"
+  end
+
+  create_table "popuptypes", force: :cascade do |t|
+    t.bigint "type_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_popuptypes_on_popup_id"
+    t.index ["type_id"], name: "index_popuptypes_on_type_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,4 +102,6 @@ ActiveRecord::Schema.define(version: 20170828151054) do
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
   add_foreign_key "popups", "users"
+  add_foreign_key "popuptypes", "popups"
+  add_foreign_key "popuptypes", "types"
 end

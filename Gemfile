@@ -17,6 +17,9 @@ gem 'omniauth-facebook'
 # cloudinary
 gem 'cloudinary'
 
+# faker
+gem 'faker', '~> 1.4', '>= 1.4.3'
+
 #images
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
