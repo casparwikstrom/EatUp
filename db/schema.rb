@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828151054) do
+
+ActiveRecord::Schema.define(version: 20170829091118) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,10 +98,22 @@ ActiveRecord::Schema.define(version: 20170828151054) do
   end
 
 
+
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_wishlists_on_popup_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
   add_foreign_key "comments", "popups"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "pledges"
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
   add_foreign_key "popups", "users"
-end
+  add_foreign_key "wishlists", "popups"
+  add_foreign_key "wishlists", "users"
+
