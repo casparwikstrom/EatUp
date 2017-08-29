@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+
+  resources :popups do
+    resources :orders, only: [ :new, :create, :destroy ]
+  end
+
+  resources :orders, only: [ :index, :show ]
+
   resources :profiles
+
 
   resources :popups
 
@@ -13,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :wishlists, only: [:index, :destroy]
+
 
   mount Attachinary::Engine => "/attachinary"
 

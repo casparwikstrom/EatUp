@@ -1,7 +1,29 @@
-<h1>im new</h1>
+<div class="page-wrapper">
+  <div class="container form-padded">
+    <div class="row">
+      <div class="col-xs-12 col-lg-12 text-center">
+        <h1>Get Started</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <%= simple_form_for @popup do |f| %>
+        <h3><%= f.input :title, placeholder: 'Cool name...' %></h3>
+      </div>
+    </div>
+   <!--  <div class="row">
+     <div class="col-xs-12 col-lg-12">
+     <h3><%= f.input :category, placeholder: '(Add hedgie search category button)', collection: @popup.category %></h3>
+    </div>
+  </div> -->
+  <div class="row">
+     <div class="col-xs-12 col-lg-12">
+     <%= f.submit :submit %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
 
 
-<%= simple_form_for @popup do |f| %>
-<%= f.input :title %>
-<%= f.submit :submit %>
-<% end %>
+
