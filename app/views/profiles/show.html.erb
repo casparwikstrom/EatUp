@@ -1,10 +1,15 @@
 <div class="page-wrapper">
-  <div class="container">
-    <%= render "shared/nameuser" %>
+  <div class="profile-background-color">
+      <div class="profile-avatar">
+         <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, width: 227, height: 225, crop: :fill %>
+        <% end %>
+      </div>
+  </div>
 
-    <% if @user.photo? %>
-    <%= cl_image_tag @user.photo.path, width: 600, height: 400, crop: :fill %>
-    <% end %>
+
+  <div class="container-fluid">
+    <%= render "shared/nameuser" %>
     <%= @user.email %>
     <%= @user.first_name %>
     <%= @user.last_name %>
