@@ -1,5 +1,28 @@
 .profile-background-color {
   background: #F5F5F5;
-  height: 20vh;
+  height: 135px;
   box-shadow: inset 0px -12px 8px -11px #CCC;
+}
+
+.profile-show-header {
+  display: flex;
+  margin-top: -113px;
+
+  h3 {
+    margin-top: 67px;
+    margin-left: 3vh;
+  }
+  .button-grey {
+    margin-top: 63px;
+    margin-left: 3vh;
+  }
+  img {
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+.profile-show-edit {
+  padding-left: 3vh;
+  margin-bottom: 10px;
 }

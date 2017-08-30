@@ -1,19 +1,29 @@
 <div class="page-wrapper">
   <div class="profile-background-color">
-      <div class="profile-avatar">
-         <% if @user.photo? %>
+  </div>
+
+  <div class="container">
+    <div class="profile-show-header">
+      <% if @user.photo? %>
         <%= cl_image_tag @user.photo.path, width: 227, height: 225, crop: :fill %>
-        <% end %>
-      </div>
+      <% end %>
+
+      <% if current_user.first_name? %>
+        <h3><%= current_user.first_name %>'s User Profile</h3>
+      <% else %>
+        <h3>User Profile</h3>
+      <% end %>
+
+      <%= link_to "Edit", edit_profile_path, class:"button-grey"%>
+    </div>
+
+    <div class="profile-show-body">
+      <ul>
+        <li>todo</li>
+        <li>todo</li>
+      </ul>
+    </div>
   </div>
 
-
-  <div class="container-fluid">
-    <%= render "shared/nameuser" %>
-    <%= @user.email %>
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-  </div>
 
 </div>
-
