@@ -29,6 +29,7 @@ user = User.create(email: 'test@gmail.com', password: '123456', password_confirm
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     description: Faker::Lorem.paragraph,
+    seat_capacity: Faker::Number.number(3)
     )
    popup.save
  end
