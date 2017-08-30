@@ -1,11 +1,13 @@
 <div class="page-wrapper">
+  <!-- grey background -->
   <div class="profile-background-color">
   </div>
 
   <div class="container">
+    <!-- user profile and edit button -->
     <div class="profile-show-header">
       <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, width: 227, height: 225, crop: :fill %>
+        <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :fill %>
       <% end %>
 
       <% if current_user.first_name? %>
@@ -18,10 +20,34 @@
     </div>
 
     <div class="profile-show-body">
-      <ul>
-        <li>todo</li>
-        <li>todo</li>
-      </ul>
+      <!-- TABS -->
+      <div class="tabs profile-tabs">
+        <a class="tab active profile-supported-tab" data-target="#supported_popups">
+          <h4>PopUps you supported</h4>
+        </a>
+        <a class="tab profile-created-tab" data-target="#created_popups">
+          <h4>Your PopUps</h4>
+        </a>
+        <a class="tab profile-wishlist-tab" data-target="#wishlist">
+          <h4>Wishlist</h4>
+        </a>
+      </div>
+      <!-- CONTENT -->
+      <div class="profile-tab-content">
+        <div class="tab-content profile-supported" id="supported_popups">
+         <%= render "show_profile_supported" %>
+        </div>
+
+        <div class="tab-content hidden profile-created" id="created_popups">
+          <%= render "show_profile_created" %>
+        </div>
+
+        <div class="tab-content hidden profile-wishlist" id="wishlist">
+          <%= render "show_profile_wishlist" %>
+        </div>
+      </div>
+
+
     </div>
   </div>
 
