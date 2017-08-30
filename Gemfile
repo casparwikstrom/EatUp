@@ -12,7 +12,7 @@ gem 'redis'
 gem 'pundit'
 
 # facebook connect
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'#, '1.4.0'
 
 #google connect
 gem "omniauth-google-oauth2", "~> 0.2.1"
