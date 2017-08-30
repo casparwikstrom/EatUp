@@ -30,16 +30,32 @@ ActiveRecord::Schema.define(version: 20170830141740) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "ordered_seats"
-    t.integer "amount"
-    t.boolean "is_donation"
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
     t.bigint "user_id"
     t.bigint "popup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["popup_id"], name: "index_comments_on_popup_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "ordered_seats"
+    t.bigint "pledge_id"
+    t.bigint "user_id"
+    t.bigint "popup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pledge_id"], name: "index_orders_on_pledge_id"
     t.index ["popup_id"], name: "index_orders_on_popup_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "popups", force: :cascade do |t|
@@ -49,8 +65,9 @@ ActiveRecord::Schema.define(version: 20170830141740) do
     t.integer "funding_goal"
     t.integer "amount_pledged"
     t.date "deadline"
-    t.integer "seat_capacity"
+    t.integer "seats"
     t.text "description"
+    t.integer "cost"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -122,6 +139,9 @@ ActiveRecord::Schema.define(version: 20170830141740) do
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
+  add_foreign_key "comments", "popups"
+  add_foreign_key "comments", "users"
+  add_foreign_key "orders", "pledges"
   add_foreign_key "orders", "popups"
   add_foreign_key "orders", "users"
   add_foreign_key "popups", "users"
