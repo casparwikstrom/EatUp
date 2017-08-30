@@ -10,7 +10,36 @@
   }
 }
 
-.input-group-addon
-{
-    background-color:#FFF;
+.funding_goal  {
+  width: 150px;
+  text-align: left;
+  padding: .5%;
+  margin-bottom: 0;
+  min-width: 9em;
+
+}
+
+.currency-margin-top {
+  margin-top: 7px;
+}
+
+
+.popup_description {
+  display: flex;
+  flex-direction: row;
+  padding-left: 12em;
+  textarea {
+    height: 200px;
+    border: solid thin #E8E8E8 !important;
+  }
+}
+
+.fixed-content-height {
+  max-height: 65vh;
+}
+
+.form-group.popup_url {
+  label {
+    text-align: center;
+  }
 }

@@ -22,9 +22,9 @@
     <a class="tab" data-target="#account">
       <h3>Account</h3>
     </a>
-    <a class="tab" data-target="#preview">
+    <!-- <a class="tab" data-target="#preview">
       <h3>Preview</h3>
-    </a>
+    </a> -->
     <a class="tab" data-target="#submit">
       <h3>Submit</h3>
     </a>
@@ -32,46 +32,46 @@
 </div>
 
 <!-- CONTENT -->
-<div class="container text-center">
+<div class="container text-center fixed-content-height">
   <%= simple_form_for @popup do |f| %>
   <div class="tab-content padding-top" id="basic">
     <h2>Let’s get started</h2>
     <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
           <%= f.input :title %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
           <%= f.input :photos, as: :attachinary, input_html: { multiple: true } %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
-          <%= f.input :deadline %>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+          <div class="form-group">
+            <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
+            <span class="currency-margin-top">€</span>
+            <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
-          <div class="form-group funding">
-            <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
-            <span cllass="margin-top">€</span>
-            <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
-          </div>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+          <%= f.input :deadline %>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="tab-content hidden" id="story">
+  <div class="tab-content padding-top hidden" id="story">
     <h2>Tell us about your popup</h2>
-    <p>Share your compelling story on why you aspire to be a chef and open your first restaurant. Be sure to get specific about why people should be excited about your popup.</p>
+    <p>Share why you're an aspiring chef and the vision behind your first restaurant. Get people excited about your popup!</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
           <%= f.input :description %>
         </div>
       </div>
@@ -80,48 +80,54 @@
 
 
 
-  <div class="tab-content hidden" id="seats">
+  <div class="tab-content padding-top hidden" id="seats">
     <h2>Set your seat costs</h2>
-    <p>Invite foodies to be a part of your chef experience.</p>
+    <p>Evaluate the price per seat your guests can pay to share your popup experience.</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
-          <%= f.input :price %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-lg-12 form-row">
-          <p>SEAT CAPACITY</p>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+          <div class="form-group">
+            <label class="price control-label integer optional" for="popup_price">Price per seat</label>
+            <span class="currency-margin-top">€</span>
+            <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="tab-content hidden" id="about-you">
+  <div class="tab-content padding-top hidden" id="about-you">
     <h2>Share more about yourself.</h2>
-    <p>Make sure your profile has a bio and links to your website and social media profiles. Think of it as your creative resume.</p>
-    <p>HOW TO INTEGRATE EDIT USER PROFILE IN THIS POPUPS SIMPLE FORM?</p>
+    <p>If you want to include more information about yourself, share a website URL where foodies can learn more about your popup idea. </p>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+          <%= f.input :url %>
+        </div>
+      </div>
+    </div>
   </div>
 
 
-  <div class="tab-content hidden" id="account">
+  <div class="tab-content padding-top hidden" id="account">
     <h2>Confirm your contact details and link a bank account.</h2>
     <p>Provide details about where funds should be sent once you've achieved your funding goal.</p>
-    <p>BANK ACCOUNT AND PAYMENT SOURCE</p>
+    <p>(Stripe)</p>
   </div>
 
-
-  <div class="tab-content hidden" id="preview">
+  <!-- PREVIEW - TBD -->
+  <!-- <div class="tab-content padding-top hidden" id="preview">
     <h2>popup.title</h2>
   </div>
+-->
 
-
-  <div class="tab-content hidden" id="submit">
-    <h2>You're ready to submit your popup! </h2>
-    <%= f.submit :submit %>
-  </div>
-  <% end %>
+<div class="tab-content padding-top hidden" id="submit">
+  <h2>You're all set to launch!</h2>
+  <br>
+  <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
+</div>
+<% end %>
 </div>
 </div>
 
