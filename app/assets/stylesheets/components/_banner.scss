@@ -8,6 +8,11 @@
   justify-content: center;
   background-position-y: -200px
 }
+
+.banner-content {
+  padding-bottom: 5em;
+}
+
 .banner h1 {
   font-size: 90px;
   font-weight: bold;
@@ -22,8 +27,11 @@
 }
 
 #button1 {
-  color: $fade-blue;
-  :hover {
-    color: $blue;
-  }
+  padding: .8em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.btn-success:hover {
+  background-color: $fade-pink;
 }
