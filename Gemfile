@@ -15,7 +15,7 @@ gem 'pundit'
 gem 'omniauth-facebook'
 
 #google connect
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "omniauth-google-oauth2"
 
 
 # cloudinary
