@@ -1,0 +1,24 @@
+#search {
+  position: inherit;
+  display: flex;
+  height: 70px;
+}
+
+.search-icon {
+  align-items: center;
+  display: flex;
+  margin-right: 30px;
+}
+
+.fa-times {
+  margin-right: 98px;
+}
+
+input:focus {
+  outline: none
+}
+
+.search-input {
+  width: 1000px;
+  border: none;
+}
