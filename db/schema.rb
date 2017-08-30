@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(version: 20170829145716) do
     t.integer "funding_goal"
     t.integer "amount_pledged"
     t.date "deadline"
-    t.integer "seat_capacity"
+    t.integer "seats"
     t.text "description"
+    t.integer "cost"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
