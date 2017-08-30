@@ -21,6 +21,8 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 # cloudinary
 gem 'cloudinary'
 
+# searchkick
+gem 'searchkick', '~> 1.3'
 
 # faker
 gem 'faker', '~> 1.4', '>= 1.4.3'
