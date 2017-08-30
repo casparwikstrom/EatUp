@@ -1,4 +1,6 @@
 class Popup < ApplicationRecord
+  searchkick
+
   belongs_to :user
 
   has_many :wishlists, dependent: :destroy
