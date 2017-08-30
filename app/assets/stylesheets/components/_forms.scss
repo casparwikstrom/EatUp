@@ -10,16 +10,33 @@
 
 .form-row {
   .form-group {
-  display: flex;
-  flex-direction: row;
-  padding-left: 12em;
-  label {
-    width: 150px;
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    padding-left: 12em;
+    label {
+      width: 150px;
+      text-align: left;
+      padding: .5%;
+      margin-bottom: 0;
+      min-width: 9em;
     }
   }
 }
 
 .form-content {
   padding-top: 50px;
+}
+
+.funding_goal  {
+  width: 150px;
+  text-align: left;
+  padding: .5%;
+  margin-bottom: 0;
+  min-width: 9em;
+
+}
+
+
+.funding > .margin-top {
+  margin-top: 6px;
 }

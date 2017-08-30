@@ -55,7 +55,11 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-lg-12 form-row">
-          <%= f.input :funding_goal %>
+          <div class="form-group funding">
+            <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
+            <span cllass="margin-top">€</span>
+            <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
+          </div>
         </div>
       </div>
     </div>
@@ -109,7 +113,7 @@
 
 
   <div class="tab-content hidden" id="preview">
-  <h2>popup.title</h2>
+    <h2>popup.title</h2>
   </div>
 
 

@@ -5,9 +5,9 @@
     <div class="cards-container padding-top" >
       <div class="row">
         <% @popups.each do |popup| %>
-        <div class="card-container">
-          <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
-            <%= link_to "", popup_path(popup), class: "card-link" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
+          <div class="card-container">
+            <%= link_to popup_path(popup), class: "card-link" do %>
             <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
             </div>
             <div class="card-desc">
@@ -26,6 +26,7 @@
               <% end %>
             </div>
           </div>
+          <% end %>
         </div>
         <% end %>
       </div>
