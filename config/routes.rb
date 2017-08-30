@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :popups do
     resources :orders, only: [ :new, :create, :destroy ]
+    member do
+      put "like" => "popups#vote"
+    end
   end
 
   resources :orders, only: [ :index, :show ]
@@ -14,7 +17,12 @@ Rails.application.routes.draw do
   resources :profiles
 
 
-  resources :popups
+  # resources :popups do
+  #   member do
+  #     put "like" => "popups#upvote"
+  #     put "unlike" => "popups#downvote"
+  #   end
+  # end
 
   resources :popups do
     resources :wishlists, only: [:new, :create, :destroy]
