@@ -45,12 +45,12 @@ end
 gem 'ransack'
 
 #votes
-gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts_as_votable'
 
-group :development do
-  gem "better_errors"
+# group :development do
+  # gem "better_errors"
   # gem "binding_of_caller"
-end
+# end
 
 #images
 gem 'attachinary', github: 'assembler/attachinary'

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :wishlists, dependent: :destroy
 
   has_many :orders
+  acts_as_voter
 
 
   has_attachment :photo
