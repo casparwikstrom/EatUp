@@ -1,7 +1,7 @@
 <div class="page-wrapper">
  <!-- HEADER -->
- <div class="header-wrapper">
-  <div class="header-popup-infos no-border-bottom text-center">
+ <div class="edit-header-wrapper">
+  <div class="header-popup-infos text-center">
     <h1><strong><%= @popup.title %></strong> </h1>
   </div>
 
@@ -34,7 +34,7 @@
 <!-- CONTENT -->
 <div class="container text-center">
   <%= simple_form_for @popup do |f| %>
-  <div class="tab-content" id="basic">
+  <div class="tab-content padding-top" id="basic">
     <h2>Let’s get started</h2>
     <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
     <div class="form-content">
