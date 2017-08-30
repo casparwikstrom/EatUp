@@ -5,7 +5,7 @@
     <div class="cards-container padding-top" >
       <div class="row">
         <% @popups.each do |popup| %>
-        <div class="card-container">
+        <div class="card-container" id="popup-<%= popup.id %>">
           <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
             <%= link_to "", popup_path(popup), class: "card-link" %>
             <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
@@ -17,6 +17,25 @@
             </div>
             <div class="card-stats">
               <%= popup.amount_pledged %>
+
+              <% if current_user %>
+              <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
+              <div>
+              <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+              <span><i class="fa fa-thumbs-up fa-1x "></i></span>
+              </div>
+              <% end %>
+
+              <% else %>
+              <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
+              <div>
+                <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                <span><i class="fa fa-thumbs-up fa-1x "></i></span>
+
+              </div>
+              <% end %>
+              <% end %>
+
               <!-- percentage funded -->
               <!-- days to go -->
             </div>
@@ -32,6 +51,21 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 class PopupsController < ApplicationController
   before_action :set_popup, only: [:show, :edit, :update, :destroy]
 
-   def index
+  def index
     if params[:type_ids]
       @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]})
     else
@@ -13,7 +13,7 @@ class PopupsController < ApplicationController
       format.js
     end
 
-   end
+  end
 
   def show
     @orders = @popup.orders
@@ -35,6 +35,20 @@ class PopupsController < ApplicationController
     @popup = Popup.new
     authorize @popup
   end
+
+  def vote
+    if current_user
+      set_popup
+      if !current_user.liked? @popup
+        @popup.liked_by current_user
+      else current_user.liked? @popup
+        @popup.unliked_by current_user
+      end
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
 
   def create
     @popup = Popup.new(popup_params)
