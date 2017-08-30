@@ -1,35 +1,94 @@
-<h1>Im the show</h1>
-<%= @popup.title %>
-
-  <% if policy(@popup).edit? %>
-    <%= link_to "Edit", edit_popup_path(@popup) %>
-  <% end %>
-
-   <% if policy(@popup).edit? %>
-    <%= link_to "delete", popup_path(@popup), method: :delete,
+<div class="page-wrapper">
+  <div class="container">
+    <div class="padding-top margin-bottom">
+      <div class="row">
+        <div class="col-lg-2 ">
+          <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="header-avatar"/>
+          <p> by <strong><%= @popup.user.first_name %></strong> </p>
+        </div>
+        <div class="col-lg-8">
+          <h1><%= @popup.title %></h1>
+        </div>
+        <div class="col-lg-2">
+          <div class="wrapper">
+            <% if policy(@popup).edit? %>
+            <%= link_to "Edit", edit_popup_path(@popup) %>
+            <% end %>
+          </div>
+          <div class="wrapper">
+            <% if policy(@popup).edit? %>
+            <%= link_to "delete", popup_path(@popup), method: :delete,
             data: { confirm: "Are you sure?" } %>
-  <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row margin-bottom">
+      <div class="col-lg-8">
+        <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai'); width: auto; min-height: 450px;">
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="show-stats">
+          <div>
+            <h4><%= @popup.amount_pledged %></h4>
+            <!-- percentage funded -->
+            <!-- days to go -->
+          </div>
+          <h4 class="button-brand-blue"> Book your seat</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="show-wrapper">
+      <div class="tabs">
+        <a class="tab active" data-target="#campaign">
+          <h3>Campaign</h3>
+        </a>
+        <a class="tab" data-target="#comments">
+          <h3>Comments</h3>
+        </a>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="container margin-bottom">
+        <div class="tab-content" id="campaign">
+          <h2>About this popup</h2>
+          @popup.description
+        </div>
+
+        <div class="tab-content hidden" id="comments">
+          <h2>Share your thoughts with the chef</h2>
+          <div id="disqus_thread"></div>
+          <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://eatupclub.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://eatupclub.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 

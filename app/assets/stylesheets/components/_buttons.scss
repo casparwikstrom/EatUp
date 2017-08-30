@@ -55,7 +55,7 @@
   color: #37a755;
   display: inline-block;
   font-weight: 500;
-  padding: 4px 25px;
+  padding: 10px 25px;
   height: 40px;
   font-size: 18px;
   margin-left: 5px;
@@ -128,3 +128,27 @@ a {
 
 }
 
+
+ .button-brand-blue {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid $blue;
+  border-radius: 3px;
+  color: $blue;
+  display: inline-block;
+  font-weight: 500;
+  padding: 10px 25px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+
+.button-brand-blue:hover {
+  background-color: $blue;
+  color: #fff;
+  text-decoration: none;
+}
