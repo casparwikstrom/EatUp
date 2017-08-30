@@ -16,10 +16,19 @@
 .card-desc {
   padding: 1.5rem;
   min-height: 155px !important;
+
+
+
 }
 
 .overflow-hidden {
-  overflow: hidden;
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+
+}
+.description-text {
+  min-height: 100px;
 }
 
 .card-link {
