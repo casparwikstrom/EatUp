@@ -40,14 +40,35 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
-}
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  color: #9A9A9A;
+  font-size: 18px;
 }
 
+.navbar-wagon-link-blue {
+  color: $blue;
+  font-size: 18px;
+
+}
+.navbar-wagon-link-pink {
+  color: $pink;
+  font-size: 18px;
+
+}
+.navbar-wagon-link:hover {
+  color: #9A9A9A;
+  border-bottom: #9A9A9A solid;
+  text-decoration: none;
+}
+.navbar-wagon-link-blue:hover {
+  color: $blue;
+  border-bottom: $blue solid;
+  text-decoration: none;
+}
+.navbar-wagon-link-pink:hover {
+  color: $pink;
+  border-bottom: $pink solid;
+  text-decoration: none;
+}
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
