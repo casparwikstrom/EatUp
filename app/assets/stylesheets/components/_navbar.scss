@@ -39,10 +39,6 @@
 }
 
 /* Navbar link */
-.navbar-wagon-link {
-  color: #9A9A9A;
-  font-size: 18px;
-}
 
 .navbar-wagon-link-blue {
   color: $blue;
@@ -54,11 +50,7 @@
   font-size: 18px;
 
 }
-.navbar-wagon-link:hover {
-  color: #9A9A9A;
-  border-bottom: #9A9A9A solid;
-  text-decoration: none;
-}
+
 .navbar-wagon-link-blue:hover {
   color: $blue;
   border-bottom: $blue solid;
