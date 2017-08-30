@@ -28,10 +28,10 @@
     $(this).find('span').toggleClass('checked_on');
     var input = $(this).find('.type_input');
 
-    if ( input.attr('checked') === 'checked') {
-      input.attr('checked', false);
+    if (input.attr('checked')) {
+      input.removeAttr('Checked');
     } else {
-      input.attr('checked', 'checked');
+      input.attr('checked', true);
     }
     $('#form').submit();
   });

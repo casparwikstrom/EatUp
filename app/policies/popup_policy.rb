@@ -25,6 +25,10 @@ class PopupPolicy < ApplicationPolicy
     user_is_over?
   end
 
+  def vote?
+    true
+  end
+
   private
 
   def user_is_over?
