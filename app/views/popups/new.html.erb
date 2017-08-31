@@ -13,13 +13,14 @@
             <input type="checkbox" class="hidden" value="<%= type.id %>" name="popup[type_ids][]" id="popup_type_ids_<%= type.id %>">
             <label class="category-choice" for="popup_type_ids_<%= type.id %>">
               <%= type.name %>
-              <i class="fa fa-check"></i>
+              <!-- <i class="fa fa-check"></i> -->
             </label>
             <% end %>
           </div>
         </div>
-
-        <%= f.button :submit, "Create popup", class: "btn-lg btn-primary" %>
+        <div class="text-center">
+          <%= f.button :submit, "Create popup", class: "btn-lg btn-primary" %>
+        </div>
         <% end %>
       </div>
     </div>
