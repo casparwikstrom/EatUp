@@ -10,8 +10,8 @@
           <div class="card-container" id="popup-<%= popup.id %>">
             <%= link_to popup_path(popup), class: "card-link" do %>
 
-            <div class="card-img" style="background-image: url('<%= cl_image_path popup.photos.first.path, width: 300, height: 200, crop: :fill %>');">
-            </div>
+
+
             <div class="card-desc">
               <h4><%= popup.title %></h4>
               <% if popup.description %>
