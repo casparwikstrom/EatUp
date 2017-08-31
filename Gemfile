@@ -55,6 +55,10 @@ gem 'stripe'
 
 gem 'money-rails'
 
+#admin-interface
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
 
 
 # group :development do
