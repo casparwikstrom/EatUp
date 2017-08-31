@@ -1,6 +1,7 @@
 require 'active_support/core_ext/numeric/conversions'
 
 class PopupsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_popup, only: [:show, :edit, :update, :destroy]
 
   def index
