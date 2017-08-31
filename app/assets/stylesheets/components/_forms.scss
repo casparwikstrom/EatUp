@@ -8,9 +8,7 @@
   border-bottom: 1px solid #ccc;
 }
 
-.form-row {
-  margin: 0;
-  .form-group {
+.form-group {
     display: flex;
     flex-direction: row;
     padding-left: 12em;
@@ -22,7 +20,6 @@
       min-width: 9em;
     }
   }
-}
 
 .form-content {
   padding-top: 3%;
