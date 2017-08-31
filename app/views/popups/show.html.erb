@@ -26,6 +26,7 @@
     </div>
     <div class="row margin-bottom">
       <div class="col-lg-8">
+        <!-- Background image (needs fix) -->
         <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai'); width: auto; min-height: 450px;">
         </div>
       </div>
@@ -33,30 +34,42 @@
         <div class="show-stats">
           <div class="flex">
             <div class="amount">
-              <h4>€<%= @popup.amount_pledged %></h4>
-              <p>pledged of €<%= @popup.funding_goal %> goal</p>
+              <h4>€<%= @popup.amount_pledged.to_s(:delimited) %></h4>
+              <p>pledged of €<%= @popup.funding_goal.to_s(:delimited) %> goal</p>
               <%= @popup.price %>
             </div>
             <div class="backers">
-              <h4><%= @popup.orders.count %></h4>
+              <h4><%= @popup.orders.count.to_s(:delimited) %></h4>
               <p>Foodies</p>
             </div>
             <div class="days">
-              <% start_time = @popup.deadline  %>
-              <% end_time   =  Date.today %>
+
+              <% start_time = @popup.deadline %>
+              <% end_time = Date.today %>
               <% if @popup.deadline %>
-              <h4><%= distance_of_time_in_words(start_time, end_time) %></h4>
+              <p><%= distance_of_time_in_words(start_time, end_time) %> to go</p>
               <% end %>
               <p>days to go</p>
+
             </div>
             <!-- percentage funded -->
             <!-- days to go -->
           </div>
-          <%= link_to "Support this popup", new_popup_order_path(@popup), class: "button-brand-blue" %>
+          <!-- Big Support this popup button -->
+          <%= link_to "Support this popup", new_popup_order_path(@popup), class: "button-brand-blue-big" %>
+          <!-- Big like button (still needed) -->
+          <a class="like-btn" data-remote="true" rel="nofollow" data-method="put" href="/popups/71/like">
+
+            <div>
+              <span class="likes-count"> 0</span>
+              <span><i class="fa fa-thumbs-up fa-1x"></i></span>
+            </div>
+          </a>
+
+          <!-- Heart button (still needed) -->
 
           <%= form_tag orders_path do %>
           <%= hidden_field_tag 'popup_id', @popup.id %>
-          <%= submit_tag 'Purchase', class: "button-brand-blue" %>
           <% end %>
 
         </div>
@@ -78,13 +91,15 @@
       <div class="container margin-bottom">
         <div class="tab-content" id="campaign">
           <div class="text-center">
-            <h2>About this popup</h2>
+            <h2>About this Popup</h2>
           </div>
           <%= render "popup-description" %>
         </div>
 
         <div class="tab-content hidden" id="comments">
-          <h2>Share your thoughts with the chef</h2>
+          <div class="text-center">
+            <h2>Share your thoughts with the chef</h2>
+          </div>
           <div id="disqus_thread"></div>
           <script>
             /**
