@@ -6,7 +6,7 @@ class Popup < ApplicationRecord
 
   has_many :popuptypes, dependent: :destroy
   has_many :types, through: :popuptypes
-  has_attachment :photos
+  has_attachments :photos
   acts_as_votable
 
   def is_ready?
