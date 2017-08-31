@@ -21,6 +21,8 @@
             </div>
             <div class="card-stats">
               <%= popup.amount_pledged %>
+              <p>Amount: <%= humanized_money_with_symbol(popup.price) %></p>
+
 
               <% if current_user %>
               <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
