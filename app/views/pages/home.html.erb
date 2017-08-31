@@ -7,15 +7,17 @@
         <% @popups.each do |popup| %>
 
         <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
-          <div class="card-container">
+          <div class="card-container" id="popup-<%= popup.id %>">
             <%= link_to popup_path(popup), class: "card-link" do %>
 
             <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
             </div>
             <div class="card-desc">
               <h4><%= popup.title %></h4>
+              <% if popup.description %>
               <p class="description-text"><%= popup.description[0..100] + "..."%></p>
               <p> <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="card-avatar"/> by <%= popup.user.first_name %></p>
+              <% end %>
             </div>
             <div class="card-stats">
               <%= popup.amount_pledged %>
@@ -23,8 +25,8 @@
               <% if current_user %>
               <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
               <div>
-              <span class="likes-count"> <%= popup.get_upvotes.size %></span>
-              <span><i class="fa fa-thumbs-up fa-1x "></i></span>
+                <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                <span><i class="fa fa-thumbs-up fa-1x "></i></span>
               </div>
               <% end %>
 
