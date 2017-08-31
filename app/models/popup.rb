@@ -6,7 +6,7 @@ class Popup < ApplicationRecord
   has_many :popuptypes, dependent: :destroy
   has_many :types, through: :popuptypes
 
-  has_attachment :photos
+  has_attachments :photos
   acts_as_votable
   monetize :price_cents
 
@@ -14,11 +14,11 @@ class Popup < ApplicationRecord
   validates :title, presence: true
 
 
-  # def is_ready?
-  #   ready = [:description, :funding_goal, :deadline, :price].all? do |attribute|
-  #     send(attribute).present?
-  #   end
-  #   ready = false unless photos.try(:first)
-  #   return ready
-  # end
+  def is_ready?
+    ready = [:description, :funding_goal, :deadline, :price].all? do |attribute|
+      send(attribute).present?
+    end
+    ready = false unless photos.try(:first)
+    return ready
+  end
 end
