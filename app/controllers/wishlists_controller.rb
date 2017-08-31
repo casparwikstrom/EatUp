@@ -16,7 +16,7 @@ class WishlistsController < ApplicationController
     @wishlist.popup = Popup.find(params[:popup_id])
     authorize @wishlist
     if @wishlist.save
-      redirect_to wishlists_path
+      redirect_to wishlists_path, notice: "#{@wishlist.popup.title} added to wishlist."
     else
       render :index
     end
