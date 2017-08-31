@@ -75,6 +75,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',
     description: "I'm French and I can't find good french fries in Berlin. I will make my secret family recipe for french fries and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -85,6 +87,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',    
     description: "I'm French and I can't find good macarons in Berlin. I will make my secret family recipe for macarons and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -95,6 +99,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',    
     description: "I'm French and I can't find good baguettes in Berlin. I will make my secret family recipe for baguettes and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -105,6 +111,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',   
     description: "I'm Korean and I can't find good Bi Bim Bap in Berlin. I will make my secret family recipe for Bi Bim Bap and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -115,6 +123,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',    
     description: "I'm German and I can't find good Schnitzel in Berlin. I will make my secret family recipe for Schnitzel and show you Frenchies how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -125,6 +135,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
+    price_cents: Faker::Number.number(2),    
+    sku: 'octocat',    
     description: "I'm American and I can't find good burgers in Berlin. I will make my secret family recipe for burgers and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3),
   },

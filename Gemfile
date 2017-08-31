@@ -30,6 +30,9 @@ gem 'rubocop'
 #makes text in console look nice
 gem "awesome_print", require:"ap"
 
+# Date picker
+gem 'bootstrap-datepicker-rails'
+
 #helpes programming ion chrome
 group :development do
   gem 'meta_request'
@@ -46,6 +49,13 @@ gem 'ransack'
 
 #votes
 gem 'acts_as_votable'
+
+#payment
+gem 'stripe'
+
+gem 'money-rails'
+
+
 
 # group :development do
   # gem "better_errors"

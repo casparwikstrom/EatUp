@@ -32,25 +32,25 @@
 </div>
 
 <!-- CONTENT -->
-<div class="container text-center fixed-content-height">
+<div class="container text-center fixed-content-height edit-page">
   <%= simple_form_for @popup do |f| %>
   <div class="tab-content padding-top" id="basic">
     <h2>Let’s get started</h2>
     <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+        <div class="col-xs-12 col-sm-10">
           <%= f.input :title %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+        <div class="col-xs-12 col-sm-10">
           <%= f.input :photos, as: :attachinary, input_html: { multiple: true } %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
-          <div class="form-group">
+        <div class="col-xs-12 col-sm-10">
+          <div class="form-group-edit">
             <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
@@ -58,8 +58,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
-          <%= f.input :deadline %>
+        <div class="col-xs-12 col-sm-10">
+          <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
     <p>Share why you're an aspiring chef and the vision behind your first restaurant. Get people excited about your popup!</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+        <div class="col-xs-12 col-sm-10">
           <%= f.input :description %>
         </div>
       </div>
@@ -85,8 +85,8 @@
     <p>Evaluate the price per seat your guests can pay to share your popup experience.</p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
-          <div class="form-group">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-2" id="price-input">
+          <div class="form-group-edit">
             <label class="price control-label integer optional" for="popup_price">Price per seat</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
@@ -102,7 +102,7 @@
     <p>If you want to include more information about yourself, share a website URL where foodies can learn more about your popup idea. </p>
     <div class="form-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
+        <div class="col-xs-12 col-sm-10">
           <%= f.input :url %>
         </div>
       </div>
