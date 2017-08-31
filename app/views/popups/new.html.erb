@@ -6,7 +6,20 @@
         <%= simple_form_for @popup do |f| %>
         <h3><%= f.input :title, placeholder: 'Cool name...' %></h3>
         <%#= f.select :type_ids, Type.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
-        <%= f.association :types, :multiple => true, as: :check_boxes  %>
+        <div class="form-group">
+        <label class="control-label check_boxes optional">Types</label>
+          <input type="hidden" name="popup[type_ids][]" value="">
+          <div class="category-choices">
+            <% Type.all.each do |type| %>
+            <input type="checkbox" class="hidden" value="<%= type.id %>" name="popup[type_ids][]" id="popup_type_ids_<%= type.id %>">
+            <label class="category-choice" for="popup_type_ids_<%= type.id %>">
+              <%= type.name %>
+              <i class="fa fa-check"></i>
+            </label>
+            <% end %>
+          </div>
+        </div>
+
         <%= f.button :submit, class: "btn btn-success" %>
         <% end %>
       </div>
