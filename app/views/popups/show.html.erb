@@ -35,6 +35,7 @@
             <div class="amount">
               <h4>€<%= @popup.amount_pledged %></h4>
               <p>pledged of €<%= @popup.funding_goal %> goal</p>
+              <%= @popup.price %>
             </div>
             <div class="backers">
               <h4><%= @popup.orders.count %></h4>
@@ -52,6 +53,12 @@
             <!-- days to go -->
           </div>
           <%= link_to "Support this popup", new_popup_order_path(@popup), class: "button-brand-blue" %>
+
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'popup_id', @popup.id %>
+          <%= submit_tag 'Purchase', class: "button-brand-blue" %>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -95,17 +102,17 @@
               s.setAttribute('data-timestamp', +new Date());
               (d.head || d.body).appendChild(s);
             })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
 
-          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 
