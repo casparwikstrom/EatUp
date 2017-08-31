@@ -10,17 +10,19 @@
           <div class="card-container" id="popup-<%= popup.id %>">
             <%= link_to popup_path(popup), class: "card-link" do %>
 
-            <div class="card-img" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+            <div class="card-img" style="background-image: url('<%= cl_image_path popup.photos.first.path, width: 300, height: 200, crop: :fill %>');">
             </div>
             <div class="card-desc">
               <h4><%= popup.title %></h4>
               <% if popup.description %>
               <p class="description-text"><%= popup.description[0..100] + "..."%></p>
-              <p> <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="card-avatar"/> by <%= popup.user.first_name %></p>
+              <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> by <%= popup.user.first_name %></p>
               <% end %>
             </div>
             <div class="card-stats">
               <%= popup.amount_pledged %>
+              <p>Amount: <%= humanized_money_with_symbol(popup.price) %></p>
+
 
               <% if current_user %>
               <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>

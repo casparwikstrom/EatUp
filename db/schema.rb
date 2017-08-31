@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830141740) do
+ActiveRecord::Schema.define(version: 20170831122500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20170830141740) do
     t.bigint "popup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state"
+    t.string "popup_sku"
+    t.integer "amount_cents"
+    t.json "payment"
     t.index ["popup_id"], name: "index_orders_on_popup_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -55,6 +59,8 @@ ActiveRecord::Schema.define(version: 20170830141740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "sku"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_popups_on_user_id"
   end
 
