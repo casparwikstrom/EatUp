@@ -21,7 +21,7 @@
             </div>
             <div class="progress">
               <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
-                <span class="sr-only">60% Complete</span>
+                <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>% Complete</span>
               </div>
             </div>
             <div class="card-stats">

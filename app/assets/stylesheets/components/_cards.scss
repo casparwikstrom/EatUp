@@ -15,6 +15,32 @@
 
 }
 
+.show-stats {
+  .progress {
+  margin: 0px 0px 20px 0px;
+  }
+}
+
+.stats-div {
+  margin-bottom: 20px;
+  h4, p {
+    margin: 0px;
+  }
+  h4 {
+    font-weight: bold;
+  }
+}
+
+.amount {
+  h4 {
+    color: #4EC5C1;
+  }
+}
+
+.support-button {
+  margin-top: 40px;
+}
+
 .progress {
   margin: 1rem;
   height: 5px;
