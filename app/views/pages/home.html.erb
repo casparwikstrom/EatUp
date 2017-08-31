@@ -16,41 +16,42 @@
               <h4><%= popup.title %></h4>
               <% if popup.description %>
               <p class="description-text"><%= popup.description[0..100] + "..."%></p>
-              <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> by <%= popup.user.first_name %></p>
+              <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
               <% end %>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
+                <span class="sr-only">60% Complete</span>
+              </div>
             </div>
             <div class="card-stats">
-              <%= popup.amount_pledged %>
-              <p>Amount: <%= humanized_money_with_symbol(popup.price) %></p>
-
-
+              <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+              <p>€ <%= humanized_money(popup.price) %> per seat </p>
+              <div class="days">
+                <% start_time = popup.deadline %>
+                <% end_time = Date.today %>
+                <p><%= (start_time - end_time).to_i %> days to go</p>
+              </div>
               <% if current_user %>
-              <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
-              <div>
-                <span class="likes-count"> <%= popup.get_upvotes.size %></span>
-                <span><i class="fa fa-thumbs-up fa-1x"></i></span>
-              </div>
-              <% end %>
-
+                <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
+                  <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                  <span><i class="fa fa-thumbs-up fa-1x"></i></span>
+                <% end %>
               <% else %>
-              <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
-              <div>
-                <span class="likes-count"> <%= popup.get_upvotes.size %></span>
-                <span><i class="fa fa-thumbs-up fa-1x "></i></span>
-
+                <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
+                  <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                  <span><i class="fa fa-thumbs-up fa-1x "></i></span>
+                <% end %>
+              <% end %>
+              <div class="wishlist">
+                <%= simple_form_for([popup, @wishlist]) do |f|  %>
+                <%= button_tag type: 'submit', class: "button postfix" do %>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <% end %>
+                <% end %>
               </div>
-              <% end %>
-              <% end %>
-
               <!-- percentage funded -->
               <!-- days to go -->
-            </div>
-            <div class="wishlist">
-              <%= simple_form_for([popup, @wishlist]) do |f|  %>
-              <%= button_tag type: 'submit', class: "button postfix" do %>
-              <i class="fa fa-heart" aria-hidden="true"></i>
-              <% end %>
-              <% end %>
             </div>
           </div>
           <% end %>
