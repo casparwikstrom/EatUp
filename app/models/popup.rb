@@ -8,4 +8,12 @@ class Popup < ApplicationRecord
   has_many :types, through: :popuptypes
   has_attachment :photos
   acts_as_votable
+
+  def is_ready?
+    ready = [:description, :funding_goal, :deadline, :price].all? do |attribute|
+      send(attribute).present?
+    end
+    ready = false unless photos.try(:first)
+    return ready
+  end
 end
