@@ -1,5 +1,17 @@
-<p> The three men drove through the night from Louisiana hauling three boats, ready for whatever the storm would throw at them. Brad Johns and his dad Wayne, and their friend John Utesch, helped save lives during Hurricane Katrina and planned to do the same in Houston as part of a volunteer rescue force, paying their own way. The challenge was immense. Tropical storm Harvey was breaking records for rain and flooding, a once-in-a-thousand-year event by some measures. Countless people were trapped and tens of thousands were displaced.</p>
+<!-- <p> The three men drove through the night from Louisiana hauling three boats, ready for whatever the storm would throw at them. Brad Johns and his dad Wayne, and their friend John Utesch, helped save lives during Hurricane Katrina and planned to do the same in Houston as part of a volunteer rescue force, paying their own way. The challenge was immense. Tropical storm Harvey was breaking records for rain and flooding, a once-in-a-thousand-year event by some measures. Countless people were trapped and tens of thousands were displaced.</p> -->
 
+
+<% if @orders.present? %>
+    <% @orders.each do |order| %>
+    <div>
+    <%= order.title %>
+    <%= link_to "Delete", popup_order_path(order), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+    <% end %>
+
+<% else %>
+  <h1>You haven't added anything yet yooo</h1>
+<% end %>
 
 
 
