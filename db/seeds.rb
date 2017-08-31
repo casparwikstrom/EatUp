@@ -10,6 +10,13 @@
 User.destroy_all
 Type.destroy_all
 
+# users = [
+#   {
+#     username: "ssaunier",
+#     email: "seb@saunier.me"
+#   }
+# ]
+
 user = User.create(email: 'test@gmail.com', password: '123456', password_confirmation: '123456')
 
 5.times do
