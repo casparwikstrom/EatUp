@@ -32,7 +32,7 @@
 </div>
 
 <!-- CONTENT -->
-<div class="container text-center fixed-content-height">
+<div class="container text-center fixed-content-height edit-page">
   <%= simple_form_for @popup do |f| %>
   <div class="tab-content padding-top" id="basic">
     <h2>Let’s get started</h2>
@@ -50,7 +50,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-10">
-          <div class="form-group">
+          <div class="form-group-edit">
             <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
@@ -86,7 +86,7 @@
     <div class="form-content">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2" id="price-input">
-          <div class="form-group">
+          <div class="form-group-edit">
             <label class="price control-label integer optional" for="popup_price">Price per seat</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
