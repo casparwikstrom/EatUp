@@ -59,7 +59,7 @@ class PopupsController < ApplicationController
     @popup.user = current_user
     authorize @popup
     if @popup.save
-      redirect_to popup_path(@popup)
+      redirect_to edit_popup_path(@popup)
     else
       render :new
     end
