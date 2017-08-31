@@ -14,7 +14,7 @@
             </div>
             <div class="card-desc">
               <h4><%= popup.title %></h4>
-              <p class="description-text"><%= popup.description[0..100] + "..."%></p>
+              <p class="description-text"><%= popup.description.try(:[], 0..100).to_s + "..."%></p>
               <p> <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="card-avatar"/> by <%= popup.user.first_name %></p>
             </div>
             <div class="card-stats">

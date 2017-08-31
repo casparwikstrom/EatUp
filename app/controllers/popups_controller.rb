@@ -3,13 +3,13 @@ class PopupsController < ApplicationController
 
   def index
     if params[:type_ids]
-      @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]})
+      @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]}).select(&:is_ready?)
     elsif params[:search]
       terms = params[:search].split
       query = terms.map { |term| "LOWER(title) like '%#{term.downcase}%' OR LOWER(types.name) like '%#{term.downcase}%'" }.join(" OR ")
-      @popups = policy_scope(Popup).joins(:types).where(query).order(created_at: :desc).uniq
+      @popups = policy_scope(Popup).joins(:types).where(query).order(created_at: :desc).uniq.select(&:is_ready?)
     else
-      @popups = policy_scope(Popup).order(created_at: :desc)
+      @popups = policy_scope(Popup).order(created_at: :desc).select(&:is_ready?)
     end
 
     respond_to do |format|
