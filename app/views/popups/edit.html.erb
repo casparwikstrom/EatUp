@@ -59,7 +59,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 form-row">
-          <%= f.input :deadline %>
+          <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
     @popups = Popup.where(user_id: current_user.id)
     # .where(user: current_user)
     @wishlists = Wishlist.where(user: current_user)
+    @orders = Order.where(user: current_user)
   end
 
   def edit
