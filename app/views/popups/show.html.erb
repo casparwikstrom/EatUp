@@ -41,9 +41,11 @@
               <p>Foodies</p>
             </div>
             <div class="days">
-              <% start_time =  @popup.deadline %>
+              <% start_time = @popup.deadline  %>
               <% end_time   =  Date.today %>
+              <% if @popup.deadline %>
               <h4><%= distance_of_time_in_words(start_time, end_time) %></h4>
+              <% end %>
               <p>days to go</p>
             </div>
             <!-- percentage funded -->
@@ -68,8 +70,10 @@
       <!-- CONTENT -->
       <div class="container margin-bottom">
         <div class="tab-content" id="campaign">
-          <h2>About this popup</h2>
-          @popup.description
+          <div class="text-center">
+            <h2>About this popup</h2>
+          </div>
+          <%= render "popup-description" %>
         </div>
 
         <div class="tab-content hidden" id="comments">
