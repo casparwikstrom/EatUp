@@ -1,3 +1,5 @@
+require 'active_support/core_ext/numeric/conversions'
+
 class PopupsController < ApplicationController
   before_action :set_popup, only: [:show, :edit, :update, :destroy]
 

@@ -33,18 +33,18 @@
         <div class="show-stats">
           <div class="flex">
             <div class="amount">
-              <h4>€<%= @popup.amount_pledged %></h4>
-              <p>pledged of €<%= @popup.funding_goal %> goal</p>
+              <h4>€<%= @popup.amount_pledged.to_s(:delimited) %></h4>
+              <p>pledged of €<%= @popup.funding_goal.to_s(:delimited) %> goal</p>
               <%= @popup.price %>
             </div>
             <div class="backers">
-              <h4><%= @popup.orders.count %></h4>
+              <h4><%= @popup.orders.count.to_s(:delimited) %></h4>
               <p>Foodies</p>
             </div>
             <div class="days">
-              <% start_time =  @popup.deadline %>
-              <% end_time   =  Date.today %>
-              <p>days to go</p>
+              <% start_time = @popup.deadline %>
+              <% end_time = Date.today %>
+              <p><%= (start_time - end_time).to_i %> days to go</p>
             </div>
             <!-- percentage funded -->
             <!-- days to go -->
