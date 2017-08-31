@@ -41,25 +41,20 @@ class PopupsController < ApplicationController
   end
 
   def vote
-    if current_user
-      set_popup
-      if !current_user.liked? @popup
-        @popup.liked_by current_user
-      else current_user.liked? @popup
-        @popup.unliked_by current_user
-      end
-    else
-      redirect_to new_user_session_path
+    set_popup
+    if !current_user.liked? @popup
+      @popup.liked_by current_user
+    else current_user.liked? @popup
+      @popup.unliked_by current_user
     end
   end
-
 
   def create
     @popup = Popup.new(popup_params)
     @popup.user = current_user
     authorize @popup
     if @popup.save
-      redirect_to popup_path(@popup)
+      redirect_to edit_popup_path(@popup)
     else
       render :new
     end
