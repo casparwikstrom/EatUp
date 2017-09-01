@@ -33,6 +33,7 @@ class PopupsController < ApplicationController
 
   def update
     @popup.update(popup_params)
+    @popup.deadline = Date.strptime(params[:popup][:deadline], "%m/%d/%Y")
     if @popup.save
       redirect_to popup_path(@popup)
     else
@@ -81,7 +82,7 @@ class PopupsController < ApplicationController
   end
 
   def popup_params
-    params.require(:popup).permit(:title, :description, :funding_goal, :deadline, :seat_capacity, :price, :user_id, photos: [], type_ids: [])
+    params.require(:popup).permit(:title, :description, :funding_goal, :seat_capacity, :price, :user_id, photos: [], type_ids: [])
   end
 
 end
