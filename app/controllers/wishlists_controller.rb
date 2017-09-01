@@ -16,9 +16,15 @@ class WishlistsController < ApplicationController
     @wishlist.popup = Popup.find(params[:popup_id])
     authorize @wishlist
     if @wishlist.save
-      redirect_to wishlists_path, notice: "#{@wishlist.popup.title} added to wishlist."
+      respond_to do |format|
+        format.html { redirect_to popup_path(@wishlist.popup), notice: "#{@wishlist.popup.title} added to wishlist." }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render :index
+      respond_to do |format|
+        format.html { redirect_to popup_path(@wishlist.popup), notice: "#{@wishlist.popup.title} wasn't saved to wishlist" }
+        format.js  # <-- idem
+      end
     end
   end
 

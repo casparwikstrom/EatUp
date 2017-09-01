@@ -25,13 +25,16 @@
       </div>
     </div>
     <div class="row margin-bottom">
+
       <div class="col-lg-8">
         <!-- Background image (needs fix) -->
         <div class="card-img" style="background-image: url('<%= cl_image_path @popup.photos.first.path %>'); width: auto; min-height: 450px;">
         </div>
       </div>
+
       <div class="col-lg-4">
         <div class="show-stats">
+
           <div class="flex">
             <div class="progress">
               <div class="progress-bar" style="width: <%= @popup.amount_pledged.to_f / @popup.funding_goal.to_f * 1000 %>%;">
@@ -54,31 +57,51 @@
               <% end %>
               <p>days to go</p>
             </div>
-            <!-- percentage funded -->
-            <!-- days to go -->
           </div>
+
           <!-- Big Support this popup button -->
           <div class="support-button">
-          <%= link_to "Support this popup", new_popup_order_path(@popup), class: "button-brand-blue-big" %>
+            <%= link_to "Support this popup", new_popup_order_path(@popup), class: "button-brand-blue-big" %>
           </div>
-          <!-- Big like button (still needed) -->
-          <div class="support-button">
-          <a class="like-btn" data-remote="true" rel="nofollow" data-method="put" href="/popups/71/like">
 
-            <div>
-              <span class="likes-count"> 0</span>
-              <span><i class="fa fa-thumbs-up fa-1x"></i></span>
+          <!-- Big like button (still needed) -->
+          <div class="animation-button">
+            <div class="col-xs-5">
+              <% if current_user %>
+                <%= link_to like_popup_path(@popup), class: "like-btn", method: :put, remote: :true do %>
+                  <span class="likes-count"> <%= @popup.get_upvotes.size %></span>
+                  <span><i class="fa fa-thumbs-up fa-1x"></i></span>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
+                  <span class="likes-count"> <%= @popup.get_upvotes.size %></span>
+                  <span><i class="fa fa-thumbs-up fa-1x "></i></span>
+                <% end %>
+              <% end %>
             </div>
-          </a>
-          </div>
+
           <!-- Heart button (still needed) -->
 
-          <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'popup_id', @popup.id %>
-          <% end %>
+            <div class="col-xs-6">
+              <%= simple_form_for([@popup, @wishlist], remote: true) do |f|  %>
+                <%= button_tag type: 'submit' do %>
+                  <div class="heart"></div>
+                  <p>Wish List</p>
+                <% end %>
+              <% end %>
+            </div>
+
+            <!-- Put on new order page -->
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'popup_id', @popup.id %>
+            <% end %>
+
+
+          </div>
 
         </div>
       </div>
+
     </div>
 
     <!-- TABS -->
