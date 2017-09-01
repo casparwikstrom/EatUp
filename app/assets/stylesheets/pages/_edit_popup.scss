@@ -101,7 +101,7 @@
 }
 
 .edit-page {
-.form-group {
+  .form-group {
     display: flex;
     flex-direction: row;
     padding-left: 6em;
@@ -113,4 +113,21 @@
       min-width: 9em;
     }
   }
+}
+
+// Make header, footer, background fixed
+.popups-edit .navbar-main {
+  position: fixed;
+}
+
+.popups-edit .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.popups-edit {
+  background-color: white;
 }
