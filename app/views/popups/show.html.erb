@@ -30,8 +30,11 @@
 
       <div class="col-lg-8">
         <!-- Background image (needs fix) -->
-        <div class="card-img" style="background-image: url('<%= cl_image_path @popup.photos.first.path %>'); width: auto; min-height: 450px;">
-        </div>
+        <% if @popup.photos.empty? %>
+          <div class="card-img" style="background-image: url('https://cdn.eyeem.com/thumb/b19faf4b8314865df63178c4e07a708a4b39c7d5-1473234719053/w/900'); width: auto; min-height: 450px;"></div>
+        <% else %>
+          <div class="card-img" style="background-image: url('<%= cl_image_path @popup.photos.first.path %>'); width: auto; min-height: 450px;"></div>
+        <% end %>
       </div>
 
       <div class="col-lg-4">
@@ -45,21 +48,23 @@
             </div>
             <div class="stats-div amount">
               <% if @popup.amount_pledged %>
-              <h4>€ <%= @popup.amount_pledged.to_s(:delimited) %></h4>
+                <h4>€ <%= @popup.amount_pledged.to_s(:delimited) %></h4>
               <% else %>
-              <h4> € 0</h4>
+                <h4> € 0</h4>
               <% end %>
-              <p>pledged of € <%= @popup.funding_goal.to_s(:delimited) %> goal</p>
+              <% if @popup.funding_goal %>
+                <p>pledged of € <%= @popup.funding_goal.to_s(:delimited) %> goal</p>
+              <% end %>
             </div>
             <div class="stats-div">
               <h4><%= @popup.orders.count %></h4>
               <p>Foodies</p>
             </div>
             <div class="stats-div">
-              <% start_time = @popup.deadline %>
-              <% end_time = Date.today %>
+              <% end_time = @popup.deadline %>
+              <% start_time = Date.today %>
               <% if @popup.deadline %>
-              <h4><%= (start_time - end_time).to_i %></h4>
+                <h4><%= (end_time - start_time).to_i %></h4>
               <% end %>
               <p>days to go</p>
             </div>
