@@ -57,7 +57,10 @@
 // Next button/link
 .edit-page {
   a {
-    color: white;;
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
 
@@ -100,7 +103,7 @@
 .form-group {
     display: flex;
     flex-direction: row;
-    padding-left: 12em;
+    padding-left: 6em;
     label {
       width: 150px;
       text-align: left;
