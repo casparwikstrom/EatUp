@@ -1,21 +1,22 @@
 <div class="page-wrapper">
  <!-- HEADER -->
- <div class="edit-header-wrapper">
-  <div class="header-popup-infos text-center">
-    <h1><strong><%= @popup.title %></strong> </h1>
-  </div>
+ <div class="row">
+   <div class="edit-header-wrapper">
+    <div class="header-popup-infos text-center">
+      <h1><strong><%= @popup.title %></strong> </h1>
+    </div>
 
-  <!-- TABS -->
-  <div class="tabs">
-    <a class="tab" data-target="#basic">
-      <h3>Basic</h3>
-    </a>
-    <a class="tab" data-target="#story">
-      <h3>Story</h3>
-    </a>
-    <a class="tab" data-target="#seats">
-      <h3>Seats</h3>
-    </a>
+    <!-- TABS -->
+    <div class="tabs">
+      <a class="tab" data-target="#basic">
+        <h3>Basic</h3>
+      </a>
+      <a class="tab" data-target="#story">
+        <h3>Story</h3>
+      </a>
+      <a class="tab" data-target="#seats">
+        <h3>Seats</h3>
+      </a>
    <!--  <a class="tab" data-target="#about-you">
       <h3>About You</h3>
     </a>
@@ -30,6 +31,8 @@
     </a>
   </div>
 </div>
+</div>
+
 
 <!-- CONTENT -->
   <%= simple_form_for @popup do |f| %>
@@ -41,7 +44,7 @@
 
   <div class="edit-content padding-top" id="basic">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <h2>Let’s get started</h2>
         <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
         <div class="form-content" id='next1' data-next='#next2'>
@@ -174,7 +177,7 @@
       });
 
       var executed = false;
-      $('.question-container').bind('mousewheel', function(e) {
+      $('.edit-page').bind('mousewheel', function(e) {
         console.log(e)
         if (!executed) {
           executed = true;
@@ -201,7 +204,7 @@
         };
       });
 
-      $('.questions-container input').on('keydown', function(e) {
+      $('.edit-page input').on('keydown', function(e) {
         if(e.keyCode == 13) {
           e.preventDefault();
           $(this).parent().parent().parent().find('a').click()

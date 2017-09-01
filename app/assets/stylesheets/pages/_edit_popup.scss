@@ -1,5 +1,5 @@
-// .header-wrapper {
-
+// * {
+//   border: thin red solid;
 // }
 
 .header-popup-infos {
@@ -42,12 +42,13 @@
 .edit-content {
   display: inline-block;
   min-width: 100vw;
-  padding-top: 17%;
+  padding-top: 22%;
 }
 // Child
 .edit-page {
   white-space:nowrap;
   position: relative;
+  display: inline-flex;
 }
 
 // Take out weird left-padding
