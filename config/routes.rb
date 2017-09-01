@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+  # get '/admin/popups/:id/edit/quick_edit' => 'admin/popups#quick_edit', as: :admin_popup_quick_edit
+  # patch '/admin/popups/:id/quick_update' => 'admin/popups#quick_update', as: :admin_popup_quick_update
 
   root to: 'pages#home'
-
 
   resources :popups do
     resources :orders, only: [ :new, :create, :destroy ]
@@ -18,9 +18,7 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-
   resources :profiles
-
 
   # resources :popups do
   #   member do
