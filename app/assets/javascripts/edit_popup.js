@@ -5,7 +5,7 @@ $(function() {
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: target.offset().top
+          scrollLeft: target.offset().left
         }, 500);
         return false;
       }
@@ -14,9 +14,16 @@ $(function() {
 
 
   $('#button1').click(function () {
-    $('input:text').text($('#trending_popups').val());
+    $('input:text').text($('#basic').val());
   });
 
+  $('#button2').click(function () {
+    $('input:text').text($('#story').val());
+  });
+
+  $('#button3').click(function () {
+    $('input:text').text($('#seats').val());
+  });
 
   var executed = false;
   $('.question-container').bind('mousewheel', function(e) {
@@ -27,13 +34,13 @@ $(function() {
       if(delta < 0) {
         if($(this).data('next')) {
           $('html, body').animate({
-            scrollTop: $($(this).data('next')).offset().top
+            scrollLeft: $($(this).data('next')).offset().left
           }, 500);
         }
       } else if (delta > 0) {
         if($(this).data('prev')) {
           $('html, body').animate({
-            scrollTop: $($(this).data('prev')).offset().top
+            scrollLeft: $($(this).data('prev')).offset().left
           }, 500);
         }
 

@@ -34,8 +34,31 @@
   }
 }
 
+// Horizontal scoll
 .fixed-content-height {
-  max-height: 65vh;
+  // max-height: 65vh;
+}
+// Parent
+.edit-content {
+  display: inline-block;
+  min-width: 100vw;
+  padding-top: 17%;
+}
+// Child
+.edit-page {
+  white-space:nowrap;
+}
+
+// Take out weird left-padding
+.edit-page {
+  margin-left: 0;
+}
+
+// Next button/link
+.edit-page {
+  a {
+    color: white;;
+  }
 }
 
 .form-group.popup_url {
@@ -50,6 +73,31 @@
 
 
 .form-group-edit {
+  display: flex;
+  flex-direction: row;
+  padding-left: 12em;
+  label {
+    width: 150px;
+    text-align: left;
+    padding: .5%;
+    margin-bottom: 0;
+    min-width: 9em;
+  }
+}
+
+.form-content {
+  padding-top: 3%;
+}
+
+// Fixed header
+.edit-header-wrapper {
+  width:100%;
+  position:fixed;
+  top:90px;
+}
+
+.edit-page {
+.form-group {
     display: flex;
     flex-direction: row;
     padding-left: 12em;
@@ -61,3 +109,4 @@
       min-width: 9em;
     }
   }
+}
