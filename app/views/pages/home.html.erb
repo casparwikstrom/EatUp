@@ -16,7 +16,9 @@
               <h4><%= popup.title %></h4>
               <% if popup.description %>
               <p class="description-text"><%= popup.description[0..100] + "..."%></p>
-              <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
+              <% end %>
+              <% if popup.user.photo %>
+                 <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
               <% end %>
             </div>
             <div class="progress">
@@ -25,7 +27,10 @@
               </div>
             </div>
             <div class="card-stats">
+            <% if popup.amount_pledged %>
               <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+            <% end %>
+
               <p>€ <%= humanized_money(popup.price) %> per seat </p>
               <div class="days">
                 <% start_time = popup.deadline %>
