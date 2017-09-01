@@ -7,14 +7,14 @@
     </div>
 
     <!-- TABS -->
-    <div class="tabs">
-      <a class="tab" data-target="#basic">
+    <div class="tabs" >
+      <a class="tab active" id="basic">
         <h3>Basic</h3>
       </a>
-      <a class="tab" data-target="#story">
+      <a class="tab" id="story">
         <h3>Story</h3>
       </a>
-      <a class="tab" data-target="#seats">
+      <a class="tab" id="seats">
         <h3>Seats</h3>
       </a>
    <!--  <a class="tab" data-target="#about-you">
@@ -26,7 +26,7 @@
     <!-- <a class="tab" data-target="#preview">
       <h3>Preview</h3>
     </a> -->
-    <a class="tab" data-target="#submit">
+    <a class="tab" id="create_popup">
       <h3>Submit</h3>
     </a>
   </div>
@@ -42,7 +42,7 @@
 
 
 
-  <div class="edit-content padding-top" id="basic">
+  <div class="edit-content padding-top" >
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <h2>Let’s get started</h2>
@@ -56,7 +56,7 @@
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
           </div>
           <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
-          <div class='btn btn-success'>
+          <div class='btn btn-success next-button'>
             <a href='#next2' id="button1" >Next</a>
           </div>
         </div>
@@ -65,7 +65,7 @@
   </div>
 
 
-  <div class="edit-content padding-top" id="story">
+  <div class="edit-content padding-top" >
     <h2>Tell us about your popup</h2>
     <p>Share why you're an aspiring chef and the vision behind your first restaurant. Get people excited about your popup!</p>
     <div class="form-content" id='next2' data-prev='#next1' data-next='#next3'>
@@ -75,14 +75,14 @@
         </div>
       </div>
     </div>
-    <div class='btn btn-success'>
+    <div class='btn btn-success next-button'>
       <a href='#next3' id="button2" >Next</a>
     </div>
   </div>
 
 
 
-  <div class="edit-content padding-top" id="seats">
+  <div class="edit-content padding-top" >
     <h2>Set your seat costs</h2>
     <p>Evaluate the price per seat your guests can pay to share your popup experience.</p>
     <div class="form-content" id='next3' data-prev='#next2' data-next='#create_popup'>
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div class='btn btn-success'>
+    <div class='btn btn-success next-button'>
       <a href='#submit' id="button3" >Next</a>
     </div>
   </div>
@@ -212,6 +212,30 @@
       })
     });
   });
+
+
+  $('#button1').click(function() {
+
+     $('#basic').removeClass('active');
+     $('#story').addClass('active');
+
+  });
+
+   $('#button2').click(function() {
+
+     $('#story').removeClass('active');
+     $('#seats').addClass('active');
+
+  });
+
+    $('#button3').click(function() {
+
+     $('#seats').removeClass('active');
+     $('#create_popup').addClass('active');
+
+  });
+
+
 </script>
 <% end %>
 
