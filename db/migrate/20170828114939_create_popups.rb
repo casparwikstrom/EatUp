@@ -3,7 +3,7 @@ class CreatePopups < ActiveRecord::Migration[5.1]
     create_table :popups do |t|
       t.string :title
       t.string :url
-      t.string :status
+      t.string :status, default: "pending"
       t.integer :funding_goal
       t.integer :amount_pledged
       t.date :deadline

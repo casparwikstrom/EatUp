@@ -5,6 +5,8 @@ class PopupsController < ApplicationController
   before_action :set_popup, only: [:show, :edit, :update, :destroy]
 
   def index
+    @wishlist = Wishlist.new
+
     if params[:type_ids]
       @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]}).select(&:is_ready?)
     elsif params[:search]
@@ -14,7 +16,6 @@ class PopupsController < ApplicationController
     else
       @popups = policy_scope(Popup).order(created_at: :desc).select(&:is_ready?)
     end
-
     respond_to do |format|
       format.html
       format.js

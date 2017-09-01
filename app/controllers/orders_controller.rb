@@ -17,10 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-
-
-
-
+    @user = current_user
     popup = Popup.find(params[:popup_id])
     @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
     authorize @order

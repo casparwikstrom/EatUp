@@ -60,10 +60,9 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 
-
 # group :development do
-  # gem "better_errors"
-  # gem "binding_of_caller"
+#   gem "better_errors"
+#   gem "binding_of_caller"
 # end
 
 #images
