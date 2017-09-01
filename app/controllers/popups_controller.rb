@@ -25,6 +25,7 @@ class PopupsController < ApplicationController
 
   def show
     @orders = @popup.orders
+    @wishlist = Wishlist.new
   end
 
   def edit
