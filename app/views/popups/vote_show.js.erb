@@ -1,0 +1,7 @@
+<% if current_user.liked? @popup %>
+$('.like-btn').addClass('liked');
+<% else %>
+$('.like-btn').removeClass('like-btn');
+<% end %>
+$('.likes-count').html("<%= @popup.get_upvotes.size %>");
+

@@ -3,7 +3,9 @@
     <div class="padding-top margin-bottom">
       <div class="row">
         <div class="col-lg-2 ">
+          <% if @popup.user.photo %>
           <p> <%= cl_image_tag @popup.user.photo.path, class: "header-avatar"%></p>
+          <% end %>
           <p> by <strong><%= @popup.user.first_name %></strong> </p>
         </div>
         <div class="col-lg-8">
@@ -42,7 +44,11 @@
               </div>
             </div>
             <div class="stats-div amount">
+              <% if @popup.amount_pledged %>
               <h4>€ <%= @popup.amount_pledged.to_s(:delimited) %></h4>
+              <% else %>
+              <h4> € 0</h4>
+              <% end %>
               <p>pledged of € <%= @popup.funding_goal.to_s(:delimited) %> goal</p>
             </div>
             <div class="stats-div">
@@ -100,23 +106,23 @@
                 </div>
                 <% end %>
               <% end %>
-            </div>
 
+            </div>
 
           <!-- Heart button (still needed) -->
 
             <div class="col-xs-6">
               <%= simple_form_for([@popup, @wishlist], remote: true) do |f|  %>
-                <%= button_tag type: 'submit' do %>
-                  <div class="heart"></div>
-                  <p>Wish List</p>
-                <% end %>
+              <%= button_tag type: 'submit' do %>
+              <div class="heart"></div>
+              <p>Wish List</p>
+              <% end %>
               <% end %>
             </div>
 
             <!-- Put on new order page -->
             <%= form_tag orders_path do %>
-              <%= hidden_field_tag 'popup_id', @popup.id %>
+            <%= hidden_field_tag 'popup_id', @popup.id %>
             <% end %>
 
 
