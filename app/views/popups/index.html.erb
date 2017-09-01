@@ -1,23 +1,29 @@
-<!-- add form with checkboxes for each category -->
-<h1>What kind of food are you looking for?</h1>
 
-<%= form_tag popups_path, method: :get, id: "form", remote: true do %>
-<ul>
-  <% Type.all.each do |type| %>
-  <div id="type_checkbox">
-   <li class="type_trigger">
-      <%= check_box_tag "type_ids[]", type.id, false, class: "type_input hidden" %>
-      <span><%= type.name %></span>
-    </li>
-  </div>
-  <% end %>
-</ul>
-<% end %>
-
+<div class="page-wrapper">
 <div class="container">
   <div class="row popups">
 
-        <% @popups.each do |popup| %>
+  <div class="categories-explorer">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+    <!-- add form with checkboxes for each category -->
+      <h2 class= "text-center">What kind of food are you looking for?</h2>
+
+      <%= form_tag popups_path, method: :get, id: "form", remote: true do %>
+        <ul>
+          <% Type.all.each do |type| %>
+          <div id="type_checkbox">
+           <li class="type_trigger">
+              <%= check_box_tag "type_ids[]", type.id, false, class: "type_input hidden" %>
+              <span><%= type.name %></span>
+            </li>
+          </div>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <% @popups.each do |popup| %>
 
         <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
           <div class="card-container" id="popup-<%= popup.id %>">
@@ -72,7 +78,7 @@
         <% end %>
       </div>
     </div>
-
+</div>
 
 <% content_for(:after_js) do %>
 
