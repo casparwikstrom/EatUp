@@ -10,6 +10,9 @@
     transition: all 0.3s ease;
     margin-left: -500px;
   }
+  .fa-times {
+    display: none
+  }
 }
 .navbar-container.searchable {
   .navbar-main {
@@ -17,6 +20,9 @@
   }
   #search {
     margin-left: 0px;
+  }
+  .fa-times {
+    display: inherit;
   }
 }
 
