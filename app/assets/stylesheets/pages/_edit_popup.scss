@@ -1,5 +1,5 @@
-// .header-wrapper {
-
+// * {
+//   border: thin red solid;
 // }
 
 .header-popup-infos {
@@ -34,8 +34,36 @@
   }
 }
 
+// Horizontal scoll
 .fixed-content-height {
-  max-height: 65vh;
+  // max-height: 65vh;
+}
+// Parent
+.edit-content {
+  display: inline-block;
+  min-width: 100vw;
+  padding-top: 22%;
+}
+// Child
+.edit-page {
+  white-space:nowrap;
+  position: relative;
+  display: inline-flex;
+}
+
+// Take out weird left-padding
+.edit-page {
+  margin-left: 0;
+}
+
+// Next button/link
+.edit-page {
+  a {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .form-group.popup_url {
@@ -49,10 +77,35 @@
 }
 
 
-.form-group-edit {
+.form-group.edit {
+  display: flex;
+  flex-direction: row;
+  padding-left: 12em;
+  label {
+    width: 150px;
+    text-align: left;
+    padding: .5%;
+    margin-bottom: 0;
+    min-width: 9em;
+  }
+}
+
+.form-content {
+  padding-top: 3%;
+}
+
+// Fixed header
+.edit-header-wrapper {
+  width: 100%;
+  position: fixed;
+  top:90px;
+}
+
+.edit-page {
+  .form-group {
     display: flex;
     flex-direction: row;
-    padding-left: 12em;
+    padding-left: 6em;
     label {
       width: 150px;
       text-align: left;
@@ -61,3 +114,21 @@
       min-width: 9em;
     }
   }
+}
+
+// Make header, footer, background fixed
+.popups-edit .navbar-main {
+  position: fixed;
+}
+
+.popups-edit .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.popups-edit {
+  background-color: white;
+}

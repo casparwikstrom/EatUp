@@ -1,135 +1,241 @@
 <div class="page-wrapper">
  <!-- HEADER -->
- <div class="edit-header-wrapper">
-  <div class="header-popup-infos text-center">
-    <h1><strong><%= @popup.title %></strong> </h1>
-  </div>
+ <div class="row">
+   <div class="edit-header-wrapper">
+    <div class="header-popup-infos text-center">
+      <h1><strong><%= @popup.title %></strong> </h1>
+    </div>
 
-  <!-- TABS -->
-  <div class="tabs">
-    <a class="tab active" data-target="#basic">
-      <h3>Basic</h3>
-    </a>
-    <a class="tab" data-target="#story">
-      <h3>Story</h3>
-    </a>
-    <a class="tab" data-target="#seats">
-      <h3>Seats</h3>
-    </a>
-    <a class="tab" data-target="#about-you">
+    <!-- TABS -->
+    <div class="tabs" >
+      <a class="tab active" id="basic">
+        <h3>Basic</h3>
+      </a>
+      <a class="tab" id="story">
+        <h3>Story</h3>
+      </a>
+      <a class="tab" id="seats">
+        <h3>Seats</h3>
+      </a>
+   <!--  <a class="tab" data-target="#about-you">
       <h3>About You</h3>
     </a>
     <a class="tab" data-target="#account">
       <h3>Account</h3>
-    </a>
+    </a> -->
     <!-- <a class="tab" data-target="#preview">
       <h3>Preview</h3>
     </a> -->
-    <a class="tab" data-target="#submit">
+    <a class="tab" id="create_popup">
       <h3>Submit</h3>
     </a>
   </div>
 </div>
+</div>
+
 
 <!-- CONTENT -->
-<div class="container text-center fixed-content-height edit-page">
   <%= simple_form_for @popup do |f| %>
-  <div class="tab-content padding-top" id="basic">
-    <h2>Let’s get started</h2>
-    <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
-    <div class="form-content">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10">
+<div class="container text-center fixed-content-height edit-page">
+
+
+
+
+
+  <div class="edit-content padding-top" >
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <h2>Let’s get started</h2>
+        <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
+        <div class="form-content" id='next1' data-next='#next2'>
           <%= f.input :title %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10">
           <%= f.input :photos, as: :attachinary, input_html: { multiple: true } %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10">
           <div class="form-group">
             <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[funding_goal]" id="popup_funding_goal">
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10">
           <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
+          <div class='btn btn-success next-button'>
+            <a href='#next2' id="button1" >Next</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="tab-content padding-top hidden" id="story">
+  <div class="edit-content padding-top" >
     <h2>Tell us about your popup</h2>
     <p>Share why you're an aspiring chef and the vision behind your first restaurant. Get people excited about your popup!</p>
-    <div class="form-content">
+    <div class="form-content" id='next2' data-prev='#next1' data-next='#next3'>
       <div class="row">
         <div class="col-xs-12 col-sm-10">
           <%= f.input :description %>
         </div>
       </div>
     </div>
+    <div class='btn btn-success next-button'>
+      <a href='#next3' id="button2" >Next</a>
+    </div>
   </div>
 
 
 
-  <div class="tab-content padding-top hidden" id="seats">
+  <div class="edit-content padding-top" >
     <h2>Set your seat costs</h2>
     <p>Evaluate the price per seat your guests can pay to share your popup experience.</p>
-    <div class="form-content">
+    <div class="form-content" id='next3' data-prev='#next2' data-next='#create_popup'>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2" id="price-input">
-          <div class="form-group-edit">
+          <div class="form-group edit">
             <label class="price control-label integer optional" for="popup_price">Price per seat</label>
             <span class="currency-margin-top">€</span>
             <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
           </div>
         </div>
-
       </div>
+    </div>
+    <div class='btn btn-success next-button'>
+      <a href='#submit' id="button3" >Next</a>
     </div>
   </div>
 
-
-  <div class="tab-content padding-top hidden" id="about-you">
+  <!-- DO WE NEED -->
+ <!--  <div class="edit-content padding-top" id="about-you">
     <h2>Share more about yourself.</h2>
     <p>If you want to include more information about yourself, share a website URL where foodies can learn more about your popup idea. </p>
     <div class="form-content">
       <div class="row">
         <div class="col-xs-12 col-sm-10">
-          <%= f.input :url %>
+          [INSERT LINE FOR FORM INPUT URL]
         </div>
       </div>
     </div>
-  </div>
+    <div class='btn btn-success'>
+      <a href='#next5' id="button4" >Next</a>
+    </div>
+  </div> -->
 
-
-  <div class="tab-content padding-top hidden" id="account">
+  <!-- WAITING TIL WE HAVE STRIPE -->
+<!--   <div class="edit-content padding-top" id="account">
     <h2>Confirm your contact details and link a bank account.</h2>
     <p>Provide details about where funds should be sent once you've achieved your funding goal.</p>
     <p>(Stripe)</p>
-  </div>
+    <div class='btn btn-success'>
+      <a href='#next6' id="button5" >Next</a>
+    </div>
+  </div> -->
 
   <!-- PREVIEW - TBD -->
-  <!-- <div class="tab-content padding-top hidden" id="preview">
+  <!-- <div class="edit-content padding-top" id="preview">
     <h2>popup.title</h2>
   </div>
 -->
 
-<div class="tab-content padding-top hidden" id="submit">
-  <h2>You're all set to launch!</h2>
-  <br>
-  <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
+<div class="edit-content padding-top" id="submit">
+  <div class="form-content" id='create_popup' data-prev='#next3'>
+    <h2>You're all set to launch!</h2>
+    <br>
+    <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
+  </div>
 </div>
-<% end %>
 </div>
-</div>
+  <% end %>
 
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+
+    $(function() {
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollLeft: target.offset().left
+            }, 500);
+            return false;
+          }
+        }
+      });
+
+
+      $('#button1').click(function () {
+        $('input:text').text($('#basic').val());
+      });
+
+      $('#button2').click(function () {
+        $('input:text').text($('#story').val());
+      });
+
+      $('#button3').click(function () {
+        $('input:text').text($('#seats').val());
+      });
+
+      var executed = false;
+      $('.edit-page').bind('mousewheel', function(e) {
+        console.log(e)
+        if (!executed) {
+          executed = true;
+          var delta = e.originalEvent.wheelDelta;
+          if(delta < 0) {
+            if($(this).data('next')) {
+              $('html, body').animate({
+                scrollLeft: $($(this).data('next')).offset().left
+              }, 500);
+            }
+          } else if (delta > 0) {
+            if($(this).data('prev')) {
+              $('html, body').animate({
+                scrollLeft: $($(this).data('prev')).offset().left
+              }, 500);
+            }
+
+          }
+
+
+          setTimeout(function() {
+            executed = false
+          }, 1000)
+        };
+      });
+
+      $('.edit-page input').on('keydown', function(e) {
+        if(e.keyCode == 13) {
+          e.preventDefault();
+          $(this).parent().parent().parent().find('a').click()
+        }
+      })
+    });
+  });
+
+
+  $('#button1').click(function() {
+
+     $('#basic').removeClass('active');
+     $('#story').addClass('active');
+
+  });
+
+   $('#button2').click(function() {
+
+     $('#story').removeClass('active');
+     $('#seats').addClass('active');
+
+  });
+
+    $('#button3').click(function() {
+
+     $('#seats').removeClass('active');
+     $('#create_popup').addClass('active');
+
+  });
+
+
+</script>
+<% end %>
 

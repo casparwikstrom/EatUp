@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+
+// .position-fixed {
+//   position: fixed;
+// }
 .wishlist {
   button {
     &:focus {
@@ -21,3 +25,4 @@
 .card-desc {
   position: relative;
 }
+

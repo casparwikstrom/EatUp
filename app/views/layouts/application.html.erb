@@ -8,19 +8,24 @@
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
-<body>
+<body class="<%= params[:controller] %>-<%= params[:action] %>">
+
+  <% if params[:controller] == "popups" && params[:action] == "edit" %>
+  <%= render 'shared/navbar' %>
+  <% else %>
   <div class="navbar-container">
     <%= render 'shared/navbar' %>
     <%= render 'shared/search' %>
   </div>
+  <% end %>
   <%= render 'shared/flashes' %>
 
   <%= yield %>
 
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= cloudinary_js_config %>
-    <%= yield(:after_js) %>
-    <script id="dsq-count-scr" src="//eatupclub.disqus.com/count.js" async></script>
-  </body>
+  <%= render 'shared/footer' %>
+  <%= javascript_include_tag 'application' %>
+  <%= cloudinary_js_config %>
+  <%= yield(:after_js) %>
+  <script id="dsq-count-scr" src="//eatupclub.disqus.com/count.js" async></script>
+</body>
 </html>
