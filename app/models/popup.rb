@@ -12,6 +12,7 @@ class Popup < ApplicationRecord
 
 
   validates :title, presence: true
+  validates :status, inclusion: { in: ["pending", "active", "funded", "cancelled"] }
 
 
   def is_ready?

@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170831154846) do
   create_table "popups", force: :cascade do |t|
     t.string "title"
     t.string "url"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "funding_goal"
     t.integer "amount_pledged"
     t.date "deadline"
