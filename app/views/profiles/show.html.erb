@@ -13,6 +13,7 @@
       <% else %>
       <div class="profile-show-img-no text-center">
         <img src="http://res.cloudinary.com/eatupclub/image/upload/c_scale,h_130,w_130/v1504254820/Logo_v1_ioepmg.png" alt="">
+          <%= link_to "Add a profile image", edit_profile_path, class:"profile-show-img-no-hover text-center"%>
       </div>
       <% end %>
       <% if current_user.first_name? %>
