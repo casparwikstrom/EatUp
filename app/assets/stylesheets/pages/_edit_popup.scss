@@ -2,63 +2,47 @@
 //   border: thin red solid;
 // }
 
-.header-popup-infos {
-  .form-control {
+// <!-- HEADER -->
+
+.header {
+  width: 100%;
+  position: fixed;
+  top:90px;
+  h1 {
     border-bottom: none;
     height: 50px;
     font-size: 50px;
   }
 }
 
-.funding_goal  {
-  width: 150px;
-  text-align: left;
-  padding: .5%;
-  margin-bottom: 0;
-  min-width: 9em;
+// <!-- TABS -->
+// see _tabs.scss
 
+// Make header, footer, background fixed
+.popups-edit .navbar-main {
+  position: fixed;
 }
 
-.currency-margin-top {
-  margin-top: 7px;
+.popups-edit .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-
-.popup_description {
-  display: flex;
-  flex-direction: row;
-  padding-left: 12em;
-  textarea {
-    height: 200px;
-    border: solid thin #E8E8E8 !important;
-  }
+.popups-edit {
+  background-color: white;
 }
 
-// Horizontal scoll
-.fixed-content-height {
-  // max-height: 65vh;
-}
+// <!-- CONTENT -->
+
 // Parent
-.edit-content {
-  display: inline-block;
-  min-width: 100vw;
-  padding-top: 22%;
-}
-// Child
-.edit-page {
+.questions-container {
+  max-height: 65vh;
   white-space:nowrap;
   position: relative;
   display: inline-flex;
-}
-
-// Take out weird left-padding
-.edit-page {
-  margin-left: 0;
-}
-
-// Next button/link
-.edit-page {
-  a {
+  a { // Next button/link
     color: white;
   }
   a:hover {
@@ -66,42 +50,23 @@
   }
 }
 
-.form-group.popup_url {
-  label {
-    text-align: center;
+// Child
+.question-container {
+  // display: inline-block;
+  min-width: 100vw;
+  padding-top: 22%;
+}
+
+.question-content {
+  padding: 0 20%;
+}
+
+// <!-- FORM -->
+
+.popups-edit {
+  .form-content {
+    padding-top: 3%;
   }
-}
-
-#price-input .form-row {
-  margin: 0;
-}
-
-
-.form-group.edit {
-  display: flex;
-  flex-direction: row;
-  padding-left: 12em;
-  label {
-    width: 150px;
-    text-align: left;
-    padding: .5%;
-    margin-bottom: 0;
-    min-width: 9em;
-  }
-}
-
-.form-content {
-  padding-top: 3%;
-}
-
-// Fixed header
-.edit-header-wrapper {
-  width: 100%;
-  position: fixed;
-  top:90px;
-}
-
-.edit-page {
   .form-group {
     display: flex;
     flex-direction: row;
@@ -116,19 +81,33 @@
   }
 }
 
-// Make header, footer, background fixed
-.popups-edit .navbar-main {
-  position: fixed;
-}
 
-.popups-edit .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+// To allow for € span
+.funding_goal  {
+  width: 150px;
+  text-align: left;
+  padding: .5%;
+  margin-bottom: 0;
+  min-width: 9em;
 
 }
 
-.popups-edit {
-  background-color: white;
+// Align € sign w/ input line
+.currency-margin-top {
+  margin-top: 7px;
 }
+
+
+.description-content {
+  padding-left: 12em;
+  textarea {
+    height: 10em;
+    width: 30em;
+    border: solid thin #E8E8E8 !important;
+  }
+}
+
+
+
+
+
