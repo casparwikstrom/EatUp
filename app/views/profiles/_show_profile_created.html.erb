@@ -50,5 +50,11 @@
     <% end %>
 
 <% else %>
-  <h1>You haven't added anything yet yooo</h1>
+<div class="text-center">
+  <div class="yourpopup-heading">
+    <h3>Your PopUps</h3>
+    <p>Looks like you have no PopUp listed...</p>
+    <p><%= link_to "Create your own PopUp", new_popup_path, class: "button-pink profile-margin-top" %>
+  </div>
+</div>
 <% end %>

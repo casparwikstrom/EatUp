@@ -46,6 +46,13 @@
   </div>
 
 <% else %>
-  <h1>You haven't added anything yet</h1>
+
+  <div class="text-center">
+    <div class="wishlist-heading">
+      <h3>Wishlist</h3>
+      <p>Looks like you haven't added anything yet to your Wishlist...</p>
+      <%= link_to "Explore PopUps", popups_path, class: "button-cyan profile-margin-top" %>
+  </div>
+
 <% end %>
 
