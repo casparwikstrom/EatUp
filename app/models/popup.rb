@@ -6,6 +6,7 @@ class Popup < ApplicationRecord
   has_many :popuptypes, dependent: :destroy
   has_many :types, through: :popuptypes
 
+
   has_attachments :photos
   acts_as_votable
   monetize :price_cents
@@ -13,6 +14,9 @@ class Popup < ApplicationRecord
 
   validates :title, presence: true
   validates :status, inclusion: { in: ["pending", "active", "funded", "cancelled"] }
+  geocoded_by :address
+
+  after_validation :geocode, if: :address_changed?
 
 
   def is_ready?

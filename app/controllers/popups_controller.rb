@@ -6,7 +6,6 @@ class PopupsController < ApplicationController
 
   def index
     @wishlist = Wishlist.new
-
     if params[:type_ids]
       @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]}).select(&:is_ready?)
     elsif params[:search]
@@ -20,8 +19,18 @@ class PopupsController < ApplicationController
       format.html
       format.js
     end
-
   end
+
+
+  # def search
+  #   @hedgies = Hedgie.where.not(latitude: nil, longitude: nil)
+  #   @hedgies = @hedgies.near(params[:address], 10) unless params[:address].blank?
+  #   @hash = Gmaps4rails.build_markers(@hedgies) do |hedgie, marker|
+  #     marker.lat hedgie.latitude
+  #     marker.lng hedgie.longitude
+  #     # marker.infowindow render_to_string(partial: "/hedgies/map_box", locals: { hedgie: hedgie })
+  #   end
+  # end
 
   def show
     @orders = @popup.orders
