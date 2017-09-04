@@ -2,7 +2,7 @@
  <!-- HEADER -->
  <div class="row">
    <div class="header text-center">
-      <h1><strong><%= @popup.title %></strong> </h1>
+    <h1><strong><%= @popup.title %></strong> </h1>
 
     <!-- TABS -->
     <div class="tabs" >
@@ -33,7 +33,7 @@
 
 
 <!-- CONTENT -->
-  <%= simple_form_for @popup do |f| %>
+<%= simple_form_for @popup do |f| %>
 <div class="container text-center questions-container">
 
   <div class="question-container" >
@@ -41,8 +41,8 @@
       <h2>Let’s get started</h2>
       <p>Make a great first impression with your popup's title and image, and set your funding goal, campaign duration, and popup category.</p>
       <div class="form-content" id='next1' data-next='#next2'>
-        <%= f.input :title %>
-        <%= f.input :photos, as: :attachinary, input_html: { multiple: true } %>
+        <%= f.input :title%>
+        <%= f.input :photos, required: true, as: :attachinary, input_html: { multiple: true } %>
         <div class="form-group">
           <label class="funding_goal control-label integer optional" for="popup_funding_goal">Funding goal</label>
           <span class="currency-margin-top">€</span>
@@ -50,9 +50,9 @@
         </div>
         <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
       </div>
-        <div class='btn btn-success next-button'>
-          <a href='#next2' id="button1" >Next</a>
-        </div>
+      <div class='btn btn-success next-button'>
+        <a href='#next2' id="button1" >Next</a>
+      </div>
     </div>
   </div>
 
@@ -80,9 +80,10 @@
         <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
       </div>
     </div>
-      <div class='btn btn-success next-button'>
-        <a href='#submit' id="button3" >Next</a>
-      </div>
+    <div class='btn btn-success next-button'>
+      <a href='#submit' id="button3" >Next</a>
+    </div>
+  </div>
 
   <!-- DO WE NEED -->
  <!--  <div class="question-container" id="about-you">
@@ -117,14 +118,14 @@
 -->
 
 <div class="question-container" id="submit">
+  <h2>You're all set to launch!</h2>
   <div class="form-content" id='create_popup' data-prev='#next3'>
-    <h2>You're all set to launch!</h2>
     <br>
     <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
   </div>
 </div>
 </div>
-  <% end %>
+<% end %>
 
 
 <% content_for :after_js do %>
@@ -199,24 +200,24 @@
 
   $('#button1').click(function() {
 
-     $('#basic').removeClass('active');
-     $('#story').addClass('active');
+   $('#basic').removeClass('active');
+   $('#story').addClass('active');
 
-  });
+ });
 
-   $('#button2').click(function() {
+  $('#button2').click(function() {
 
-     $('#story').removeClass('active');
-     $('#seats').addClass('active');
+   $('#story').removeClass('active');
+   $('#seats').addClass('active');
 
-  });
+ });
 
-    $('#button3').click(function() {
+  $('#button3').click(function() {
 
-     $('#seats').removeClass('active');
-     $('#create_popup').addClass('active');
+   $('#seats').removeClass('active');
+   $('#create_popup').addClass('active');
 
-  });
+ });
 
 
 </script>

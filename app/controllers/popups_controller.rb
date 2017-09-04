@@ -35,7 +35,7 @@ class PopupsController < ApplicationController
     if @popup.save
       redirect_to popup_path(@popup)
     else
-      redirect_to root_path
+      redirect_to popup_path(@popup)
     end
   end
 
