@@ -6,7 +6,6 @@ class PopupsController < ApplicationController
 
   def index
     @wishlist = Wishlist.new
-
     if params[:type_ids]
       @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]}).select(&:is_ready?)
     elsif params[:search]
@@ -20,7 +19,6 @@ class PopupsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def show
