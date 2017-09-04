@@ -1,0 +1,5 @@
+meta_product_name: "EatUp"
+meta_title: "EatUp- Anyone can be a chef"
+meta_description: "EatUp helps amateur chefs find the resources and support they need to make their popup restaurant a reality."
+meta_image: "/eatup_social_banner.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@EatUpPopUp"   # required for Twitter Cards
