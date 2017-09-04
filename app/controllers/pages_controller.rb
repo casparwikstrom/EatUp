@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@popups) do |popup, marker|
       marker.lat popup.latitude
       marker.lng popup.longitude
-      # marker.infowindow render_to_string(partial: "/popups/map_box", locals: { popup: popup })
+
     end
   end
 end
