@@ -6,16 +6,9 @@
   <div class="container">
     <!-- user profile and edit button -->
     <div class="profile-show-header">
-      <% if @user.photo? %>
       <div class="profile-show-img-yes">
-        <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :fill %>
+      <%= image_tag user_avatar(current_user), width: 150, height: 150, crop: :fill%>
       </div>
-      <% else %>
-      <div class="profile-show-img-no text-center">
-        <img src="http://res.cloudinary.com/eatupclub/image/upload/c_scale,h_130,w_130/v1504254820/Logo_v1_ioepmg.png" alt="">
-          <%= link_to "Add a profile image", edit_profile_path, class:"profile-show-img-no-hover text-center"%>
-      </div>
-      <% end %>
       <% if current_user.first_name? %>
         <h3><%= current_user.first_name %>'s User Profile</h3>
       <% else %>

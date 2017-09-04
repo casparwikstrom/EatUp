@@ -72,7 +72,6 @@
             <% if popup.amount_pledged %>
               <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
             <% end %>
-
               <p>€ <%= humanized_money(popup.price_cents) %> per seat </p>
               <div class="days">
                 <% start_time = popup.deadline %>
