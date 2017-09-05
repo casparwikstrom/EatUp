@@ -72,7 +72,7 @@ popups = [
     user: User.find_by_first_name("Boris"),
     title: "Authentic French Fries",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(6),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -167,6 +167,7 @@ Popup.find_by_title("Authentic Burgers").photo_urls = [
   ]
 
 
+# Adds number of orders
 users = User.all
 Popup.all.each do |popup|
   (1..6).to_a.sample.times do |index|
