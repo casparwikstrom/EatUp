@@ -33,7 +33,7 @@
           <i>€</i>
           <%= f.input  :amount, class: "form-control", placeholder: "10" %>
         </div>
-        <%= f.button :submit, "Continue", class: "btn btn-primary" %>
+        <%= f.button :submit, "Continue", class: "btn btn-primary btn-order" %>
       <% end %>
     </div>
 
@@ -47,7 +47,7 @@
       <%= simple_form_for [@popup, @order] do |f| %>
         <%= f.input 'popup_id', input_html: { value: @popup.id }, as: :hidden %>
         <%= f.input 'is_donation', input_html: { value: false }, as: :hidden %>
-        <%= f.input :ordered_seats, label: "Seats", input_html: { id: "number-of-seats", min: 0 }, collection: (1..10).to_a, prompt: "Choose number of seats" %>
+        <%= f.input :ordered_seats, label: "Seats", input_html: { id: "number-of-seats", min: 0 }, collection: (1..10).to_a, prompt: "Choose number of seats", class: "amount-input" %>
         <div class="popup-price">
           <label>Price</label><br>
           <label class="amount" id="price-per-seat" data-price="<%= @popup.price %>">
