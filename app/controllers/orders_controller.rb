@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @order.user = @user
     @order.popup = popup
 
-    if @order.is_donation
+    if @order.is_donation?
       @order.amount
     else
       @order.amount = popup.price * @order.ordered_seats
