@@ -31,10 +31,10 @@
         </div>
         <div class="card-stats">
         <% if wishlist.popup.amount_pledged %>
-          <p><%= wishlist.popup.amount_pledged.to_s(:delimited) %> € pledged</p>
+          <p>€ <%= wishlist.popup.amount_pledged.to_s(:delimited) %> pledged</p>
         <% end %>
 
-          <p><%= humanized_money(wishlist.popup.price_cents) %> € per seat </p>
+          <p>€ <%= humanized_money(wishlist.popup.price_cents) %> per seat </p>
           <div class="days">
             <% start_time = wishlist.popup.deadline %>
             <% end_time = Date.today %>
