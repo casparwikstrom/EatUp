@@ -4,7 +4,7 @@
   <!-- Right Navigation -->
   <form id="search" action="<%= popups_path %>" method="get">
     <i class="fa fa-search search-icon" aria-hidden="true"></i>
-      <input type="text" id="search-field" class="search-input" placeholder="Search" />
+      <input type="text" name="query" value="<%= params[:query] %>" id="search-field" class="search-input" placeholder="Search" />
       <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" hidefocus="true" tabindex="-1" />
   </form>
 

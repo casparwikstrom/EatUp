@@ -1,1 +1,67 @@
-<h1>New Order Form</h1>
+<div class="page-wrapper">
+  <div class="container">
+    <div class="padding-top margin-bottom">
+      <div class="row">
+        <div class="popup-title">
+          <h1><%= @popup.title %></h1>
+        </div>
+        <div class="chef-pic">
+          <% if @popup.user.photo %>
+          <p> <%= cl_image_tag @popup.user.photo.path, class: "header-avatar"%></p>
+          <% end %>
+          <p> by&nbsp;<strong><%= @popup.user.first_name %></strong> </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 order-new-section">
+    <h4>Support this popup</h4>
+
+    <div class="reward-card">
+      <div class="reward-header">
+        <div class="circle">
+          <i class="fa fa-check"></i>
+        </div>
+        <h3>Make a pledge without a reward</h3>
+      </div>
+
+      <%= simple_form_for [@popup, @order] do |f| %>
+        <%= f.input 'popup_id', input_html: { value: @popup.id }, as: :hidden %>
+        <%= f.input 'is_donation', input_html: { value: true }, as: :hidden %>
+        <div class="input-icon">
+          <i>€</i>
+          <%= f.input  :amount, class: "form-control", placeholder: "10" %>
+        </div>
+        <%= f.button :submit, "Continue", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="reward-card">
+      <div class="reward-header">
+        <div class="circle">
+          <i class="fa fa-check"></i>
+        </div>
+        <h3>Book a seat at <%= @popup.user.first_name %>'s popup</h3>
+      </div>
+      <%= simple_form_for [@popup, @order] do |f| %>
+        <%= f.input 'popup_id', input_html: { value: @popup.id }, as: :hidden %>
+        <%= f.input 'is_donation', input_html: { value: false }, as: :hidden %>
+        <%= f.input :ordered_seats, label: "Seats", input_html: { id: "number-of-seats", min: 0 }, collection: (1..10).to_a, prompt: "Choose number of seats" %>
+        <div class="popup-price">
+          <label>Price</label><br>
+          <label class="amount" id="price-per-seat" data-price="<%= @popup.price %>">
+            € <%=humanized_money(@popup.price) %>
+          </label>
+        </div>
+        <div class="popup-price">
+          <label>Total</label><br>
+          <label class="amount"><span id="total-price">€  0</span></label>
+        </div>
+        <%= f.button :submit, "Continue", class: "btn btn-primary btn-no-donation" %>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
