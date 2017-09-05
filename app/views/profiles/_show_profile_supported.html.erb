@@ -1,10 +1,13 @@
 <% if @orders.present? %>
-    <% @orders.each do |order| %>
-    <div>
-    <%= order.title %>
-    <%= link_to "Delete", popup_order_path(order), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-    <% end %>
+  <div class="wishlist-heading text-center">
+    <h3>PopUps you supported</h3>
+  </div>
+  <% @orders.each do |order| %>
+  <div>
+  <%= order.title %>
+  <%= link_to "Delete", popup_order_path(order), method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+  <% end %>
 
 <% else %>
   <div class="text-center">
