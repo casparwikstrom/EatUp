@@ -15,22 +15,89 @@
   <i class="fa fa-times navbar-toggle"></i>
 
 </div>
-
      <% if @popups %>
      <% @popups.each do |popup| %>
-     <div class="small-card-container">
-      <div class="col-xs-6 col-sm-6 col-sm-6">
-       <div class="card-small" style="background-image: url('<%= !popup.photos.empty? ? cl_image_path(popup.photos.first.path, width: 350, height: 200, crop: :fill, class: "background-image") : "" ; %>')">
-         <%= link_to popup.title, popup_path(popup), class: "card-link" %>
-       </div>
-       <div class="card-footer-small">
-        <%= popup.address %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <% else %>
-  <h3>Enter address and Category</h3>
+
+        <div class="col-xs-12 col-sm-6 col-lg-6 margin-bottom">
+          <div class="card-container" id="popup-<%= popup.id %>">
+            <%= link_to popup_path(popup), class: "card-link" do %>
+            <div class="card-img" style="background-image: url('<%= cl_image_path popup.photos.first.path, width: 300, height: 200 %>');">
+            </div>
+
+            <div class="card-desc">
+              <h4><%= popup.title %></h4>
+              <% if popup.description %>
+              <p class="description-text"><%= popup.description[0..100] + "..."%></p>
+              <% end %>
+              <% if popup.user.photo %>
+                 <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
+              <% end %>
+              <div class="like-wishlist-icons">
+                <% if current_user %>
+                  <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
+                    <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                    <div class="icon-wrapper">
+                      <span class="icon"><i class="fa fa-thumbs-up"></i></span>
+                      <div class="border"><span></span></div>
+                      <div class="satellite">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
+                    <span class="likes-count"> <%= popup.get_upvotes.size %></span>
+                    <div class="icon-wrapper">
+                      <span class="icon"><i class="fa fa-thumbs-up"></i></span>
+                      <div class="border"><span></span></div>
+                      <div class="satellite">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+                <div class="wishlist">
+                  <%= simple_form_for([popup, @wishlist], remote: true) do |f|  %>
+                  <%= button_tag type: 'submit', class: "button postfix" do %>
+                  <div class="heart"></div>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
+                <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>% Complete</span>
+              </div>
+            </div>
+            <div class="card-stats">
+            <% if popup.amount_pledged %>
+              <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+            <% end %>
+
+              <p>€ <%= humanized_money(popup.price) %> per seat </p>
+              <div class="days">
+                <% start_time = popup.deadline %>
+                <% end_time = Date.today %>
+                <p><%= (start_time - end_time).to_i %> days to go</p>
+              </div>
+              <!-- percentage funded -->
+              <!-- days to go -->
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
   <% end %>
 </div>
 
