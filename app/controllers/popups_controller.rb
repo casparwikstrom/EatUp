@@ -71,7 +71,7 @@ class PopupsController < ApplicationController
   def destroy
     @popup.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, alert: 'Popup project was successfully canceled.' }
+      format.html { redirect_to profile_path, alert: 'Popup project was successfully canceled.' }
       format.json { head :no_content }
     end
   end
