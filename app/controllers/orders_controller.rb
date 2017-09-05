@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
 
 
   def order_params
-    params.require(:order).permit(:ordered_seats, :user_id, :popup_id, :amount, :state)
+    params.require(:order).permit(:ordered_seats, :user_id, :popup_id, :amount, :state, :is_donation)
   end
 
 end

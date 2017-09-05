@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:index]
 
-
   resources :popups do
     resources :orders, only: [ :new, :create, :destroy ]
     member do
@@ -20,6 +19,9 @@ Rails.application.routes.draw do
 
     resources :payments, only: [:new, :create]
   end
+
+  #chat
+  mount ActionCable.server => "/cable"
 
   resources :profiles
 
