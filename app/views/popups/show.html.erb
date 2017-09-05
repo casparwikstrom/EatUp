@@ -5,7 +5,7 @@
         <div class="col-lg-8">
           <h1><%= @popup.title %></h1>
         </div>
-        <div class="col-lg-2 text-center">
+        <div class="col-lg-4 text-center">
           <p> <%= image_tag user_avatar(@popup.user), class: "header-avatar"%></p>
           <p> by <strong><%= @popup.user.first_name %></strong> </p>
         </div>
@@ -54,7 +54,7 @@
               <% end %>
             </div>
             <div class="stats-div">
-              <h4><%= @popup.orders.count %></h4>
+              <h4><%= @popup.orders.where(state:"paid").count %></h4>
               <p>Foodies have their seats booked</p>
             </div>
             <div class="stats-div">
