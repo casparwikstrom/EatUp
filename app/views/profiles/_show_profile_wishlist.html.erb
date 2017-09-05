@@ -1,11 +1,58 @@
 <% if @wishlists.present? %>
+  <div class="row">
     <% @wishlists.each do |wishlist| %>
-    <div>
-    <%= wishlist.popup.title %>
-    <%= link_to "Delete", wishlist_path(wishlist), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="col-xs-12 col-sm-6 col-lg-6 margin-bottom">
+      <div class="card-container" id="popup-<%= wishlist.popup.id %>">
+        <div class="card-img" style="background-image: url('<%= cl_image_path wishlist.popup.photos.first.path, width: 300, height: 200 %>');">
+        </div>
+        <div class="profile-hover-buttons">
+          <div>
+            <%= link_to "View", popup_path(wishlist.popup), class:"button-cyan-big", width: "100%" %>
+
+            <%= link_to "Delete", wishlist_path(wishlist), class:"button-red-big", method: :delete, data: { confirm: "Are you sure?" }, width: "100%" %>
+          </div>
+        </div>
+        <div class="card-desc">
+          <h4><%= wishlist.popup.title %></h4>
+          <% if wishlist.popup.description %>
+          <p class="description-text"><%= wishlist.popup.description[0..100] + "..."%></p>
+          <% end %>
+          <% if wishlist.popup.user.photo %>
+             <p> <%= cl_image_tag wishlist.popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= wishlist.popup.user.first_name %></p>
+          <% end %>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" style="width: <%= wishlist.popup.amount_pledged.to_f / wishlist.popup.funding_goal.to_f * 1000 %>%;">
+            <span class="sr-only"><%= wishlist.popup.amount_pledged.to_f / wishlist.popup.funding_goal.to_f * 1000 %>% Complete</span>
+          </div>
+        </div>
+        <div class="card-stats">
+        <% if wishlist.popup.amount_pledged %>
+          <p>€ <%= wishlist.popup.amount_pledged.to_s(:delimited) %> pledged</p>
+        <% end %>
+
+          <p>€ <%= humanized_money(wishlist.popup.price_cents) %> per seat </p>
+          <div class="days">
+            <% start_time = wishlist.popup.deadline %>
+            <% end_time = Date.today %>
+            <p><%= (start_time - end_time).to_i %> days to go</p>
+          </div>
+          <!-- percentage funded -->
+          <!-- days to go -->
+        </div>
+      </div>
     </div>
     <% end %>
+  </div>
 
 <% else %>
-  <h1>You haven't added anything yet</h1>
+
+  <div class="text-center">
+    <div class="wishlist-heading">
+      <h3>Wishlist</h3>
+      <p>Looks like you haven't added anything yet to your Wishlist...</p>
+      <%= link_to "Explore PopUps", popups_path, class: "button-cyan profile-margin-top" %>
+  </div>
+
 <% end %>
+

@@ -7,8 +7,16 @@
     <% end %>
 
 <% else %>
-  <h1>You haven't added anything yet yooo</h1>
+  <div class="text-center">
+    <div class="supported-heading">
+      <h3>PopUps you supported</h3>
+      <p>Looks like you haven't supported a PopUp yet...</p>
+      <%= link_to "Explore PopUps", popups_path, class: "button-cyan profile-margin-top" %>
+    </div>
+  </div>
 <% end %>
+
+
 
 
 
