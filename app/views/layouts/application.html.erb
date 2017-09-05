@@ -32,7 +32,7 @@
   <% if params[:controller] == "popups" && params[:action] == "edit" %>
   <%= render 'shared/navbar' %>
   <% else %>
-  <div class="navbar-container">
+  <div class="navbar-container <%= "searchable" if params[:query].present? %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/search' %>
   </div>
