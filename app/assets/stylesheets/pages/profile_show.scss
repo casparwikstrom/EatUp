@@ -26,6 +26,7 @@
   margin-right: 77px;
   }
 }
+
 .profile-show-img-no {
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -35,12 +36,38 @@
   width: 150px;
   border: 1px solid rgba(138, 138, 138, 0.3);
   background: white;
-  display: flex;
-  align-items: center;
   padding: 10px;
   color: rgba(138, 138, 138, 0.6);
+
+  .profile-show-img-no-hover {
+    opacity: 0;
+  }
 }
 
+.profile-show-img-no-hover {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: 194px;
+  font-size: smaller;
+  left: 40px;
+  transition: all 0.3s ease;
+  a {
+    text-decoration: none;
+  }
+}
+.profile-show-img-no:hover {
+  transition: all 0.3s ease;
+  .profile-show-img-no-hover{
+    opacity: 1;
+  }
+  img {
+    opacity: 0;
+  }
+  a {
+   text-decoration: none;
+  }
+}
 
 .profile-show-edit {
   padding-left: 3vh;
@@ -121,4 +148,81 @@
   transform: scale(1.2);
   transition: 0.3s ease;
   margin-left: 19px;
+}
+
+
+.profile-hover-buttons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 100;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  a {
+    margin: 5px 0;
+    display: block;
+  }
+}
+.profile-hover-buttons:hover {
+  transition: all 0.4s ease;
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.h4-pad-no h4 {
+  margin-top: 2px;
+}
+
+
+
+.supported-heading {
+
+  h3 {
+    color: #4ec5c1;
+    margin-top: -60px;
+  }
+  p {
+    padding-top: 12px;
+    font-size: larger;
+  }
+}
+
+.yourpopup-heading {
+
+  h3 {
+    color: #ec576b;
+    margin-top: -60px;
+  }
+  p {
+    padding-top: 12px;
+    font-size: larger;
+  }
+}
+
+.wishlist-heading {
+
+  h3 {
+    color: #deb13a;
+    margin-top: -60px;
+  }
+  p {
+    padding-top: 12px;
+    font-size: larger;
+  }
+}
+
+.profile-margin-top {
+  margin-top: 50px;
+}
+.profile-card-margin-top {
+  margin-top: 30px;
+}
+
+.profile-min-height {
+  min-height: calc(100vh - 279px);
 }

@@ -72,7 +72,7 @@ popups = [
     user: User.find_by_first_name("Boris"),
     title: "Authentic French Fries",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(6),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -94,7 +94,7 @@ popups = [
     user: User.find_by_first_name("Ugo"),
     title: "Authentic Baguettes",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -116,7 +116,7 @@ popups = [
     user: User.find_by_first_name("Maren"),
     title: "Authentic Schnitzel",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -127,7 +127,7 @@ popups = [
     user: User.find_by_first_name("John"),
     title: "Authentic Burgers",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -165,6 +165,16 @@ Popup.find_by_title("Authentic Burgers").photo_urls = [
   'https://cdn.eyeem.com/thumb/9bddc0155e7622363d95c0f4070b69103112d0e9-1487522265564/1800/1800',
   'https://cdn.eyeem.com/thumb/dcf86ce0b6df2446cd1d68df1e72dc685895102d-1468933807802/w/700'
   ]
+
+
+# NEEDS TO BE FIXED
+# popup1 = Popup.find_by_title("Authentic French Fries")
+# popup1.orders.ordered_seats = Faker::Number.number(2)
+# popup1.save
+
+
+
+
 
 #  2.times do
 #    popup = Popup.new(

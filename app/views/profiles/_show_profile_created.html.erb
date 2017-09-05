@@ -1,11 +1,64 @@
 <% if @popups.present? %>
-    <% @popups.each do |popup| %>
-    <div>
-    <%= popup.title %>
-    <%= link_to "Delete", popup_path(popup), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-    <% end %>
+  <div class="wishlist-heading text-center">
+    <h3>Your PopUps</h3>
+  </div>
+  <div class="row profile-card-margin-top">
+      <% @popups.each do |popup| %>
+      <div class="col-xs-12 col-sm-12 col-lg-6 margin-bottom">
+        <div class="card-container" id="popup-<%= popup.id %>">
+          <div class="profile-hover-buttons">
+            <div>
+              <%= link_to "View", popup_path(popup), class:"button-cyan-big", width: "100%" %>
+              <%= link_to "Edit", edit_popup_path(popup), class:"button-yellow-big", width: "100%" %>
+              <%= link_to "Delete", popup_path(popup), class:"button-red-big", method: :delete, data: { confirm: "Are you sure?" }, width: "100%" %>
+            </div>
+          </div>
+          <% if popup.photos.empty? %>
+            <div class="card-img" style="background-image: url('https://cdn.eyeem.com/thumb/b19faf4b8314865df63178c4e07a708a4b39c7d5-1473234719053/w/900'); width: auto; min-height: 200px;"></div>
+          <% else %>
+            <div class="card-img" style="background-image: url('<%= cl_image_path popup.photos.first.path, width: 300, height: 200 %>');">
+          </div>
+          <% end %>
+          <div class="card-desc">
+            <h4><%= popup.title %></h4>
+            <% if popup.description %>
+            <p class="description-text"><%= popup.description[0..100] + "..."%></p>
+            <% end %>
+            <% if popup.user.photo %>
+            <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
+            <% end %>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
+              <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>% Complete</span>
+            </div>
+          </div>
+          <div class="card-stats">
+            <% if popup.amount_pledged %>
+            <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+            <% end %>
 
+            <p>€ <%= humanized_money(popup.price_cents) %> per seat </p>
+            <div class="days">
+              <% start_time = popup.deadline %>
+              <% end_time = Date.today %>
+              <% if popup.deadline %>
+              <p><%= (start_time - end_time).to_i %> days to go</p>
+              <% end %>
+            </div>
+            <!-- percentage funded -->
+            <!-- days to go -->
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
 <% else %>
-  <h1>You haven't added anything yet yooo</h1>
+<div class="text-center">
+  <div class="yourpopup-heading">
+    <h3>Your PopUps</h3>
+    <p>Looks like you have no PopUp listed...</p>
+    <p><%= link_to "Create your own PopUp", new_popup_path, class: "button-pink profile-margin-top" %>
+  </div>
+</div>
 <% end %>
