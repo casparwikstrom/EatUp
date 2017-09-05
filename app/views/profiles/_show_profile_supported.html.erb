@@ -4,7 +4,7 @@
   </div>
   <% @orders.each do |order| %>
   <div>
-  <%= order.title %>
+  <%= order.popup.title %>
   <%= link_to "Delete", popup_order_path(order), method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
   <% end %>

@@ -48,10 +48,13 @@
 
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  position: absolute;
+  right: 50%;
+  img {
+    height: 50px;
+  }
 }
-
 
 /* Right section */
 .navbar-wagon-right {
