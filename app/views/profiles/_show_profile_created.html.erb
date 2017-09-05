@@ -1,5 +1,5 @@
 <% if @popups.present? %>
-  <div class="wishlist-heading text-center">
+  <div class="yourpopup-heading text-center">
     <h3>Your PopUps</h3>
   </div>
   <div class="row profile-card-margin-top">
@@ -35,7 +35,7 @@
           </div>
           <div class="card-stats">
             <% if popup.amount_pledged %>
-            <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+            <p>€ <%= popup.amount_pledged.to_s(:delimited) %>  pledged</p>
             <% end %>
 
             <p>€ <%= humanized_money(popup.price_cents) %> per seat </p>
