@@ -29,11 +29,11 @@
         </div>
         <div class="card-stats">
           <% if order.popup.amount_pledged %>
-            <p><%= order.popup.amount_pledged.to_s(:delimited) %> € pledged in total</p>
+            <p>€ <%= order.popup.amount_pledged.to_s(:delimited) %> pledged in total</p>
           <% end %>
           <div class="profile-order-status">
           <% if order.is_donation? %>
-             <p>Thank you for donating <%= humanized_money(order.amount) %> €</p>
+             <p>Thank you for donating € <%= humanized_money(order.amount)%></p>
           <% else %>
             <p>You ordered <%= order.ordered_seats %> seats</p>
           <% end %>
