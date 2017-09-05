@@ -1,12 +1,8 @@
 class User < ApplicationRecord
   has_many :popups, dependent: :destroy
-
   has_many :wishlists, dependent: :destroy
-
-  has_many :orders
+  has_many :orders, dependent: :destroy
   acts_as_voter
-
-
   has_attachment :photo
 
   # Include default devise modules. Others available are:
