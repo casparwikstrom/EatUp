@@ -1,0 +1,112 @@
+.popup-title {
+  justify-content: center;
+  display: flex;
+  h1 {
+    text-align: center;
+  }
+}
+
+.chef-pic p {
+  display: flex;
+  justify-content: center;
+}
+
+.reward-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #F8F9FD;
+  transition: all 0.3s ease;
+  padding: 0 0 0 20px;
+  .reward-header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    h3 {
+      font-size: 18px;
+      margin: 0px;
+      padding-left: 10px;
+    }
+  }
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid #E6E4E2;
+    background-color: white;
+  }
+  form {
+    display: none;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.reward-card.active {
+  form {
+    display: block;
+    .popup-price {
+      flex-direction: column;
+      align-items: center;
+      margin: 0px 10px 10px 10px;
+      .amount {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 7px;
+        padding-top: 6px;
+        margin-bottom: 0px;
+      }
+      .x {
+        display: flex;
+      }
+    }
+  }
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid $green;
+    background-color: $green;
+  }
+  .new_order {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-primary {
+    background-color: $green;
+    margin: 25px 25px 15px 30px;
+    padding: 0px 20px 0px 20px;
+  }
+}
+
+.input-icon {
+  position: relative;
+  .form-control {
+    padding-left: 25px;
+  }
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 58%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input {
+  padding-left: 25px;
+  padding-right: 0;
+}
+
+

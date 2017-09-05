@@ -220,6 +220,31 @@
   text-decoration: none;
 }
 
+.button-yellow {
+  transition: background-color .2s ease-out;
+  background: white;
+  border: 2px solid #deb13a;
+  border-radius: 3px;
+  color: #deb13a;
+  display: inline-block;
+  font-weight: 500;
+  padding: 3px 40px;
+  height: 40px;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+.button-yellow:hover {
+  background-color: #deb13a;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
 .button-yellow-big {
   transition: background-color .2s ease-out;
   background: rgba(255, 255, 255, 1);
