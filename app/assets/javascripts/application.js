@@ -6,5 +6,6 @@
 //= require attachinary
 //= require underscore
 //= require gmaps/google
-//= require_tree .
 //= require bootstrap-datepicker
+//= require cable
+//= require_tree ./front
