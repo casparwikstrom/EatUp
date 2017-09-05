@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831154846) do
+ActiveRecord::Schema.define(version: 20170904151340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +46,12 @@ ActiveRecord::Schema.define(version: 20170831154846) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "ordered_seats"
-    t.integer "amount"
     t.boolean "is_donation"
     t.bigint "user_id"
     t.bigint "popup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"
-    t.string "popup_sku"
     t.integer "amount_cents"
     t.json "payment"
     t.index ["popup_id"], name: "index_orders_on_popup_id"
@@ -69,11 +67,9 @@ ActiveRecord::Schema.define(version: 20170831154846) do
     t.date "deadline"
     t.integer "seat_capacity"
     t.text "description"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "sku"
     t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_popups_on_user_id"
   end
