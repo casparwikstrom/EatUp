@@ -1,13 +1,55 @@
 <% if @orders.present? %>
-  <div class="wishlist-heading text-center">
+  <div class="supported-heading text-center">
     <h3>PopUps you supported</h3>
   </div>
-  <% @orders.each do |order| %>
-  <div>
-  <%= order.popup.title %>
-  <%= link_to "Delete", popup_order_path(order), method: :delete, data: { confirm: "Are you sure?" } %>
+  <div class="row profile-card-margin-top">
+    <% @orders.each do |order| %>
+    <div class="col-xs-12 col-sm-6 col-lg-6 margin-bottom">
+      <div class="card-container" id="popup-<%= order.popup.id %>">
+        <div class="card-img" style="background-image: url('<%= cl_image_path order.popup.photos.first.path, width: 300, height: 200 %>');">
+        </div>
+        <div class="profile-hover-buttons">
+          <div>
+            <%= link_to "View", popup_path(order.popup), class:"button-cyan-big", width: "100%" %>
+          </div>
+        </div>
+        <div class="card-desc">
+          <h4><%= order.popup.title %></h4>
+          <% if order.popup.description %>
+          <p class="description-text"><%= order.popup.description[0..100] + "..."%></p>
+          <% end %>
+          <% if order.popup.user.photo %>
+             <p> <%= cl_image_tag order.popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= order.popup.user.first_name %></p>
+          <% end %>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" style="width: <%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 1000 %>%;">
+            <span class="sr-only"><%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 1000 %>% Complete</span>
+          </div>
+        </div>
+        <div class="card-stats">
+          <% if order.popup.amount_pledged %>
+            <p><%= order.popup.amount_pledged.to_s(:delimited) %> € pledged in total</p>
+          <% end %>
+          <div class="profile-order-status">
+          <% if order.is_donation? %>
+             <p>Thank you for donating <%= humanized_money(order.amount) %> €</p>
+          <% else %>
+            <p>You ordered <%= order.ordered_seats %> seats</p>
+          <% end %>
+          </div>
+          <div class="days">
+            <% start_time = order.popup.deadline %>
+            <% end_time = Date.today %>
+            <p><%= (start_time - end_time).to_i %> days to go</p>
+          </div>
+            <!-- percentage funded -->
+            <!-- days to go -->
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 
 <% else %>
   <div class="text-center">
@@ -18,10 +60,3 @@
     </div>
   </div>
 <% end %>
-
-
-
-
-
-
-
