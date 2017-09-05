@@ -3,7 +3,7 @@
     <div class="padding-top margin-bottom">
       <div class="row">
         <div class="popup-title">
-        <h1> <%= @order.popup.title %></h1>
+          <h1> <%= @order.popup.title %></h1>
         </div>
         <div class="chef-pic">
           <% if @order.popup.user.photo %>
@@ -15,25 +15,43 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 order-new-section">
-    <h4><strong>Payment information</strong> </h4>
-    <p>Your payment method will not be charged at this time. If the project is successfully funded, your payment method will be charged $5.00 when the project ends.</p>
-    <br>
-    <%= form_tag order_payments_path(@order) do %>
-    <article>
-      <label class="amount">
-        <h4><span style="color:black">I pledge</span> <%= humanized_money_with_symbol(@order.amount) %></h4>
-      </label>
-    </article>
-    <br>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Eatup"
-    data-email="<%= current_user.email %>"
-    data-description="popup <%= @order.popup.title %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+      <h4><strong>Payment information</strong> </h4>
+      <p>Your payment method will not be charged at this time. If the project is successfully funded, your payment method will be charged <%= humanized_money_with_symbol(@order.amount) %> when the project ends.</p>
+      <br>
+      <%= form_tag order_payments_path(@order) do %>
+      <br>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="Eatup"
+      data-email="<%= current_user.email %>"
+      data-description="popup <%= @order.popup.title %>"
+      data-amount="<%= @order.amount_cents %>"
+      data-currency="<%= @order.amount.currency %>"></script>
 
-    <% end %>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+      <div class="pledge-checkout-summary">
+        <div class="pledge pledge-amount">
+          <h6><strong>PLEDGE AMOUNT</strong> </h6>
+          <h5><strong><%= humanized_money_with_symbol(@order.amount) %></strong> </h4>
+        </div>
+        <div class="pledge pledge-reward">
+          <% if @order.is_donation? %>
+          <h6><strong>DONATION</strong> </h6>
+          <p>Because I'm a nice human being. </p>
+          <% else %>
+          <h6><strong>PAYMENT INCLUDES</strong> </h6>
+          <% if @order.ordered_seats <= 1 %>
+            <h5> <%= @order.ordered_seats %> seat at <%= humanized_money_with_symbol(@order.popup.price) %> </h5>
+            <% else %>
+            <P> <%= @order.ordered_seats %> seats at <%= humanized_money_with_symbol(@order.popup.price) %> </P>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
