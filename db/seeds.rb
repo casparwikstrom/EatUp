@@ -167,12 +167,14 @@ Popup.find_by_title("Authentic Burgers").photo_urls = [
   ]
 
 
-# NEEDS TO BE FIXED
-# popup1 = Popup.find_by_title("Authentic French Fries")
-# popup1.orders.ordered_seats = Faker::Number.number(2)
-# popup1.save
-
-
+users = User.all
+Popup.all.each do |popup|
+  (1..6).to_a.sample.times do |index|
+    user = users[index]
+    seats = (1..10).to_a.sample
+    Order.create!(user:user, popup:popup, ordered_seats:seats, state:"paid", amount:seats*popup.price)
+  end
+end
 
 
 

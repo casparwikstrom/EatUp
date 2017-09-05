@@ -54,7 +54,7 @@
               <% end %>
             </div>
             <div class="stats-div">
-              <h4><%= @popup.orders.count %></h4>
+              <h4><%= @popup.orders.where(state:"paid").count %></h4>
               <p>Foodies have their seats booked</p>
             </div>
             <div class="stats-div">
