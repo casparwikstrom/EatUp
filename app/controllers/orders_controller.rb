@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @order.user = @user
     @order.popup = popup
 
-    if @order.is_donation
+    if @order.is_donation?
       @order.amount
     else
       @order.amount = popup.price * @order.ordered_seats
@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
 
 
   def order_params
-    params.require(:order).permit(:ordered_seats, :user_id, :popup_id, :amount, :state)
+    params.require(:order).permit(:ordered_seats, :user_id, :popup_id, :amount, :state, :is_donation)
   end
 
 end
