@@ -1,3 +1,8 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@popup.title} is now fundraising on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @popup.description %>
+<% content_for :meta_image, cloudinary_url(@popup.photos.first.path) %>
+
 <div class="page-wrapper">
   <div class="container">
     <div class="padding-top margin-bottom">
@@ -35,8 +40,8 @@
 
           <div class="flex">
             <div class="progress">
-              <div class="progress-bar" style="width: <%= @popup.amount_pledged.to_f / @popup.funding_goal.to_f * 1000 %>%;">
-                <span class="sr-only"><%= @popup.amount_pledged.to_f / @popup.funding_goal.to_f * 1000 %>% Complete</span>
+              <div class="progress-bar" style="width: <%= @popup.amount_pledged.to_f / @popup.funding_goal.to_f * 100 %>%;">
+                <span class="sr-only"><%= @popup.amount_pledged.to_f / @popup.funding_goal.to_f * 100 %>% Complete</span>
               </div>
             </div>
             <div class="stats-div amount">
@@ -70,56 +75,61 @@
 
           <!-- Big like button (still needed) -->
           <div class="animation-button">
-            <div class="col-xs-5" id="popup-<%= @popup.id %>">
-              <% if current_user %>
-              <%= link_to like_popup_path(@popup), class: "like-btn", method: :put, remote: :true do %>
-                <span class="likes-count"> <%= @popup.get_upvotes.size %></span>
-                <div class="icon-wrapper">
-                  <span class="icon"><i class="fa fa-thumbs-up"></i></span>
-                  <div class="border"><span></span></div>
-                  <div class="satellite">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <% end %>
-              <% else %>
-                <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
-                  <span class="likes-count"> <%= @popup.get_upvotes.size %></span>
-                  <div class="icon-wrapper">
-                  <span class="icon"><i class="fa fa-thumbs-up"></i></span>
-                  <div class="border"><span></span></div>
-                  <div class="satellite">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <% end %>
-              <% end %>
 
+            <!-- Button HTML (to Trigger Modal) -->
+            <a href="#myModal" role="button" class="button-brand-blue-big col-xs-5" data-toggle="modal">
+              <i class="fa fa-share fa-lg" aria-hidden="true"></i>
+            </a>
+
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade col-xs-12 col-sm-offset-3 col-sm-6">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Tell others about</h4>
+                    <h4 class="modal-title"><strong><%= @popup.title %></strong></h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <div id="share-buttons">
+                    <div class="cs-share-this-product facebook">
+                    <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<%= URI.encode(popup_url(@popup)) %>"
+                      target="_blank">
+                      <span class="social-share-icon-block">
+                        <i class="fa fa-facebook"></i>
+                        <span class="share-text">Share</span>
+                      </span>
+                    </a>
+                    </div>
+                    <div class="cs-share-this-product twitter">
+                    <a href="https://twitter.com/intent/tweet?url=<%= URI.encode(popup_url(@popup)) %>&via=EatUpPopUp&text=Hey%2C%20I%27m%20raising%20funds%20for%20my%20popup&hashtags=popup%2C%20foodie%2C%20amateurchef" target="_blank">
+                      <span class="social-share-icon-block">
+                        <i class="fa fa-twitter"></i>
+                        <span class="share-text">Tweet</span>
+                      </span>
+                    </a>
+                    </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
             </div>
 
           <!-- Heart button (still needed) -->
-
             <div class="col-xs-6">
               <%= simple_form_for([@popup, @wishlist], remote: true) do |f|  %>
               <%= button_tag type: 'submit' do %>
               <div class="heart"></div>
-              <p>Wish List</p>
               <% end %>
               <% end %>
             </div>
 
 
           </div>
+
 
         </div>
       </div>

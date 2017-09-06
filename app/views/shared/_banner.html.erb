@@ -1,10 +1,16 @@
-<div class="banner" style="background-image: url('https://cdn.eyeem.com/thumb/51391cecf4fd3728c572613a119e7cac54d69ba1-1459248827207/w/1100');">
+<div class="banner">
+  <video preload="auto" autoplay="true" muted="true" id="banner-video">
+    <source src="https://res.cloudinary.com/eatupclub/video/upload/v1504633337/FoodUp_Banner_gpyoph.webm" type="video/mp4">
+  </video>
   <div class="banner-content">
-    <h1>EatUp</h1>
-    <p class= "padding-top">Anyone can be a chef</p>
-    <%= link_to "Start today", new_popup_path, class: "btn-lg btn-success" %>
+    <div class="banner-headings">
+      <h1>EatUp</h1>
+      <p class= "padding-top">Anyone can be a chef</p>
+      <%= link_to "Start today", new_popup_path, class: "btn-lg btn-success" %>
+    </div>
   </div>
 </div>
+
 
 
 <!-- <h4 class="text-center" id="button1" data-next='#trending_popups'>

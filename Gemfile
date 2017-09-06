@@ -17,7 +17,6 @@ gem 'omniauth-facebook'
 #google connect
 gem "omniauth-google-oauth2", '0.5.2'
 
-
 # cloudinary
 gem 'cloudinary'
 
@@ -73,6 +72,10 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 #   gem "better_errors"
 #   gem "binding_of_caller"
 # end
+
+#email
+gem "letter_opener", group: :development
+
 
 #images
 gem 'attachinary', github: 'assembler/attachinary'
