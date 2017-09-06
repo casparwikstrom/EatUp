@@ -19,8 +19,8 @@
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <%= image_tag user_avatar(current_user), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <div class="dropdown dropdown-toggle" >
+        <div class="avatar facebook-avatar-background" style="background-image: url('<%= user_avatar(current_user) %>')" id="navbar-wagon-menu" data-toggle="dropdown"></div>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to profile_path(current_user) do %>
