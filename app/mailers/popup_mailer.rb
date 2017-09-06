@@ -15,7 +15,7 @@ class PopupMailer < ApplicationMailer
 
     mail(
       to:       @popup.user.email,
-      subject:  "popup #{@order.popup.title} created!"
+      subject:  "popup #{@popup.title} created!"
     )
   end
 end

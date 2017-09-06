@@ -4,7 +4,7 @@ class OrderMailer < ApplicationMailer
     @order = popup
 
     mail(
-      to:       @order.popup.user.email,
+      to:       @order.user.email,
       subject:  "popup #{@order.popup.title} created!"
       )
   end
