@@ -27,7 +27,6 @@ class PagesController < ApplicationController
         marker.lat popup.latitude
         marker.lng popup.longitude
         marker.infowindow render_to_string(partial: "/popups/map_box", locals: { popup: popup })
-
       end
       # search = params[:search].presence || '*'
       # @search = Popup.search(search)
