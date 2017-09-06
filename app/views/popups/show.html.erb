@@ -1,15 +1,13 @@
 <div class="page-wrapper">
   <div class="container">
     <div class="padding-top margin-bottom">
-      <div class="row">
-        <div class="col-lg-2 ">
-          <% if @popup.user.photo %>
-          <p> <%= cl_image_tag @popup.user.photo.path, class: "header-avatar"%></p>
-          <% end %>
-          <p> by <strong><%= @popup.user.first_name %></strong> </p>
-        </div>
+      <div class="row text-center">
         <div class="col-lg-8">
           <h1><%= @popup.title %></h1>
+        </div>
+        <div class="col-lg-4 text-center">
+          <p> <%= image_tag user_avatar(@popup.user), class: "header-avatar"%></p>
+          <p> by <strong><%= @popup.user.first_name %></strong> </p>
         </div>
         <div class="col-lg-2">
           <div class="wrapper">
@@ -19,7 +17,7 @@
           </div>
           <div class="wrapper">
             <% if policy(@popup).edit? %>
-            <%= link_to "delete", popup_path(@popup), method: :delete,
+            <%= link_to "Delete", popup_path(@popup), method: :delete,
             data: { confirm: "Are you sure?" } %>
             <% end %>
           </div>
@@ -29,7 +27,6 @@
     <div class="row margin-bottom">
 
       <div class="col-lg-8">
-        <!-- Background image (needs fix) -->
         <% if @popup.photos.empty? %>
           <div class="card-img" style="background-image: url('https://cdn.eyeem.com/thumb/b19faf4b8314865df63178c4e07a708a4b39c7d5-1473234719053/w/900'); width: auto; min-height: 450px;"></div>
         <% else %>
@@ -57,8 +54,8 @@
               <% end %>
             </div>
             <div class="stats-div">
-              <h4><%= @popup.orders.count %></h4>
-              <p>Foodies</p>
+              <h4><%= @popup.orders.where(state:"paid").count %></h4>
+              <p>foodies have booked seats</p>
             </div>
             <div class="stats-div">
               <% end_time = @popup.deadline %>
@@ -124,11 +121,6 @@
               <% end %>
               <% end %>
             </div>
-
-            <!-- Put on new order page -->
-            <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'popup_id', @popup.id %>
-            <% end %>
 
 
           </div>

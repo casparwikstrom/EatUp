@@ -6,13 +6,16 @@ class PopupsController < ApplicationController
 
   def index
     @wishlist = Wishlist.new
-
     if params[:type_ids]
       @popups = policy_scope(Popup).joins(:types).where(types: { id: params[:type_ids]}).select(&:is_ready?)
-    elsif params[:search]
-      terms = params[:search].split
-      query = terms.map { |term| "LOWER(title) like '%#{term.downcase}%' OR LOWER(types.name) like '%#{term.downcase}%'" }.join(" OR ")
+    elsif params[:query]
+      terms = params[:query].split
+      query = terms.map { |term| "LOWER(title) like '%#{term.downcase}%' OR LOWER(description) like '%#{term.downcase}%' OR LOWER(types.name) like '%#{term.downcase}%'" }.join(" OR ")
       @popups = policy_scope(Popup).joins(:types).where(query).order(created_at: :desc).uniq.select(&:is_ready?)
+
+      # query = params[:query].presence || '*'
+      # @search = Popup.search(query)
+      # @popups = @search.results
     else
       @popups = policy_scope(Popup).order(created_at: :desc).select(&:is_ready?)
     end
@@ -20,7 +23,6 @@ class PopupsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def show
@@ -37,7 +39,7 @@ class PopupsController < ApplicationController
     if @popup.save
       redirect_to popup_path(@popup)
     else
-      redirect_to root_path
+      redirect_to popup_path(@popup)
     end
   end
 
@@ -69,7 +71,7 @@ class PopupsController < ApplicationController
   def destroy
     @popup.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, alert: 'Popup project was successfully canceled.' }
+      format.html { redirect_to profile_path, alert: 'Popup project was successfully canceled.' }
       format.json { head :no_content }
     end
   end

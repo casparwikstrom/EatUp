@@ -2,26 +2,44 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:destroy]
 
   def index
-    @orders = policy_scope(Order).order(created_at: :desc)
+    @orders = policy_scope(current_user.orders).order(created_at: :desc)
   end
 
 
   def show
-    @order = Order.where(state: 'paid').find(params[:id])
+    @order = current_user.orders.where(state: 'paid').find(params[:id])
     authorize @order
+    @orders = Order.where(user: current_user)
   end
 
   def new
     @order = Order.new
+    @popup = Popup.find(params[:popup_id])
     authorize @order
   end
 
   def create
     @user = current_user
     popup = Popup.find(params[:popup_id])
-    @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
+    # @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
+    @order = Order.new(order_params)
+    @order.user = @user
+    @order.popup = popup
+
+    if @order.is_donation?
+      @order.amount
+    else
+      @order.amount = popup.price * @order.ordered_seats
+    end
+
+    @order.state = "pending"
     authorize @order
-    redirect_to new_order_payment_path(@order)
+
+    if @order.save
+      redirect_to new_order_payment_path(@order)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -36,13 +54,13 @@ class OrdersController < ApplicationController
   private
 
   def set_order
-    @order = Order.find(params[:id])
+    @order = current_user.orders.find(params[:id])
     authorize @order
   end
 
 
   def order_params
-    params.permit(:ordered_seats, :pledge_id, :amount, :is_donation, :state, :popup_sku, :amount_cents, :payment)
+    params.require(:order).permit(:ordered_seats, :user_id, :popup_id, :amount, :state, :is_donation)
   end
 
 end

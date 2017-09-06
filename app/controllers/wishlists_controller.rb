@@ -32,7 +32,7 @@ class WishlistsController < ApplicationController
     set_wishlist
     authorize @wishlist
     @wishlist.destroy
-    redirect_to wishlists_path
+    redirect_to profile_path
   end
 
   private

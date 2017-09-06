@@ -101,6 +101,76 @@
   color: black;
   text-decoration: none;
 }
+.button-pink {
+  transition: background-color .2s ease-out;
+  background: white;
+  border: 2px solid #ec576b;
+  border-radius: 3px;
+  color: #ec576b;
+  display: inline-block;
+  font-weight: 500;
+  padding: 3px 40px;
+  height: 40px;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+.button-pink:hover {
+  background-color: #ec576b;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-cyan {
+  transition: background-color .2s ease-out;
+  background: white;
+  border: 2px solid #4ec5c1;
+  border-radius: 3px;
+  color: #4ec5c1;
+  display: inline-block;
+  font-weight: 500;
+  padding: 3px 40px;
+  height: 40px;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+.button-cyan:hover {
+  background-color: #4ec5c1;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+.button-cyan-big {
+  transition: background-color .2s ease-out;
+  background: rgba(255, 255, 255, 1);
+  border: 2px solid #4ec5c1;
+  border-radius: 3px;
+  color: #4ec5c1;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 40px;
+  height: 50px;
+  font-size: 28px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+}
+.button-cyan-big:hover {
+  background-color: #4ec5c1;
+  color: #fff;
+  text-decoration: none;
+}
 
 
  .button-red {
@@ -127,6 +197,77 @@
   color: #fff;
   text-decoration: none;
 }
+
+.button-red-big {
+  transition: background-color .2s ease-out;
+  background: rgba(255, 255, 255, 1);
+  border: 2px solid #dd5555;
+  border-radius: 3px;
+  color: #dd5555;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 40px;
+  height: 50px;
+  font-size: 28px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+}
+.button-red-big:hover {
+  background-color: #dd5555;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-yellow {
+  transition: background-color .2s ease-out;
+  background: white;
+  border: 2px solid #deb13a;
+  border-radius: 3px;
+  color: #deb13a;
+  display: inline-block;
+  font-weight: 500;
+  padding: 3px 40px;
+  height: 40px;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+
+}
+.button-yellow:hover {
+  background-color: #deb13a;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.button-yellow-big {
+  transition: background-color .2s ease-out;
+  background: rgba(255, 255, 255, 1);
+  border: 2px solid #deb13a;
+  border-radius: 3px;
+  color: #deb13a;
+  display: inline-block;
+  font-weight: 500;
+  padding: 4px 40px;
+  height: 50px;
+  font-size: 28px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+}
+.button-yellow-big:hover {
+  background-color: #deb13a;
+  color: #fff;
+  text-decoration: none;
+}
+
+
 
 
 

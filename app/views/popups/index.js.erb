@@ -1,3 +1,9 @@
-$('.popups').html("<%= j render 'shared/popups' %>")
+$('#popup-results').html(" <%= j render 'popups', popups: @popups %>");
 
+
+<% if params[:type_ids] %>
+  // update the search text
+<% else %>
+  $("#search-form-partial").html(" <%= j render 'search_form' %>");
+<% end %>
 

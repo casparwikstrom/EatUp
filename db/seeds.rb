@@ -72,12 +72,11 @@ popups = [
     user: User.find_by_first_name("Boris"),
     title: "Authentic French Fries",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
+    address: "sweden",
     description: "I'm French and I can't find good french fries in Berlin. I will make my secret family recipe for french fries and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -88,9 +87,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
+    address: "paris",
     description: "I'm French and I can't find good macarons in Berlin. I will make my secret family recipe for macarons and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -98,11 +96,9 @@ popups = [
     user: User.find_by_first_name("Ugo"),
     title: "Authentic Baguettes",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
     description: "I'm French and I can't find good baguettes in Berlin. I will make my secret family recipe for baguettes and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
@@ -114,9 +110,8 @@ popups = [
     amount_pledged: Faker::Number.number(4),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
+    address: "berlin",
     description: "I'm Korean and I can't find good Bi Bim Bap in Berlin. I will make my secret family recipe for Bi Bim Bap and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -124,12 +119,11 @@ popups = [
     user: User.find_by_first_name("Maren"),
     title: "Authentic Schnitzel",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
+    address: "berlin",
     description: "I'm German and I can't find good Schnitzel in Berlin. I will make my secret family recipe for Schnitzel and show you Frenchies how it's done!",
     seat_capacity: Faker::Number.number(3)
   },
@@ -137,12 +131,11 @@ popups = [
     user: User.find_by_first_name("John"),
     title: "Authentic Burgers",
     funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    amount_pledged: Faker::Number.number(5),
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
-    price_cents: Faker::Number.number(2),
-    sku: 'octocat',
     status: 'pending',
+    address: "berlin",
     description: "I'm American and I can't find good burgers in Berlin. I will make my secret family recipe for burgers and show you Germans how it's done!",
     seat_capacity: Faker::Number.number(3),
   },
@@ -177,6 +170,19 @@ Popup.find_by_title("Authentic Burgers").photo_urls = [
   'https://cdn.eyeem.com/thumb/9bddc0155e7622363d95c0f4070b69103112d0e9-1487522265564/1800/1800',
   'https://cdn.eyeem.com/thumb/dcf86ce0b6df2446cd1d68df1e72dc685895102d-1468933807802/w/700'
   ]
+
+
+# Adds number of orders
+users = User.all
+Popup.all.each do |popup|
+  (1..6).to_a.sample.times do |index|
+    user = users[index]
+    seats = (1..10).to_a.sample
+    Order.create!(user:user, popup:popup, ordered_seats:seats, state:"paid", amount:seats*popup.price)
+  end
+end
+
+
 
 #  2.times do
 #    popup = Popup.new(

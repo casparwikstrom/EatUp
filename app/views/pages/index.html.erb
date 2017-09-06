@@ -1,0 +1,69 @@
+<div class="page-wrapper-map">
+
+  <div class="row map-scroll">
+    <div class="col-sm-6 map-cards-layout">
+<div class="navbar-wagon navbar-search">
+  <!-- Logo -->
+
+  <!-- Right Navigation -->
+  <form id="search" action="/pages" method="get">
+    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+      <input type="text" name="search" value="<%= params[:search] %>" id="search-field" class="search-input" placeholder="Search" />
+      <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" hidefocus="true" tabindex="-1" />
+  </form>
+
+  <i class="fa fa-times navbar-toggle"></i>
+
+</div>
+     <% if @popups %>
+     <% @popups.each do |popup| %>
+
+        <div class="col-xs-12 col-sm-6 col-lg-6 margin-bottom map-page">
+          <div class="card-container" id="popup-<%= popup.id %>">
+            <%= link_to popup_path(popup), class: "card-link" do %>
+            <div class="card-img-map" style="background-image: url('<%= cl_image_path popup.photos.first.path, width: 90, height: 60 %>');">
+            </div>
+            <div class="text-map">
+              <p><%= popup.title %></p>
+              <div class="wishlist-map">
+                <%= simple_form_for([popup, @wishlist], remote: true) do |f|  %>
+                <%= button_tag type: 'submit', class: "button postfix" do %>
+                <div class="heart"></div>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+  <% end %>
+</div>
+
+<div class="col-sm-6 map-cards-layout">
+  <div id="map" style="width: 100%; height: 600px;"></div>
+  <script>
+
+    <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+    <% end %>
+    <% end %>
+  </script>
+
+</div>
+</div>
+
+</div>

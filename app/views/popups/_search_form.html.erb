@@ -1,0 +1,21 @@
+<%= form_tag popups_path, method: :get, id: "fancy-form", remote: true do %>
+  <div id="search-box">
+    <p>Search for</p>
+    <div id="search-text">
+      <p><%= params[:query] || "Search" %></p>
+      <% if params[:query] %>
+        <i class="fa fa-times"></i>
+      <% else %>
+        <i class="fa fa-caret-down select"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="categories-list hidden">
+    <% Type.all.each do |type| %>
+    <div class="type_checkbox">
+      <%= check_box_tag "type_ids[]", type.id, false, class: "type_input hidden" %>
+      <span><%= type.name %></span>
+    </div>
+    <% end %>
+  </div>
+<% end %>

@@ -38,6 +38,15 @@ group :development do
   gem 'meta_request'
 end
 
+#maps
+gem "gmaps4rails"
+gem "geocoder"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+
 
 #security
 group :development do
