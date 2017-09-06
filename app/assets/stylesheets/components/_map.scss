@@ -2,15 +2,33 @@
   background-color: white;
   min-height: calc(100vh - 150px);
   // min-height: calc(98vh - 150px); for pages with border
-  width: 100%;
+  width: 100%;  padding: 5px 15px;
+  line-height: 1.45;
+  background-size: cover;
+  border-radius: 2px;
   // padding-bottom: 20px;
   flex: 1 0 auto;
   display: flex;
+  justify-content: space-around;
 }
 
-// .row {
-//   display: flex;
-// }
+.pages-index .row {
+  display: flex;
+}
+
+.map-cards-layout {
+  padding: 0px;
+}
+
+.text-map {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map-scroll {
+  display: flex;
+}
+>>>>>>> master
 
 #map {
   flex: 0 0 450px;
@@ -20,3 +38,17 @@
 }
 
 
+.card-img-map {
+  padding: 5px 15px;
+  line-height: 1.45;
+  height: 150px;
+  background-size: cover;
+  border-radius: 2px;
+}
+
+.map-page {
+  p {
+    margin: 20px 0px 20px 20px;
+  }
+  padding: 0px 20px 0px 0px;
+}
