@@ -147,6 +147,17 @@
         }
       });
 
+  $('.button1').attr('disabled', true);
+  $('#popup_funding_goal').keyup(function () {
+    var disable = false;
+     $('#popup_funding_goal').each(function(){
+      if($(this).val()==""){
+        disable = true;
+      }
+     });
+  $('.button1').prop('disabled', disable);
+  });
+
 
       $('#button1').click(function () {
         $('input:text').text($('#basic').val());
@@ -218,8 +229,6 @@
    $('#create_popup').addClass('active');
 
  });
-
-
 </script>
 <% end %>
 

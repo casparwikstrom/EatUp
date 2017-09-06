@@ -6,7 +6,7 @@
           <h1><%= @popup.title %></h1>
         </div>
         <div class="col-lg-4 text-center">
-          <p> <%= image_tag user_avatar(@popup.user), class: "header-avatar"%></p>
+          <div class= "facebook-avatar-background header-avatar" style="background-image: url('<%= user_avatar(@popup.user) %>')"></div>
           <p> by <strong><%= @popup.user.first_name %></strong> </p>
         </div>
         <div class="col-lg-2">
