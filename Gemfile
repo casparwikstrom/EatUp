@@ -17,7 +17,6 @@ gem 'omniauth-facebook'
 #google connect
 gem "omniauth-google-oauth2", '0.5.2'
 
-
 # cloudinary
 gem 'cloudinary'
 
