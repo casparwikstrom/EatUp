@@ -23,8 +23,8 @@
           <% end %>
         </div>
         <div class="progress">
-          <div class="progress-bar" style="width: <%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 1000 %>%;">
-            <span class="sr-only"><%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 1000 %>% Complete</span>
+          <div class="progress-bar" style="width: <%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 100 %>%;">
+            <span class="sr-only"><%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 100 %>% Complete</span>
           </div>
         </div>
         <div class="card-stats">
