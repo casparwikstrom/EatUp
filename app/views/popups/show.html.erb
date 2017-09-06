@@ -9,10 +9,6 @@
       <div class="row text-center">
         <div class="col-lg-8">
           <h1><%= @popup.title %></h1>
-        </div>
-        <div class="col-lg-4 text-center">
-          <div class= "facebook-avatar-background header-avatar" style="background-image: url('<%= user_avatar(@popup.user) %>')"></div>
-          <p> by <strong><%= @popup.user.first_name %></strong> </p>
           <div class="wrapper">
             <% if policy(@popup).edit? %>
             <%= link_to "Edit", edit_popup_path(@popup), class: "button-yellow-edit"  %>
@@ -22,6 +18,11 @@
             data: { confirm: "Are you sure?" } %>
             <% end %>
           </div>
+        </div>
+        <div class="col-lg-4 text-center">
+          <div class= "facebook-avatar-background header-avatar" style="background-image: url('<%= user_avatar(@popup.user) %>')"></div>
+          <p> by <strong><%= @popup.user.first_name %></strong> </p>
+
         </div>
       </div>
     </div>
