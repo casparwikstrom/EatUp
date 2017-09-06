@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904151340) do
+ActiveRecord::Schema.define(version: 20170906144830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20170904151340) do
     t.string "title"
     t.string "url"
     t.string "status", default: "pending"
-    t.integer "funding_goal"
-    t.integer "amount_pledged"
+    t.integer "funding_goal", default: 0
+    t.integer "amount_pledged", default: 0
     t.date "deadline"
     t.integer "seat_capacity"
     t.text "description"

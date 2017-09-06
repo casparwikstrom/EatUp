@@ -1,5 +1,5 @@
 <%= form_tag popups_path, method: :get, id: "fancy-form", remote: true do %>
-  <div id="search-box">
+  <div id="search-box" class="margin-bottom">
     <p>Search for</p>
     <div id="search-text">
       <p><%= params[:query] || "Search" %></p>

@@ -1,6 +1,7 @@
 <div class="page-wrapper">
   <%= render 'shared/banner' %>
   <div class="container">
+
     <h3 class="padding-top" id="trending_popups" data-prev='#button10'>Explore # live popups</h3>
     <div class="cards-container padding-top" >
       <div class="row">
@@ -17,9 +18,12 @@
               <% if popup.description %>
               <p class="description-text"><%= popup.description[0..100] + "..."%></p>
               <% end %>
-              <% if popup.user.photo %>
-                 <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
-              <% end %>
+              <div class="card-byline">
+                <div class= "facebook-avatar-background card-avatar" style="background-image: url('<%= user_avatar(popup.user) %>')"></div>
+                <p>by <%= popup.user.first_name %></p>
+              </div>
+
+
               <div class="like-wishlist-icons">
                 <div class="wishlist">
                   <%= simple_form_for([popup, @wishlist], remote: true) do |f|  %>
@@ -38,13 +42,19 @@
             <div class="card-stats">
             <% if popup.amount_pledged %>
               <p>€ <%= popup.amount_pledged.to_s(:delimited) %> pledged</p>
+              <% else %>
+              <p>€ 0 pledged - Be the first to donate!</p>
             <% end %>
 
               <p>€ <%= humanized_money(popup.price) %> per seat </p>
               <div class="days">
                 <% start_time = popup.deadline %>
                 <% end_time = Date.today %>
-                <p><%= (start_time - end_time).to_i %> days to go</p>
+                <% if (start_time - end_time).to_i <= 1 %>
+                  <p><%= (start_time - end_time).to_i %> day to go</p>
+                  <% else %>
+                  <p><%= (start_time - end_time).to_i %> days to go</p>
+                <% end %>
               </div>
               <!-- percentage funded -->
               <!-- days to go -->

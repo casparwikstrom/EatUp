@@ -7,7 +7,7 @@
 .header {
   width: 100%;
   position: fixed;
-  top:50px;
+  top:80px;
   h1 {
     border-bottom: none;
     height: 45px;
@@ -58,13 +58,18 @@
 .question-container {
   // display: inline-block;
   min-width: 100vw;
-  padding-top: 15%;
+  padding-top: 12%;
+  h2 {
+    margin-top: 0;
+    font-size: 25px;
+  }
 }
 
 .question-content {
   padding: 0 20%;
   h2 {
     margin-top: 0;
+    font-size: 25px;
   }
   // display: flex;
   // flex-direction: column;
@@ -76,7 +81,7 @@
   .form-group {
     display: flex;
     flex-direction: row;
-    padding-left: 6em;
+    padding-left: 3em;
     label {
       width: 150px;
       text-align: left;
@@ -89,14 +94,18 @@
 
 
 // To allow for € span
-.funding_goal  {
+#popup_funding_goal, #popup_price  {
   width: 150px;
   text-align: left;
-  padding: .5%;
   margin-bottom: 0;
+  padding-bottom: 1%;
   min-width: 9em;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #ccc;
 
 }
+
 
 // Align € sign w/ input line
 .currency-margin-top {
@@ -108,19 +117,32 @@
   padding-left: 8em;
   textarea {
     height: 10em;
-    width: 35em;
+    width: 40em;
     border: solid thin #E8E8E8 !important;
   }
 }
 
-.price {
-  padding-top: 2%;
+
+.numbers-content {
+  padding-left: 20em;
+  display: flex;
+  flex-direction: column;
 }
 
-.price-content {
-  width: 55%;
-  padding-left: 18em;
+// .price {
+//   padding-top: 2%;
+// }
+
+// .price-content {
+//   width: 55%;
+//   padding-left: 18em;
+// }
+
+#submit {
+  padding-top: 20%;
 }
 
-
+.datepicker {
+  width: 15em;
+}
 
