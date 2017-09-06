@@ -1,15 +1,20 @@
 <div class="banner">
   <video preload="auto" autoplay="true" muted="true" id="banner-video">
     <source src="https://res.cloudinary.com/eatupclub/video/upload/v1504633337/FoodUp_Banner_gpyoph.webm" type="video/mp4">
-  </video>
-  <div class="banner-content">
-    <div class="banner-headings">
-      <h1>Discover your inner chef</h1>
-      <p class= "padding-top">Bring your dream popup to life</p>
-      <%= link_to "Create a popup", new_popup_path, class: "btn-lg btn-success" %>
+    </video>
+    <div class="banner-content">
+      <div class="banner-headings">
+        <h1>Unleash your inner chef</h1>
+        <p class= "padding-top">Take the first step to opening your own restaurant</p>
+        <%= link_to "Create a popup", new_popup_path, class: "btn-lg btn-success" %>
+        <h4 class="text-center" id="button10" data-next='#trending_popups'>
+          <a href='#trending_popups' id="button10" class="arrow animated bounce" >
+            <i class="fa fa-angle-down fa-5x" data-toggle="dropdown"></i>
+          </a>
+        </h4>
+      </div>
     </div>
   </div>
-</div>
 
 
 
