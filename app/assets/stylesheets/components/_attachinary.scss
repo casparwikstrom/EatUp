@@ -1,0 +1,219 @@
+/*
+ * VARIABLES
+ */
+
+$color--attachinary-dropzone-border:                  $pink;
+$size--attachinary-preview-width:                     27rem;
+$size--attachinary-preview-height:                    21rem;
+$size--attachinary-dropzone-width:                    27rem;
+$size--attachinary-dropzone-height:                   21rem;
+
+/*
+ * ATTACHINARY
+ */
+@mixin passive-dropzone-dimension() {
+  max-height: 100%;
+  max-width: 100%;
+  width: $size--attachinary-dropzone-width;
+  height: $size--attachinary-dropzone-height;
+}
+
+
+.attachinary-dropzone {
+  border: 1px solid $color--attachinary-dropzone-border;
+  border-style: dashed;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 20px;
+  position: relative;
+  transition: all ease .3s;
+
+  @include passive-dropzone-dimension;
+}
+
+.attachinary-dropzone-active {
+  border-width: 2px;
+  background-color: white;
+}
+
+.attachinary-input,
+.attachinary_container {
+  float: left;
+}
+
+.attachinary-input {
+  padding: 17px;
+  // border: 1px solid grey;
+  border-radius: 4px;
+  box-sizing: content-box;
+
+  cursor: pointer;
+  outline: none !important;
+  pointer-events: all;
+
+  @include passive-dropzone-dimension;
+
+  &:hover {
+    & + .attachinary_container {
+      @extend .attachinary-dropzone-active;
+    }
+  }
+
+  &.has-file {
+    pointer-events: none;
+
+    &,
+    & + .attachinary_container {
+      width: $size--attachinary-preview-width;
+      height: $size--attachinary-preview-height;
+    }
+
+    & + .attachinary_container {
+      border: none;
+      padding: 0;
+      pointer-events: all;
+
+      li {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.control-label.attachinary {
+  display: block;
+  text-align: left;
+}
+
+.form-group.attachinary {
+  @extend .clearfix;
+  position: relative;
+  text-align: center;
+
+  .attachinary_container {
+    display: block !important;
+    position: absolute;
+    top: -4px;
+    left: 212px;
+  }
+}
+
+.attachinary_container {
+  background-color: white;
+  margin: 20px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  @extend .attachinary-dropzone;
+
+  &:hover {
+    @extend .attachinary-dropzone-active;
+  }
+
+  &.loading {
+    background-color: white-two;
+    pointer-events: none;
+
+    &::before {
+      content: 'UPLOADING...';
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: "Add an image";
+    color: $color--attachinary-dropzone-border;
+    display: inline-block;
+    font-size: 21px;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 40%;
+    text-transform: uppercase;
+  }
+
+  &::after {
+    content: "Drag and Drop or click here to choose an image.";
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 55%;
+    top: calc(40% + 2.5em);
+    z-index: -1;
+  }
+
+  ul,
+  li {
+    height: 100%;
+    width: 100%;
+  }
+
+  ul {
+    @extend .clearfix;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      background: rgba(black, 1);
+      border-radius: 4px;
+      float: left;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        min-width: 100%;
+        height: 100%;
+      }
+
+      img,
+      a {
+        transition: all ease .3s;
+      }
+
+      .no-touch &:hover {
+        img {
+          opacity: 0.5;
+        }
+
+        a {
+          opacity: 1;
+        }
+      }
+    }
+
+    a {
+      position: absolute;
+      color: white;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      opacity: 0;
+      text-align: center;
+
+      i {
+        display: table;
+        height: 100%;
+        width: 100%;
+
+        &:before {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .md {
+      pointer-events: none;
+    }
+  }
+}
