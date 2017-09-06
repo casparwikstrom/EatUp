@@ -21,39 +21,6 @@
                  <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
               <% end %>
               <div class="like-wishlist-icons">
-                <% if current_user %>
-                  <%= link_to like_popup_path(popup), class: "like-btn", method: :put, remote: :true do %>
-                    <span class="likes-count"> <%= popup.get_upvotes.size %></span>
-                    <div class="icon-wrapper">
-                      <span class="icon"><i class="fa fa-thumbs-up"></i></span>
-                      <div class="border"><span></span></div>
-                      <div class="satellite">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_user_session_path, class: "like-btn", method: :get do %>
-                    <span class="likes-count"> <%= popup.get_upvotes.size %></span>
-                    <div class="icon-wrapper">
-                      <span class="icon"><i class="fa fa-thumbs-up"></i></span>
-                      <div class="border"><span></span></div>
-                      <div class="satellite">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
                 <div class="wishlist">
                   <%= simple_form_for([popup, @wishlist], remote: true) do |f|  %>
                   <%= button_tag type: 'submit', class: "button postfix" do %>
@@ -64,8 +31,8 @@
               </div>
             </div>
             <div class="progress">
-              <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
-                <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>% Complete</span>
+              <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 100 %>%;">
+                <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 100 %>% Complete</span>
               </div>
             </div>
             <div class="card-stats">
