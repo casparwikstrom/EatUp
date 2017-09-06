@@ -6,18 +6,14 @@
           <h1><%= @popup.title %></h1>
         </div>
         <div class="col-lg-4 text-center">
-          <p> <%= image_tag user_avatar(@popup.user), class: "header-avatar"%></p>
+          <div class= "facebook-avatar-background header-avatar" style="background-image: url('<%= user_avatar(@popup.user) %>')"></div>
           <p> by <strong><%= @popup.user.first_name %></strong> </p>
-        </div>
-        <div class="col-lg-2">
           <div class="wrapper">
             <% if policy(@popup).edit? %>
-            <%= link_to "Edit", edit_popup_path(@popup) %>
+            <%= link_to "Edit", edit_popup_path(@popup), class: "button-yellow-edit"  %>
             <% end %>
-          </div>
-          <div class="wrapper">
             <% if policy(@popup).edit? %>
-            <%= link_to "Delete", popup_path(@popup), method: :delete,
+            <%= link_to "Delete", popup_path(@popup), method: :delete, class: "button-red-delete",
             data: { confirm: "Are you sure?" } %>
             <% end %>
           </div>
