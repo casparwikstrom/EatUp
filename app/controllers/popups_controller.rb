@@ -12,7 +12,6 @@ class PopupsController < ApplicationController
       terms = params[:query].split
       query = terms.map { |term| "LOWER(title) like '%#{term.downcase}%' OR LOWER(description) like '%#{term.downcase}%' OR LOWER(types.name) like '%#{term.downcase}%'" }.join(" OR ")
       @popups = policy_scope(Popup).joins(:types).where(query).order(created_at: :desc).uniq.select(&:is_ready?)
-
       # query = params[:query].presence || '*'
       # @search = Popup.search(query)
       # @popups = @search.results
