@@ -73,6 +73,10 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 #   gem "binding_of_caller"
 # end
 
+#email
+gem "letter_opener", group: :development
+
+
 #images
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'

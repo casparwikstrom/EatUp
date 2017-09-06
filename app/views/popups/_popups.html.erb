@@ -11,6 +11,7 @@
         <% if popup.description %>
         <p class="description-text"><%= popup.description[0..100] + "..."%></p>
         <% end %>
+
         <% if popup.user.photo %>
            <p> <%= cl_image_tag popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= popup.user.first_name %></p>
         <% end %>

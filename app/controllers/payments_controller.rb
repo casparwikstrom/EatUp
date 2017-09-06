@@ -20,6 +20,10 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, state: 'paid')
     redirect_to order_path(@order)
+     OrderMailer.payment_confirmation(@order).deliver_now
+     PopupMailer.userorder_confirmation(@order.popup).deliver_now
+
+      # OrderMailer.creation_confirmation(@order).deliver_now
 
     authorize @order
 
