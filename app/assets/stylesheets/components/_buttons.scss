@@ -325,3 +325,52 @@ a {
 .btn-lg {
   font-size: 30px;
 }
+
+
+ .button-red-delete {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid #dd5555;
+  border-radius: 3px;
+  color: #dd5555;
+  display: inline-block;
+  font-weight: 500;
+  padding: 6px 25px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+  opacity: 0.5;
+
+}
+.button-red-delete:hover {
+  background-color: #dd5555;
+  color: #fff;
+  text-decoration: none;
+}
+
+ .button-yellow-edit {
+  transition: background-color .2s ease-out;
+  background: hsla(0,0%,100%,.1);
+  border: 2px solid #deb13a;
+  border-radius: 3px;
+  color: #deb13a;
+  display: inline-block;
+  font-weight: 500;
+  padding: 6px 35px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  margin: 0;
+  opacity: 0.5;
+
+}
+.button-yellow-edit:hover {
+  background-color: #deb13a;
+  color: #fff;
+  text-decoration: none;
+}

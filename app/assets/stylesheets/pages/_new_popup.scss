@@ -1,5 +1,9 @@
 // see _forms.scss
 
+.popups-new .margin-bottom {
+  margin-bottom: 6%;
+}
+
 .category-choices {
   display: flex;
   justify-content: space-between;
@@ -12,7 +16,7 @@
   padding: 20px;
   border-radius: 3px;
   opacity: .4;
-  flex: 0 0 21%;
+  flex: 0 0 15%;
   text-align: center;
   &:hover {
     opacity: 1;
@@ -22,5 +26,14 @@
   background: $brand-success;
   color: white;
   opacity: 1;
+  }
+}
+
+.popups-new .wrapper {
+  display: flex;
+  height: calc(100vh - 140px);
+  flex-direction: column;
+  .form-group {
+    flex: 1 0 auto;
   }
 }
