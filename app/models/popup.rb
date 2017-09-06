@@ -22,7 +22,7 @@ class Popup < ApplicationRecord
   def is_ready?
     return false unless photos.try(:first)
     return false if Date.today > deadline
-    return false if amount_pledged > funding_goal
+    return false if amount_pledged >= funding_goal
     ready = [:description, :funding_goal, :deadline, :price].all? do |attribute|
       send(attribute).present?
     end

@@ -1,9 +1,7 @@
 <div class="page-wrapper">
  <!-- HEADER -->
  <div class="row">
-   <div class="header text-center">
-    <h1><strong><%= @popup.title %></strong> </h1>
-
+   <div class="header text-center padding-top">
     <!-- TABS -->
     <div class="tabs" >
       <a class="tab active" id="basic">
@@ -39,12 +37,10 @@
   <div class="question-container" >
     <div class="question-content">
       <h2>Let’s get started</h2>
-      <p>Set all the necessary information about your popup.</p>
+      <p>Make a great impression by including a photo that shows off your best chef skills.</p>
       <div class="form-content" id='next1' data-next='#next2'>
         <%= f.input :title%>
         <%= f.input :photos, required: true, as: :attachinary, input_html: { multiple: true } %>
-        <%= f.input :funding_goal, as: :currency %>
-        <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
       </div>
       <div class='btn btn-success next-button'>
         <a href='#next2' id="button1" >Next</a>
@@ -66,15 +62,13 @@
 
 
 
-  <div class="question-container" >
-    <h2>Set your seat costs</h2>
-    <p>Evaluate the price per seat your guests can pay to share your popup experience.</p>
-    <div class="form-content price-content" id='next3' data-prev='#next2' data-next='#create_popup'>
-      <div class="form-group" id="price-input">
-        <label class="price control-label integer optional" for="popup_price">Price per seat</label>
-        <span class="currency-margin-top">€</span>
-        <input class="form-control numeric integer optional" type="number" step="1" name="popup[price]" id="popup_price">
-      </div>
+  <div class="question-container" id='next3' data-prev='#next2' data-next='#create_popup'>
+    <h2>Now to the numbers</h2>
+    <p>Set your funding goal, the price for guests to save a seat at your popup experience, and a deadline to make it all happen. </p>
+    <div class="numbers-content">
+    <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
+    <%= f.input :funding_goal, as: :currency, placeholder: "0", label: "Funding goal" %>
+    <%= f.input :price, as: :currency, placeholder: "0", label: "Price per seat" %>
     </div>
     <div class='btn btn-success next-button'>
       <a href='#submit' id="button3" >Next</a>
@@ -143,16 +137,16 @@
         }
       });
 
-  $('.button1').attr('disabled', true);
-  $('#popup_funding_goal').keyup(function () {
-    var disable = false;
-     $('#popup_funding_goal').each(function(){
-      if($(this).val()==""){
-        disable = true;
-      }
-     });
-  $('.button1').prop('disabled', disable);
-  });
+      $('.button1').attr('disabled', true);
+      $('#popup_funding_goal').keyup(function () {
+        var disable = false;
+        $('#popup_funding_goal').each(function(){
+          if($(this).val()==""){
+            disable = true;
+          }
+        });
+        $('.button1').prop('disabled', disable);
+      });
 
 
       $('#button1').click(function () {
