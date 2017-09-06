@@ -201,7 +201,6 @@ end
 
 category = [
   { name: 'American'},
-  { name: 'British'},
   { name: 'Chinese'},
   { name: 'French'},
   { name: 'German'},
@@ -217,12 +216,9 @@ category = [
   { name: 'Healthy'},
   { name: 'Veg/Vegan'},
   { name: 'Brunch'},
-  { name: 'BBQ'},
-  { name: 'Seafood'},
   { name: 'Burgers'},
   { name: 'Tapas'},
   { name: 'Pizza'},
-  { name: 'Tacos'},
   { name: 'Snack'},
   { name: 'Dessert'},
   { name: 'Wine/Beer'},
