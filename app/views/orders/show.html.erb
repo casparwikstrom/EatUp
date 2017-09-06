@@ -52,7 +52,11 @@
               <% if order.is_donation? %>
               <p>Thank you for donating € <%= humanized_money(order.amount)%></p>
               <% else %>
-              <p>You ordered <%= order.ordered_seats %> seats</p>
+                <% if order.ordered_seats <= 1  %>
+                  <p>You ordered <%= order.ordered_seats %> seat</p>
+                  <% else %>
+                    <p>You ordered <%= order.ordered_seats %> seats</p>
+                <% end %>
               <% end %>
             </div>
             <div class="days">
