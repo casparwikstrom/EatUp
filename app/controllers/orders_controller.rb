@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   def show
     @order = current_user.orders.where(state: 'paid').find(params[:id])
     authorize @order
+    @orders = Order.where(user: current_user)
   end
 
   def new
