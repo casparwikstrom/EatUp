@@ -7,11 +7,12 @@
 .header {
   width: 100%;
   position: fixed;
-  top:90px;
+  top:50px;
   h1 {
     border-bottom: none;
     height: 50px;
     font-size: 50px;
+    margin-bottom: 5px;
   }
 }
 
@@ -48,25 +49,30 @@
   a:hover {
     text-decoration: none;
   }
+  h2 {
+    margin-top: 0;
+  }
 }
 
 // Child
 .question-container {
   // display: inline-block;
   min-width: 100vw;
-  padding-top: 22%;
+  padding-top: 15%;
 }
 
 .question-content {
   padding: 0 20%;
+  h2 {
+    margin-top: 0;
+  }
+  // display: flex;
+  // flex-direction: column;
 }
 
 // <!-- FORM -->
 
 .popups-edit {
-  .form-content {
-    padding-top: 3%;
-  }
   .form-group {
     display: flex;
     flex-direction: row;
@@ -99,10 +105,10 @@
 
 
 .description-content {
-  padding-left: 12em;
+  padding-left: 8em;
   textarea {
     height: 10em;
-    width: 40em;
+    width: 35em;
     border: solid thin #E8E8E8 !important;
   }
 }
@@ -113,7 +119,7 @@
 
 .price-content {
   width: 55%;
-  padding-left: 29em;
+  padding-left: 18em;
 }
 
 
