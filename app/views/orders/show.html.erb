@@ -6,8 +6,10 @@
           <h3>Thank you for supporting <%= @order.popup.user.first_name %>'s vision for </h3>
           <h1><%= @order.popup.title %></h1>
         </div>
+        <br>
+        <br>
         <div class="order-summary">
-        <h1>PopUps you supported</h1>
+        <h3>PopUps you're currently supporting</h3>
           <!-- <ul>
             <li>Status: <%= @order.state %></li>
             <li>Item: <%= @order.popup.title %></li>
@@ -19,7 +21,7 @@
 
     <div class="row profile-card-margin-top">
       <% @orders.each do |order| %>
-      <div class="col-xs-12 col-sm-6 col-lg-6 margin-bottom">
+      <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
         <div class="card-container" id="popup-<%= order.popup.id %>">
           <div class="card-img" style="background-image: url('<%= cl_image_path order.popup.photos.first.path, width: 300, height: 200 %>');">
           </div>
