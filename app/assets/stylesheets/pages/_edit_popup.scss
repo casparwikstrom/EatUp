@@ -83,13 +83,13 @@
   .form-group {
     display: flex;
     flex-direction: row;
-    padding-left: 3em;
+    padding-left: 6em;
     label {
       width: 150px;
       text-align: left;
       padding: .5%;
       margin-bottom: 0;
-      min-width: 9em;
+      // min-width: 9em;
     }
   }
 }
@@ -141,7 +141,7 @@
 // }
 
 #submit {
-  padding-top: 16%;
+  padding-top: 7%;
 }
 
 .datepicker {
