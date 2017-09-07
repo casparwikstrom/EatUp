@@ -216,22 +216,35 @@
 
   $('#button1').click(function() {
 
+   setTimeout(function() {
    $('#basic').removeClass('active');
+  }, 500);
+   setTimeout(function() {
    $('#story').addClass('active');
+  }, 500);
 
  });
 
   $('#button2').click(function() {
 
+   setTimeout(function() {
    $('#story').removeClass('active');
-   $('#seats').addClass('active');
+   }, 500);
+   setTimeout(function() {
+     $('#seats').addClass('active');
+   }, 500);
 
  });
 
   $('#button3').click(function() {
 
+   setTimeout(function() {
    $('#seats').removeClass('active');
+   }, 500);
+   setTimeout(function() {
    $('#create_popup').addClass('active');
+  }, 500);
+
    $(".sa-success").addClass("hide");
   setTimeout(function() {
     $(".sa-success").removeClass("hide");
