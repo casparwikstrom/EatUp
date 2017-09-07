@@ -53,6 +53,49 @@ users = [
     password: "123456",
     password_confirmation: "123456"
   },
+  {
+    first_name: "Lars",
+    last_name: "Böhm",
+    email: "larsböhm@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+  {
+    first_name: "Daniel",
+    last_name: "Huertas",
+    email: "danielhuertas@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+  {
+    first_name: "Nhung",
+    last_name: "Nguyen",
+    email: "nhungnguyen@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+  {
+    first_name: "Philipp",
+    last_name: "von Hammerstein",
+    email: "philippvonhammerstein@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+  {
+    first_name: "Will",
+    last_name: "Chen",
+    email: "willchen@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+  {
+    first_name: "Caspar",
+    last_name: "Wikstrom",
+    email: "casparwikstrom  @gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  },
+]
 ]
 
 users.each do |user|
@@ -65,14 +108,20 @@ User.find_by_first_name("Ugo").photo_url = "https://kitt.lewagon.com/placeholder
 User.find_by_first_name("Sey").photo_url = "https://kitt.lewagon.com/placeholder/users/sey1000"
 User.find_by_first_name("Maren").photo_url = "https://kitt.lewagon.com/placeholder/users/maren7794"
 User.find_by_first_name("John").photo_url = "https://kitt.lewagon.com/placeholder/users/j31"
+User.find_by_first_name("Lars").photo_url = "https://kitt.lewagon.com/placeholder/users/datene"
+User.find_by_first_name("Daniel").photo_url = "https://kitt.lewagon.com/placeholder/users/daniel-huertas"
+User.find_by_first_name("Nhung").photo_url = "https://kitt.lewagon.com/placeholder/users/nhxng"
+User.find_by_first_name("Philipp").photo_url = "https://kitt.lewagon.com/placeholder/users/philippvH1"
+User.find_by_first_name("Will").photo_url = "https://kitt.lewagon.com/placeholder/users/will30303"
+User.find_by_first_name("Caspar").photo_url = "https://kitt.lewagon.com/placeholder/users/casparwikstrom"
 
 
 popups = [
   {
     user: User.find_by_first_name("Boris"),
     title: "Friggin Good Fench Fries",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(5),
+    funding_goal: 4900,
+    amount_pledged: 4482,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -83,8 +132,8 @@ popups = [
   {
     user: User.find_by_first_name("Alice"),
     title: "Melt-In-Your-Mouth Macarons",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    funding_goal: 9000,
+    amount_pledged: 8374,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -95,8 +144,8 @@ popups = [
   {
     user: User.find_by_first_name("Ugo"),
     title: "Bageuttes You'll Beg For",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(5),
+    funding_goal: 23000,
+    amount_pledged: 10299,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -106,8 +155,8 @@ popups = [
   {
     user: User.find_by_first_name("Sey"),
     title: "Funk Seoul Sister",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(4),
+    funding_goal: 38475,
+    amount_pledged: 19283,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -118,8 +167,8 @@ popups = [
   {
     user: User.find_by_first_name("Maren"),
     title: "Beyond the Bierhaus",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(5),
+    funding_goal: 37000,
+    amount_pledged: 19288,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
@@ -130,14 +179,86 @@ popups = [
   {
     user: User.find_by_first_name("John"),
     title: "Bite Me Burger",
-    funding_goal: Faker::Number.number(6),
-    amount_pledged: Faker::Number.number(5),
+    funding_goal: 45000,
+    amount_pledged: 23095,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
     address: "berlin",
     description: "I'm a self-pronounced 'burger bro' - I value gourmet burgers. I Instagram every patty that comes my way. My self-worth is dependent on knowing where the best burgers are and right now, I can't find any in Berlin. I'm here to give you a spot-on burger recommendation at a moment's notice - and that's going to be at my next popup. Years of experience downing burgers means I have the expertise to deliver amazing taste only a quality burger can deliver. Support my popup, and you too can be a burger connoissuer.",
     seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Lars"),
+  title: "Tosti For Days",
+  funding_goal: 50000,
+  amount_pledged: 23345,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "My cheesy start-up idea began life as a street food stall devoted to grilled cheese sandwiches; better known as a sophisticated cheese tosti. I've gone through quite an extensive cheese research and have tried all types of cheesy bits and bobs to fit my perfect sandwich. After 40 times of trial and error, I've perfected the perfect tosti, which includes an extravagent three-cheese mix. Trying this tosti will utterly change your life. Help my grilled cheese tosti come to life by supporting my popup!",
+  seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Daniel"),
+  title: "Top My Tapas",
+  funding_goal: 43000,
+  amount_pledged: 39495,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "I want to bring real Spain to your Belrin doorsteps. My tapas menu will focus on the dishes and delicacies of Spain, ranging from smaller snacks like grilled sardines and assorted cheeses to larger entrées like paella, chicken roulade, and whole-roasted fish. Tapas are meant to share, to bring people together around the table, to evoke the old tradition of family-style dining. Supporting my popup is supporting a social occasion and the making of happy memories.",
+  seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Nhung"),
+  title: "Not Your Momma's Bun",
+  funding_goal: 55000,
+  amount_pledged: 41327,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "Most people know Beef Pho and Chicken Pho. But I bet you've never had my bun rieu. But what exactly is Bun Rieu? Mine is an amazing broth that has pillowy pieces of crab meatballs floating up top along with melt in your mouth tomato chunks. It’s one of the best comfort foods you’ll ever taste. The crab meatballs is straight protein with no carbs in it. It’s just crab meat, pork, eggs, prawns, and scallops. Are you drooling yet?",
+  seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Philipp"),
+  title: "Phucking Good Eisbein",
+  funding_goal: 38000,
+  amount_pledged: 7492,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "You may not know, but eisbein, or boiled and cured pork knuckle, is surprisingly hard to find in Berlin. My process starts in the morning by brining the meat with pink curing salt, (without it, the hock would be more opaque than pink), which pickles and concentrates flavour. The knuckles are then boiled for two-and-a-half hours with pork fat, blueberries and a secret blend of spices. Carrots, parsley and celery are added to the broth for depth. The hock is served on a bed of sauerkraut with the pea purée. Try it by supporting my popup!",
+  seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Will"),
+  title: "Going Whole Cow",
+  funding_goal: 32000,
+  amount_pledged: 16048,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "Beef noodle soup is chicken soup for your soul. My authentic Chinese and Taiwanese fare remains very approachable to all comers (even to picky Germans!), no matter their comfort level. I marinate my specialty overnight in my famous special combination of spices and soy-sauce-based liquid. My soup takes eight hours or more to taste great. You won't find any better. Support my popup dream and have the best bowl of noodle soup in your life!",
+  seat_capacity: Faker::Number.number(3),
+  },
+  {
+  user: User.find_by_first_name("Caspar"),
+  title: "For the Love of Swedish Meatballs",
+  funding_goal: 18000,
+  amount_pledged: 2039,
+  deadline: Faker::Date.forward(23),
+  price: Faker::Number.number(2),
+  status: 'pending',
+  address: "berlin",
+  description: "Love IKEA's Swedish meatballs, but don't want to journey through a maze of build-it-yourself furniture? Well, you're in luck! My family recipe for these delicious bites of goodness is a recipe that has been passed down from generation to generation. I want to show all of Berlin just what Swedish cuisine can be like! Hope you will support my popup!",
+  seat_capacity: Faker::Number.number(3),
   },
 ]
 
@@ -170,7 +291,30 @@ Popup.find_by_title("Bite Me Burger").photo_urls = [
   'https://cdn.eyeem.com/thumb/9bddc0155e7622363d95c0f4070b69103112d0e9-1487522265564/1800/1800',
   'https://cdn.eyeem.com/thumb/dcf86ce0b6df2446cd1d68df1e72dc685895102d-1468933807802/w/700'
   ]
-
+Popup.find_by_title("Tosti For Days").photo_urls = [
+  'https://cdn.eyeem.com/thumb/f762d6e71444760d994c7fee44fc3d83e0c0cb09-1471722960481/1600/1600',
+  'https://cdn.eyeem.com/thumb/f762d6e71444760d994c7fee44fc3d83e0c0cb09-1471722960481/w/700'
+  ]
+Popup.find_by_title("Top My Tapas").photo_urls = [
+  'https://cdn.eyeem.com/thumb/100f374abc6bc169be753f38c0460b744e536ea8e-1488308426744/1600/1600',
+  'https://cdn.eyeem.com/thumb/99f374abc6bc169be753f38c0460b744e536ea8e-1488308426744/w/750'
+  ]
+Popup.find_by_title("Not Your Momma's Bun").photo_urls = [
+  'https://cdn.eyeem.com/thumb/57c8e579c969d36d03dfe56d30674dc6f824159e-1453823694807/1600/1600',
+  'https://cdn.eyeem.com/thumb/57c8e579c969d36d03dfe56d30674dc6f824159e-1453823694807/w/850'
+  ]
+Popup.find_by_title("Phucking Good Eisbein").photo_urls = [
+  'https://cdn.eyeem.com/thumb/017b7cd4e807f033e842c4369c2987156103761d-1451825487257/1600/1600',
+  'https://cdn.eyeem.com/thumb/017b7cd4e807f033e842c4369c2987156103761d-1451825487257/w/600'
+  ]
+Popup.find_by_title("Going Whole Cow").photo_urls = [
+  'https://cdn.eyeem.com/thumb/662f1766b29ae883dc63a4167efbf883a9e4f922-1435391991/1600/1600',
+  'https://cdn.eyeem.com/thumb/662f1766b29ae883dc63a4167efbf883a9e4f922-1435391991/w/850'
+  ]
+Popup.find_by_title("Going Whole Cow").photo_urls = [
+  'https://cdn.eyeem.com/thumb/69922aad37134932ac3a1db51c45ccc4c78c5436-1470019808132/1600/1600',
+  'https://cdn.eyeem.com/thumb/69922aad37134932ac3a1db51c45ccc4c78c5436-1470019808132/w/900'
+  ]
 
 # Adds number of orders
 users = User.all
