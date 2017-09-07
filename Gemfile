@@ -9,6 +9,9 @@ gem 'puma'
 gem 'rails', '5.1.3'
 gem 'redis'
 
+gem 'postmark-rails'
+
+
 gem 'pundit'
 
 # facebook connect
