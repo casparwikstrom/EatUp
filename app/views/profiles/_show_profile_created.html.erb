@@ -37,6 +37,7 @@
             <% if popup.amount_pledged %>
             <p>€ <%= popup.amount_pledged.to_s(:delimited) %>  pledged</p>
             <% end %>
+
             <% total_seats = 0 %>
             <%  popup.orders.each do |order|
                total_seats =+ order.ordered_seats
@@ -45,6 +46,7 @@
             <div class="profile-own-popup-status">
               <p> <%=total_seats%> seats booked so far</p>
             </div>
+
             <p>€ <%= humanized_money(popup.price) %> per seat </p>
             <div class="days">
               <% start_time = popup.deadline %>
