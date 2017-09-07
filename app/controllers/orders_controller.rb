@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @amount_pledged = 0
     @user = current_user
     popup = Popup.find(params[:popup_id])
     # @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
@@ -28,17 +27,17 @@ class OrdersController < ApplicationController
     @order.popup = popup
 
     if @order.is_donation?
-      @order.amount
-      # @amount_pledged += @order.amount
+      @order.popup.amount_pledged += @order.amount.to_i
     else
       @order.amount = popup.price * @order.ordered_seats
-      # @amount_pledged += @order.amount
+      @order.popup.amount_pledged += @order.amount.to_i
     end
 
     @order.state = "pending"
     authorize @order
 
     if @order.save
+      @order.popup.save
       redirect_to new_order_payment_path(@order)
     else
       render :new
@@ -52,7 +51,6 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
 
