@@ -71,8 +71,8 @@
     <p>Set your funding goal, the price for guests to save a seat at your popup experience, and a deadline to make it all happen. </p>
     <div class="numbers-content">
     <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
-    <%= f.input :funding_goal, as: :currency, placeholder: "0", label: "Funding goal" %>
-    <%= f.input :price, as: :currency, placeholder: "0", label: "Price per seat" %>
+    <%= f.input :funding_goal, as: :currency, input_html: { placeholder: '0' }, label: "Funding goal" %>
+    <%= f.input :price, as: :currency, input_html: { value: '0' },  label: "Price per seat" %>
     </div>
     <div class='btn btn-success next-button'>
       <a href='#submit' id="button3" >Next</a>
