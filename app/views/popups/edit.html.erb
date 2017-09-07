@@ -112,8 +112,19 @@
 -->
 
 <div class="question-container" id="submit">
-  <h2>You're all set to launch!</h2>
   <div class="form-content" id='create_popup' data-prev='#next3'>
+    <div class="check_mark">
+      <div class="sa-icon sa-success animate">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+        <div class="sa-placeholder"></div>
+        <div class="sa-fix"></div>
+      </div>
+    </div>
+    <!-- <center>
+      <button id="restart">Restart Animation</button>
+    </center> -->
+    <h2>You're all set to launch!</h2>
     <br>
     <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
   </div>
@@ -221,8 +232,13 @@
 
    $('#seats').removeClass('active');
    $('#create_popup').addClass('active');
+   $(".sa-success").addClass("hide");
+  setTimeout(function() {
+    $(".sa-success").removeClass("hide");
+  }, 900);
 
  });
+
 </script>
 <% end %>
 
