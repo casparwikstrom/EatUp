@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    # @amount_pledged = 0
     @user = current_user
     popup = Popup.find(params[:popup_id])
     # @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
@@ -28,8 +29,10 @@ class OrdersController < ApplicationController
 
     if @order.is_donation?
       @order.amount
+      # @amount_pledged += @order.amount
     else
       @order.amount = popup.price * @order.ordered_seats
+      # @amount_pledged += @order.amount
     end
 
     @order.state = "pending"
