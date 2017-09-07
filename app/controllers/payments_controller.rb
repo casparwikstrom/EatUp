@@ -23,8 +23,6 @@ class PaymentsController < ApplicationController
      OrderMailer.payment_confirmation(@order).deliver_now
      PopupMailer.userorder_confirmation(@order.popup).deliver_now
 
-      # OrderMailer.creation_confirmation(@order).deliver_now
-
     authorize @order
 
   rescue Stripe::CardError => e
