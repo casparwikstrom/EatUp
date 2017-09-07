@@ -71,8 +71,8 @@
     <p>Set your funding goal, the price for guests to save a seat at your popup experience, and a deadline to make it all happen. </p>
     <div class="numbers-content">
     <%= f.input :deadline, as: :string, label: "Deadline", input_html: { class: "datepicker", value: Time.now.strftime('%m/%d/%Y') } %>
-    <%= f.input :funding_goal, as: :currency, placeholder: "0", label: "Funding goal" %>
-    <%= f.input :price, as: :currency, placeholder: "0", label: "Price per seat" %>
+    <%= f.input :funding_goal, as: :currency, input_html: { placeholder: '0' }, label: "Funding goal" %>
+    <%= f.input :price, as: :currency, input_html: { value: '0' },  label: "Price per seat" %>
     </div>
     <div class='btn btn-success next-button'>
       <a href='#submit' id="button3" >Next</a>
@@ -112,8 +112,19 @@
 -->
 
 <div class="question-container" id="submit">
-  <h2>You're all set to launch!</h2>
   <div class="form-content" id='create_popup' data-prev='#next3'>
+    <div class="check_mark">
+      <div class="sa-icon sa-success animate">
+        <span class="sa-line sa-tip animateSuccessTip"></span>
+        <span class="sa-line sa-long animateSuccessLong"></span>
+        <div class="sa-placeholder"></div>
+        <div class="sa-fix"></div>
+      </div>
+    </div>
+    <!-- <center>
+      <button id="restart">Restart Animation</button>
+    </center> -->
+    <h2>You're all set to launch!</h2>
     <br>
     <%= f.button :submit, "Start funding your popup", class: "btn-success" %>
   </div>
@@ -205,24 +216,42 @@
 
   $('#button1').click(function() {
 
+   setTimeout(function() {
    $('#basic').removeClass('active');
+  }, 500);
+   setTimeout(function() {
    $('#story').addClass('active');
+  }, 500);
 
  });
 
   $('#button2').click(function() {
 
+   setTimeout(function() {
    $('#story').removeClass('active');
-   $('#seats').addClass('active');
+   }, 500);
+   setTimeout(function() {
+     $('#seats').addClass('active');
+   }, 500);
 
  });
 
   $('#button3').click(function() {
 
+   setTimeout(function() {
    $('#seats').removeClass('active');
+   }, 500);
+   setTimeout(function() {
    $('#create_popup').addClass('active');
+  }, 500);
+
+   $(".sa-success").addClass("hide");
+  setTimeout(function() {
+    $(".sa-success").removeClass("hide");
+  }, 900);
 
  });
+
 </script>
 <% end %>
 

@@ -3,73 +3,70 @@
     <div class="padding-top margin-bottom">
       <div class="row">
         <div class="order-title">
-          <h3>Thank you for supporting <%= @order.popup.user.first_name %>'s vision for </h3>
-          <h1><%= @order.popup.title %></h1>
-        </div>
-        <br>
-        <br>
-        <div class="order-summary">
-        <h3>PopUps you're currently supporting</h3>
-          <!-- <ul>
-            <li>Status: <%= @order.state %></li>
-            <li>Item: <%= @order.popup.title %></li>
-            <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
-          </ul> -->
+          <div class="profile-order-status">
+            <% if @order.is_donation? %>
+            <h1><strong>Thank you for donating € <%= humanized_money(@order.amount)%></strong></h1>
+            <% else %>
+              <% if @order.ordered_seats <= 1  %>
+                  <h1><strong>Thank you for booking a seat</p>
+                <% else %>
+                  <h1><strong>Thank you for booking <%= @order.ordered_seats %> seats</strong></h1>
+              <% end %>
+            <% end %>
+          </div>
+          <h4>You are now an official supporter for the <%= @order.popup.title %> popup</h4>
         </div>
       </div>
     </div>
 
-    <div class="row profile-card-margin-top">
-      <% @orders.each do |order| %>
-      <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
-        <div class="card-container" id="popup-<%= order.popup.id %>">
-          <div class="card-img" style="background-image: url('<%= cl_image_path order.popup.photos.first.path, width: 300, height: 200 %>');">
+    <div class="row profile-card-margin-top-order">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-lg-4 col-lg-offset-2 margin-bottom">
+        <div class="card-container" id="popup-<%= @order.popup.id %>">
+          <div class="card-img" style="background-image: url('<%= cl_image_path @order.popup.photos.first.path %>');">
           </div>
           <div class="profile-hover-buttons">
             <div>
-              <%= link_to "View", popup_path(order.popup), class:"button-cyan-big", width: "100%" %>
+              <%= link_to "View", popup_path(@order.popup), class:"button-cyan-big", width: "100%" %>
             </div>
           </div>
           <div class="card-desc">
-            <h4><%= order.popup.title %></h4>
-            <% if order.popup.description %>
-            <p class="description-text"><%= order.popup.description[0..100] + "..."%></p>
+            <h4><%= @order.popup.title %></h4>
+            <% if @order.popup.description %>
+            <p class="description-text"><%= @order.popup.description[0..100] + "..."%></p>
             <% end %>
-            <% if order.popup.user.photo %>
-            <p> <%= cl_image_tag order.popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= order.popup.user.first_name %></p>
+            <% if @order.popup.user.photo %>
+            <p> <%= cl_image_tag @order.popup.user.photo.path, class: "card-avatar"%> &nbsp;by <%= @order.popup.user.first_name %></p>
             <% end %>
-          </div>
-          <div class="progress">
-            <div class="progress-bar" style="width: <%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 100 %>%;">
-              <span class="sr-only"><%= order.popup.amount_pledged.to_f / order.popup.funding_goal.to_f * 100 %>% Complete</span>
-            </div>
-          </div>
-          <div class="card-stats">
-            <% if order.popup.amount_pledged %>
-            <p>€ <%= order.popup.amount_pledged.to_s(:delimited) %> pledged in total</p>
-            <% end %>
-            <div class="profile-order-status">
-              <% if order.is_donation? %>
-              <p>Thank you for donating € <%= humanized_money(order.amount)%></p>
-              <% else %>
-                <% if order.ordered_seats <= 1  %>
-                  <p>You ordered <%= order.ordered_seats %> seat</p>
-                  <% else %>
-                    <p>You ordered <%= order.ordered_seats %> seats</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class="days">
-              <% start_time = order.popup.deadline %>
-              <% end_time = Date.today %>
-              <p><%= (start_time - end_time).to_i %> days to go</p>
-            </div>
-            <!-- percentage funded -->
-            <!-- days to go -->
           </div>
         </div>
       </div>
-      <% end %>
+      <div class="col-xs-12 col-sm-6 col-lg-4 margin-bottom">
+          <div class="order-share">
+              <div class="modal-body">
+
+                <div class="cs-share-this-product facebook">
+                <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<%= URI.encode(popup_url(@order.popup)) %>"
+                  target="_blank">
+                  <span class="social-share-icon-block">
+                    <i class="fa fa-facebook"></i>
+                    <span class="share-text">Share</span>
+                  </span>
+                </a>
+              </div>
+              <div class="cs-share-this-product twitter">
+                <a href="https://twitter.com/intent/tweet?url=<%= URI.encode(popup_url(@order.popup)) %>&via=EatUpPopUp&text=Check%20out%20this%20awesome%20popup%20I%20just%20supported&hashtags=popup%2C%20foodie%2C%20popup" target="_blank">
+                  <span class="social-share-icon-block">
+                    <i class="fa fa-twitter"></i>
+                    <span class="share-text">Tweet</span>
+                  </span>
+                </a>
+              </div>
+              <div class="cs-share-this-product button-brand-blue-big explore-popups">
+                <%= link_to "Explore more popups", popups_path %>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>

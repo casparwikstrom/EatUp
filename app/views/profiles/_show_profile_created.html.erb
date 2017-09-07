@@ -29,8 +29,8 @@
             <% end %>
           </div>
           <div class="progress">
-            <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>%;">
-              <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 1000 %>% Complete</span>
+            <div class="progress-bar" style="width: <%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 100 %>%;">
+              <span class="sr-only"><%= popup.amount_pledged.to_f / popup.funding_goal.to_f * 100 %>% Complete</span>
             </div>
           </div>
           <div class="card-stats">
@@ -38,7 +38,16 @@
             <p>€ <%= popup.amount_pledged.to_s(:delimited) %>  pledged</p>
             <% end %>
 
-            <p>€ <%= humanized_money(popup.price_cents) %> per seat </p>
+            <% total_seats = 0 %>
+            <%  popup.orders.each do |order|
+               total_seats =+ order.ordered_seats
+            %>
+            <% end %>
+            <div class="profile-own-popup-status">
+              <p> <%=total_seats%> seats booked so far</p>
+            </div>
+
+            <p>€ <%= humanized_money(popup.price) %> per seat </p>
             <div class="days">
               <% start_time = popup.deadline %>
               <% end_time = Date.today %>
