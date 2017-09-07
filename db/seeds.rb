@@ -91,11 +91,10 @@ users = [
   {
     first_name: "Caspar",
     last_name: "Wikstrom",
-    email: "casparwikstrom  @gmail.com",
+    email: "casparwikstrom@gmail.com",
     password: "123456",
     password_confirmation: "123456"
   },
-]
 ]
 
 users.each do |user|
@@ -115,7 +114,6 @@ User.find_by_first_name("Philipp").photo_url = "https://kitt.lewagon.com/placeho
 User.find_by_first_name("Will").photo_url = "https://kitt.lewagon.com/placeholder/users/will30303"
 User.find_by_first_name("Caspar").photo_url = "https://kitt.lewagon.com/placeholder/users/casparwikstrom"
 
-
 popups = [
   {
     user: User.find_by_first_name("Boris"),
@@ -131,7 +129,7 @@ popups = [
   },
   {
     user: User.find_by_first_name("Alice"),
-    title: "Melt-In-Your-Mouth Macarons",
+    title: "Must-Have Macarons",
     funding_goal: 9000,
     amount_pledged: 8374,
     deadline: Faker::Date.forward(23),
@@ -143,13 +141,13 @@ popups = [
   },
   {
     user: User.find_by_first_name("Ugo"),
-    title: "Bageuttes You'll Beg For",
+    title: "Baguettes You'll Beg For",
     funding_goal: 23000,
     amount_pledged: 10299,
     deadline: Faker::Date.forward(23),
     price: Faker::Number.number(2),
     status: 'pending',
-    description: "Ugo, the owner of Jardin St James, has been crying out for a real French baguette for more than eight years. Now, he's doing something about it by bringing simple, fresh baguettes to Berlin via a pop-up. The menu includes le pêcheur, a crusty baguette stuffed with tuna, mayonnaise, tomatoes and lettuce. There's also the la raclette with ham, potatoes, cornichons and finished off with a generous helping of Dijon mustard.",
+    description: "I have been crying out for a real French baguette for more than eight years. Now, I'm doing something about it by bringing simple, fresh baguettes to Berlin via a pop-up. The menu includes le pêcheur, a crusty baguette stuffed with tuna, mayonnaise, tomatoes and lettuce. There's also the la raclette with ham, potatoes, cornichons and finished off with a generous helping of Dijon mustard.",
     seat_capacity: Faker::Number.number(3)
   },
   {
@@ -209,7 +207,7 @@ popups = [
   price: Faker::Number.number(2),
   status: 'pending',
   address: "berlin",
-  description: "I want to bring real Spain to your Belrin doorsteps. My tapas menu will focus on the dishes and delicacies of Spain, ranging from smaller snacks like grilled sardines and assorted cheeses to larger entrées like paella, chicken roulade, and whole-roasted fish. Tapas are meant to share, to bring people together around the table, to evoke the old tradition of family-style dining. Supporting my popup is supporting a social occasion and the making of happy memories.",
+  description: "I want to bring real Spain to your Berlin doorsteps. My tapas menu will focus on the dishes and delicacies of Spain, ranging from smaller snacks like grilled sardines and assorted cheeses to larger entrées like paella, chicken roulade, and whole-roasted fish. Tapas are meant to share, to bring people together around the table, to evoke the old tradition of family-style dining. Supporting my popup is supporting a social occasion and the making of happy memories.",
   seat_capacity: Faker::Number.number(3),
   },
   {
@@ -250,7 +248,7 @@ popups = [
   },
   {
   user: User.find_by_first_name("Caspar"),
-  title: "For the Love of Swedish Meatballs",
+  title: "Swedes. Meatballs. Duh.",
   funding_goal: 18000,
   amount_pledged: 2039,
   deadline: Faker::Date.forward(23),
@@ -271,21 +269,21 @@ Popup.find_by_title("Friggin Good Fench Fries").photo_urls = [
   'https://cdn.eyeem.com/thumb/b19faf4b8314865df63178c4e07a708a4b39c7d5-1473234719053/w/900',
   'https://cdn.eyeem.com/thumb/8a76bd931bb961644aa4ff34c2f3e0a404df75ad-1454098315248/w/900'
   ]
-Popup.find_by_title("Melt-In-Your-Mouth Macarons").photo_urls = [
+Popup.find_by_title("Must-Have Macarons").photo_urls = [
   'https://cdn.eyeem.com/thumb/19b746c54f3bf458a629f60d5521d68cd1caf8e8-1461089298534/w/950',
   'https://cdn.eyeem.com/thumb/c071c4b94e719d18d64fa03c3b952262be52a3ef-1478033751939/1800/1800'
   ]
-Popup.find_by_title("Bageuttes You'll Beg For").photo_urls = [
-  'https://cdn.eyeem.com/thumb/4816794ecd318058b80d096987ec1ac736f44a11-1465922254665/w/750',
-  'https://cdn.eyeem.com/thumb/90f753bb2f6f3de43b24b552d46eac06ca38efc4-1489237406658/w/850'
+Popup.find_by_title("Baguettes You'll Beg For").photo_urls = [
+  'https://cdn.eyeem.com/thumb/619dba559b520ae709fb338467ddb5ef24c34608-1463673235195/w/750',
+  'https://cdn.eyeem.com/thumb/619dba559b520ae709fb338467ddb5ef24c34608-1463673235195/1600/1600'
   ]
 Popup.find_by_title("Funk Seoul Sister").photo_urls = [
-  'https://cdn.eyeem.com/thumb/9207dc9e581fe6fb043fc8eef93a38114788a7b5-1424801060/w/900',
-  'https://cdn.eyeem.com/thumb/c3ce6214cd18375d168770677f716cb1fe7939bb-1431084323/1280/1280?watermark=false'
+  'https://cdn.eyeem.com/thumb/a5ae4ea9db30e1a58cc09618d7fdc14412c40434-1447265861891/w/850',
+  'https://cdn.eyeem.com/thumb/a5ae4ea9db30e1a58cc09618d7fdc14412c40434-1447265861891/1600/1600'
   ]
 Popup.find_by_title("Beyond the Bierhaus").photo_urls = [
-  'https://cdn.eyeem.com/thumb/d177db518766a730bc64973c91a50c38a4e74e1d-1403391490/w/800',
-  'https://cdn.eyeem.com/thumb/444c5ae6f60a6ada708d69c1e4735eedac53657e-1472039948526/1800/1800'
+  'https://cdn.eyeem.com/thumb/c1411c65676f378a959a313080198380b2d69385-1475855803241/w/650',
+  'https://cdn.eyeem.com/thumb/c1411c65676f378a959a313080198380b2d69385-1475855803241/1600/1600'
   ]
 Popup.find_by_title("Bite Me Burger").photo_urls = [
   'https://cdn.eyeem.com/thumb/9bddc0155e7622363d95c0f4070b69103112d0e9-1487522265564/1800/1800',
@@ -296,7 +294,7 @@ Popup.find_by_title("Tosti For Days").photo_urls = [
   'https://cdn.eyeem.com/thumb/f762d6e71444760d994c7fee44fc3d83e0c0cb09-1471722960481/w/700'
   ]
 Popup.find_by_title("Top My Tapas").photo_urls = [
-  'https://cdn.eyeem.com/thumb/100f374abc6bc169be753f38c0460b744e536ea8e-1488308426744/1600/1600',
+  'https://cdn.eyeem.com/thumb/99f374abc6bc169be753f38c0460b744e536ea8e-1488308426744/1600/1600',
   'https://cdn.eyeem.com/thumb/99f374abc6bc169be753f38c0460b744e536ea8e-1488308426744/w/750'
   ]
 Popup.find_by_title("Not Your Momma's Bun").photo_urls = [
@@ -311,7 +309,7 @@ Popup.find_by_title("Going Whole Cow").photo_urls = [
   'https://cdn.eyeem.com/thumb/662f1766b29ae883dc63a4167efbf883a9e4f922-1435391991/1600/1600',
   'https://cdn.eyeem.com/thumb/662f1766b29ae883dc63a4167efbf883a9e4f922-1435391991/w/850'
   ]
-Popup.find_by_title("Going Whole Cow").photo_urls = [
+Popup.find_by_title("Swedes. Meatballs. Duh.").photo_urls = [
   'https://cdn.eyeem.com/thumb/69922aad37134932ac3a1db51c45ccc4c78c5436-1470019808132/1600/1600',
   'https://cdn.eyeem.com/thumb/69922aad37134932ac3a1db51c45ccc4c78c5436-1470019808132/w/900'
   ]
