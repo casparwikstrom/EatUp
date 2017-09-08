@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Seed begins! First destroying everythingggggg..."
 
 User.destroy_all
 Type.destroy_all
+
+puts "Creating users..."
 
 users = [
   {
@@ -113,6 +116,8 @@ User.find_by_first_name("Nhung").photo_url = "https://kitt.lewagon.com/placehold
 User.find_by_first_name("Philipp").photo_url = "https://kitt.lewagon.com/placeholder/users/philippvH1"
 User.find_by_first_name("Will").photo_url = "https://kitt.lewagon.com/placeholder/users/will30303"
 User.find_by_first_name("Caspar").photo_url = "https://kitt.lewagon.com/placeholder/users/casparwikstrom"
+
+puts "Finished creating users! Now creating popups..."
 
 popups = [
   {
@@ -314,17 +319,21 @@ Popup.find_by_title("Swedes. Meatballs. Duh.").photo_urls = [
   'https://cdn.eyeem.com/thumb/69922aad37134932ac3a1db51c45ccc4c78c5436-1470019808132/w/900'
   ]
 
+  puts "Finished creating popups! Now creating orders..."
+
 # Adds number of orders
 users = User.all
 Popup.all.each do |popup|
-  (15..150).to_a.sample.times do |index|
+  (1..6).to_a.sample.times do |index|
     user = users[index]
-    seats = (1..10).to_a.sample
-    Order.create!(user:user, popup:popup, ordered_seats:seats, state:"paid", amount:seats*popup.price)
+    (5..13).to_a.sample.times do |index|
+      seats = (1..10).to_a.sample
+      Order.create!(user:user, popup:popup, ordered_seats:seats, state:"paid", amount:seats*popup.price)
+    end
   end
 end
 
-
+puts "Finished creating orders! Now creating categories..."
 
 #  2.times do
 #    popup = Popup.new(
@@ -372,7 +381,12 @@ category.each do |c|
   Type.create(c)
 end
 
+puts "Finished creating categories! Now just a little bit longer..."
+
+
 70.times do
   p = Popuptype.new(type_id: Type.all.sample.id, popup_id: Popup.all.sample.id)
   p.save
 end
+
+puts "Finished!"
