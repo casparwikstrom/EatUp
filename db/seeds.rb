@@ -317,7 +317,7 @@ Popup.find_by_title("Swedes. Meatballs. Duh.").photo_urls = [
 # Adds number of orders
 users = User.all
 Popup.all.each do |popup|
-  (1..6).to_a.sample.times do |index|
+  (15..150).to_a.sample.times do |index|
     user = users[index]
     seats = (1..10).to_a.sample
     Order.create!(user:user, popup:popup, ordered_seats:seats, state:"paid", amount:seats*popup.price)
