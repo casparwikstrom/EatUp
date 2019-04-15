@@ -4,10 +4,11 @@ ruby '2.3.4'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 gem 'puma'
 gem 'rails', '5.1.3'
-gem 'redis'
+# gem 'redis'
+
 
 gem 'postmark-rails'
 
