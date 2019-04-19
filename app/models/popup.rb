@@ -11,7 +11,6 @@ class Popup < ApplicationRecord
   acts_as_votable
   monetize :price_cents
 
-
   validates :title, presence: true
   validates :status, inclusion: { in: ["pending", "active", "funded", "cancelled"] }
   geocoded_by :address
