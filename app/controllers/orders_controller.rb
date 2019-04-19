@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
   def create
     @user = current_user
     popup = Popup.find(params[:popup_id])
-    # @order  = Order.create!(popup_sku: popup.sku, amount: popup.price, state: 'pending')
     @order = Order.new(order_params)
     @order.user = @user
     @order.popup = popup
