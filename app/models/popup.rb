@@ -3,7 +3,8 @@ class Popup < ApplicationRecord
 
   has_many :wishlists, dependent: :destroy
   has_many :orders, dependent: :destroy
-  # has_many :popuptypes, dependent: :destroy
+  has_many :popuptypes
+  # , dependent: :destroy
   has_many :types, through: :popuptypes
 
 
