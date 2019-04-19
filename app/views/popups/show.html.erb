@@ -1,9 +1,13 @@
 <!-- app/views/offers/show.html.erb -->
 <% content_for :meta_title, "#{@popup.title} is now fundraising on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @popup.description %>
-<%= if @popup.photos %>
-<% content_for :meta_image, cloudinary_url(@popup.photos.first.path) %>
+
+
+
+<% if  @popup.photos %>
+  <% content_for :meta_image, cloudinary_url(@popup.photos.first.path) %>
 <% end %>
+
 
 
 <div class="page-wrapper">
