@@ -1,14 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
-gem 'devise'
+gem "devise"
+
 
 gem 'figaro'
-gem 'jbuilder', '~> 2.0'
+# PopupAPI
+gem "jbuilder"
 gem 'pg', '~> 0.18.4'
 gem 'puma'
 gem 'rails', '5.1.3'
 # gem 'redis'
+gem "bootstrap-sass"
 
 gem 'postmark-rails'
 
@@ -28,6 +31,7 @@ gem 'faker', '~> 1.4', '>= 1.4.3'
 
 #clean code
 gem 'rubocop'
+
 
 #makes text in console look nice
 gem "awesome_print", require:"ap"
@@ -81,15 +85,11 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 #email
 gem "letter_opener", group: :development
-
-
 #images
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
-
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'

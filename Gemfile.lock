@@ -360,7 +360,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.6)
     unicode-display_width (1.5.0)
     uniform_notifier (1.12.1)
     warden (1.2.8)
@@ -396,7 +396,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   inherited_resources!
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-fileupload-rails
   jquery-rails
   letter_opener

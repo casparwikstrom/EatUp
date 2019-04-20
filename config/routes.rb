@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [ :index, :show, :create ] do
-
     resources :payments, only: [:new, :create]
   end
 
@@ -34,6 +33,12 @@ Rails.application.routes.draw do
 
   resources :popups do
     resources :wishlists, only: [:new, :create, :destroy]
+  end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :popups
+    end
   end
 
   resources :wishlists, only: [:index, :destroy]

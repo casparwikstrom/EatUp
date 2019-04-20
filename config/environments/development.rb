@@ -12,6 +12,15 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+  Cloudinary.config do |config|
+    config.cloud_name = 'sample'
+    config.api_key = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+
+    config.secure = true
+    config.cdn_subdomain = true
+  end
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
